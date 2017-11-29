@@ -1,21 +1,21 @@
-import Layout from '../components/Layout'
+import Layout from '../components/Layout.js'
 import Link from 'next/link'
+
+const PostLink = props => (
+  <li>
+    <Link as={`/p/${props.id}`} href={`/user?title=${props.title}`}>
+      <a>{props.title}</a>
+    </Link>
+  </li>
+)
 
 export default () => (
   <Layout>
     <h1>My Blog</h1>
     <ul>
-      <PostLink username="malimichael" title="Mali Michael" />
-      <PostLink username="space" title="Space" />
-      <PostLink username="rudehealth" title="Rude Health" />
+      <PostLink id="hello-nextjs" title="Hello Next.js" />
+      <PostLink id="learn-nextjs" title="Learn Next.js is awesome" />
+      <PostLink id="deploy-nextjs" title="Deploy apps with Zeit" />
     </ul>
   </Layout>
-)
-
-const PostLink = props => (
-  <li>
-    <Link as={props.username} href={`/user?title=${props.title}`}>
-      <a>{props.title}</a>
-    </Link>
-  </li>
 )

@@ -4,9 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "next"
+    "dev": "node server.js"
   },
   "dependencies": {
+    "express": "^4.16.2",
     "next": "^4.1.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
