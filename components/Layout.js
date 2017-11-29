@@ -1,16 +1,17 @@
+import styled from 'styled-components'
 import Header from './Header'
 
-const layoutStyle = {
-  margin: 20,
-  padding: 20,
-  border: '1px solid #DDD',
-}
-
 const Layout = props => (
-  <div style={layoutStyle}>
+  <StyledLayout>
     <Header />
     {props.children}
-  </div>
+  </StyledLayout>
 )
+
+const StyledLayout = styled.div`
+  margin: 30px;
+  padding: 30px;
+  border: 1px solid #ddd;
+`
 
 export default Layout
