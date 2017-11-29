@@ -1,14 +1,22 @@
+import axios from 'axios'
 import Layout from '../components/Layout.js'
 
-const Content = props => (
-  <div>
-    <h1>{props.url.query.title}</h1>
-    <p>This is the blog post content.</p>
-  </div>
-)
-
-export default props => (
+const User = props => (
   <Layout>
-    <Content url={props.url} />
+    <h1>{props.show.name}</h1>
+    <p>{props.show.summary.replace(/<[/]?p>/g, '')}</p>
+    <img src={props.show.image.medium} />
   </Layout>
 )
+
+User.getInitialProps = async function(context) {
+  const { id } = context.query
+  const res = await axios.get(`https://api.tvmaze.com/shows/${id}`)
+  const show = res.data
+
+  console.log(`Fetched show: ${show.name}`)
+
+  return { show }
+}
+
+export default User
