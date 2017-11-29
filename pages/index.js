@@ -5,16 +5,16 @@ export default () => (
   <Layout>
     <h1>My Blog</h1>
     <ul>
-      <PostLink title="Hello Next.js" />
-      <PostLink title="Learn Next.js is awesome" />
-      <PostLink title="Deploy apps with Zeit" />
+      <PostLink username="malimichael" title="Mali Michael" />
+      <PostLink username="space" title="Space" />
+      <PostLink username="rudehealth" title="Rude Health" />
     </ul>
   </Layout>
 )
 
 const PostLink = props => (
   <li>
-    <Link href={`/post?title=${props.title}`}>
+    <Link as={props.username} href={`/user?title=${props.title}`}>
       <a>{props.title}</a>
     </Link>
   </li>
