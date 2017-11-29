@@ -23,7 +23,6 @@ app
 
     server.listen(port, err => {
       if (err) {
-        console.log('======= LISTENIGN ERROR======')
         throw err
       }
       console.log('> Ready on ' + port)
