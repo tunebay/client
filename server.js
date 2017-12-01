@@ -2,7 +2,7 @@ const express = require('express')
 const next = require('next')
 
 const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dev })
+const app = next({ dir: './src', dev })
 const handle = app.getRequestHandler()
 const port = process.env.PORT || '3000'
 
@@ -10,6 +10,8 @@ app
   .prepare()
   .then(() => {
     const server = express()
+
+    server.get('/about', (req, res) => handle(req, res))
 
     server.get('/:id', (req, res) => {
       const actualPage = '/user'
