@@ -1,11 +1,12 @@
 import axios from 'axios'
-import Layout from '../components/Layout.js'
+
+import Layout from '../components/Layout'
 
 const User = props => (
   <Layout>
     <h1>{props.show.name}</h1>
     <p>{props.show.summary.replace(/<[/]?p>/g, '')}</p>
-    <img src={props.show.image.medium} />
+    <img alt={props.show.name} src={props.show.image.medium} />
   </Layout>
 )
 

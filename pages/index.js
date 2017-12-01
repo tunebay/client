@@ -1,15 +1,7 @@
 import axios from 'axios'
 import Link from 'next/link'
 
-import Layout from '../components/Layout.js'
-
-const PostLink = props => (
-  <li>
-    <Link prefetch as={`/${props.id}`} href={`/user?title=${props.title}`}>
-      <a>{props.title}</a>
-    </Link>
-  </li>
-)
+import Layout from '../components/Layout'
 
 const Index = props => (
   <Layout>
