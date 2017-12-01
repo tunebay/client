@@ -1,8 +1,16 @@
+// @flow
+import React from 'react'
 import axios from 'axios'
 
 import Layout from '../components/Layout'
 
-const User = props => (
+const User = (props: {
+  show: {
+    name: string,
+    summary: string,
+    image: { medium: string },
+  },
+}) => (
   <Layout>
     <h1>{props.show.name}</h1>
     <p>{props.show.summary.replace(/<[/]?p>/g, '')}</p>
