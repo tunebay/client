@@ -1,4 +1,6 @@
 [ignore]
+.*/node_modules/npmconf/.*
+.*/node_modules/config-chain/.*
 
 [include]
 
