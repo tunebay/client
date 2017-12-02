@@ -33,7 +33,8 @@ injectGlobal`
     font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
     font-weight: 400;
-    line-height: 1.7em;
+    line-height: 1.1;
+    letter-spacing: 0.3px;
     box-sizing: border-box;
     color: #111;
   }

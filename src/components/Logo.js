@@ -14,11 +14,7 @@ class Logo extends Component<Props, void> {
   }
 }
 
-const LogoBox = styled.div`
-  position: absolute;
-  top: 3.5rem;
-  left: 7rem;
-`
+const LogoBox = styled.div``
 
 const Image = styled.img`
   height: 3.5rem;

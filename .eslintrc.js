@@ -13,6 +13,7 @@ module.exports = {
     'no-undef': 'error',
     'arrow-parens': 'off',
     'no-undef-init': 'error',
+    'no-param-reassign': 'off',
     'space-before-function-paren': 'off',
     'no-underscore-dangle': 'off',
     'no-console': 'off',

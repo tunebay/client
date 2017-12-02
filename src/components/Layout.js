@@ -1,6 +1,8 @@
 // @flow
 import * as React from 'react'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
+
+import theme from '../lib/theme'
 
 import Meta from './Meta'
 
@@ -13,10 +15,12 @@ class Layout extends React.Component<Props, void> {
     const { children } = this.props
 
     return (
-      <StyledLayout>
-        <Meta />
-        {children}
-      </StyledLayout>
+      <ThemeProvider theme={theme}>
+        <StyledLayout>
+          <Meta />
+          {children}
+        </StyledLayout>
+      </ThemeProvider>
     )
   }
 }
