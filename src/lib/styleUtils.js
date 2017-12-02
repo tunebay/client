@@ -9,7 +9,8 @@ export const truncate = width => `
 
 const sizes = {
   giant: 1800,
-  desktop: 1200,
+  desktop: 1300,
+  medium: 1130,
   tablet: 900,
   phone: 600,
 }
