@@ -27,7 +27,6 @@ class Layout extends React.Component<Props, void> {
 
 const StyledLayout = styled.div`
   width: 100%;
-  padding: 3rem;
 `
 
 export default Layout

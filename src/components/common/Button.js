@@ -4,16 +4,16 @@ import styled from 'styled-components'
 export default styled.button`
   background-color: ${props => props.theme.primaryRed};
 
-  height: 6rem;
-  width: 18rem;
-  border: none;
   border-radius: 6px;
+  border: none;
   color: #fff;
-  font-size: 1.4rem;
   font-family: 'Roboto', sans-serif;
+  font-size: 1.4rem;
+  height: 6rem;
   letter-spacing: 1.2px;
-  transition: all 100ms ease;
+  outline: none;
   padding: 0.25rem 1rem;
+  width: 18rem;
 
   &:hover {
     cursor: pointer;
