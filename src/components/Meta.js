@@ -19,9 +19,9 @@ export default () => (
 injectGlobal`
   *,
   *::before,
-  *::after, {
-    margin: 0;
+  *::after {
     padding: 0;
+    margin: 0;
     box-sizing: inherit;
   }
 
