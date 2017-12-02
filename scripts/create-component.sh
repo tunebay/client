@@ -16,11 +16,11 @@ import React, { Component } from 'react'
 
 type Props = {||}
 
-class Layout extends Component<Props, void> {
+class $ComponentName extends Component<Props, void> {
   render() {
-    return <div>Layout</div>
+    return <div>$ComponentName</div>
   }
 }
 
-export default Layout
+export default $ComponentName
 EOF
