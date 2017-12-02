@@ -17,7 +17,7 @@ class Logo extends Component<Props, void> {
 const LogoBox = styled.div``
 
 const Image = styled.img`
-  height: 3.5rem;
+  height: 35px;
 `
 
 export default Logo

@@ -3,6 +3,8 @@ import React from 'react'
 import Head from 'next/head'
 import { injectGlobal } from 'styled-components'
 
+import { media } from '../lib/styleUtils'
+
 export default () => (
   <div>
     <Head>
@@ -27,6 +29,7 @@ injectGlobal`
 
   html {
     font-size: 62.5%;
+    ${media.phone`font-size: 50%`};
   }
 
   body {

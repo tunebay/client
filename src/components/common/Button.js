@@ -1,6 +1,8 @@
 // @flow
 import styled from 'styled-components'
 
+import { media } from '../../lib/styleUtils'
+
 export default styled.button`
   background-color: ${props => props.theme.primaryRed};
 
@@ -9,13 +11,17 @@ export default styled.button`
   color: #fff;
   font-family: 'Roboto', sans-serif;
   font-size: 1.4rem;
-  height: 6rem;
+  height: 60px;
   letter-spacing: 1.2px;
   outline: none;
   padding: 0.25rem 1rem;
-  width: 18rem;
+  width: 180px;
 
   &:hover {
     cursor: pointer;
   }
+
+  ${media.phone`
+    font-size: 1.6rem;
+  `};
 `

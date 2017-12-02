@@ -1,12 +1,11 @@
-// @flow
 import { css } from 'styled-components'
 
-export const truncate = (width: string) => `
-    width: ${width};
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  `
+export const truncate = width => `
+  width: ${width};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`
 
 const sizes = {
   giant: 1800,
@@ -17,10 +16,14 @@ const sizes = {
 
 export const media = Object.keys(sizes).reduce((accumulator, label) => {
   const emSize = sizes[label] / 16
-  accumulator[label] = (...args: *) => css`
+  accumulator[label] = (...args) => css`
     @media (max-width: ${emSize}em) {
       ${css(...args)};
     }
   `
   return accumulator
 }, {})
+
+export const boxShadow = () => `
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.08);
+`
