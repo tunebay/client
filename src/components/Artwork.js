@@ -31,16 +31,19 @@ const Artwork = styled.div`
 
   background-size: cover;
   width: 22%;
-  padding-top: 22%;
   background-color: #ccc;
   border-radius: 6px;
-  transition: transform 300ms ease-out;
   position: relative;
   overflow: hidden;
 
+  &::before {
+    content: '';
+    display: block;
+    padding-top: 100%; /* initial ratio of 1:1*/
+  }
+
   &:hover {
     cursor: pointer;
-    transform: scale(1.01);
   }
 
   &:hover > * {
@@ -49,7 +52,6 @@ const Artwork = styled.div`
 
   ${media.break2`
     width: 30%;
-    padding-top: 30%;
 
     &:last-child {
       display: none;
@@ -58,7 +60,7 @@ const Artwork = styled.div`
 
   ${media.break3`
     width: 48%;
-    padding-top: 48%;
+
     &:last-child {
       display: block;
     }
@@ -66,7 +68,7 @@ const Artwork = styled.div`
 
   ${media.break4`
     width: 100%;
-    padding-top: 100%;
+
     &:last-child {
       display: block;
     }
@@ -76,7 +78,10 @@ const Artwork = styled.div`
 const Overlay = styled.div`
   visibility: hidden;
   transition: visibility 0s, opacity 0.5s linear;
-
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
