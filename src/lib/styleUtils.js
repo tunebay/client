@@ -13,6 +13,11 @@ const sizes = {
   medium: 1130,
   tablet: 900,
   phone: 600,
+
+  break1: 1200,
+  break2: 993,
+  break3: 760,
+  break4: 600,
 }
 
 export const media = Object.keys(sizes).reduce((accumulator, label) => {

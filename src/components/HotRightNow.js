@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 
+import { media } from '../lib/styleUtils'
+
 import Artwork from './Artwork'
 
 type Props = {||}
@@ -38,26 +40,9 @@ class HotRightNow extends Component<Props, void> {
   render() {
     return (
       <Grid>
-        <List>
-          {playlists.map(playlist => (
-            <Playlist>
-              <Artwork image={playlist.image} key={playlist.id} />
-              <Description>
-                <span>
-                  <Link>
-                    <a>{playlist.title}</a>
-                  </Link>
-                </span>
-                <span>
-                  By
-                  <Link>
-                    <a>{playlist.artist}</a>
-                  </Link>
-                </span>
-              </Description>
-            </Playlist>
-          ))}
-        </List>
+        {playlists.map(playlist => (
+          <Artwork image={playlist.image} key={playlist.id} />
+        ))}
       </Grid>
     )
   }
@@ -68,15 +53,18 @@ const Grid = styled.div`
   max-width: 123rem;
   margin: 0 auto;
   margin-bottom: 10rem;
-`
-
-const List = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+
+  ${media.break3`
+    display: flex;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  `};
 `
-
-const Playlist = styled.a``
-
-const Description = styled.div``
 
 export default HotRightNow

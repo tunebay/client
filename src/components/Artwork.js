@@ -27,13 +27,14 @@ export default class extends Component<Props, void> {
 
 const Artwork = styled.div`
   background-image: url(${props => props.image});
+  ${boxShadow()};
+
   background-size: cover;
-  height: 27rem;
-  width: 27rem;
+  width: 22%;
+  padding-top: 22%;
   background-color: #ccc;
   border-radius: 6px;
-  ${boxShadow()};
-  transition: all 300ms ease-out;
+  transition: transform 300ms ease-out;
   position: relative;
   overflow: hidden;
 
@@ -46,10 +47,41 @@ const Artwork = styled.div`
     visibility: visible;
   }
 
-  ${media.desktop`
-    height: 21vw;
-    width: 21vw;
+  ${media.break2`
+    width: 30%;
+    padding-top: 30%;
+
+    &:last-child {
+      display: none;
+    }
   `};
+
+  ${media.break3`
+    width: 48%;
+    padding-top: 48%;
+    &:last-child {
+      display: block;
+    }
+  `};
+
+  ${media.break4`
+    width: 100%;
+    padding-top: 100%;
+    &:last-child {
+      display: block;
+    }
+  `};
+`
+
+const Overlay = styled.div`
+  visibility: hidden;
+  transition: visibility 0s, opacity 0.5s linear;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0) 80%,rgba(0,0,0,0.3) 100%); );
 `
 
 const PlayButton = styled.button`
@@ -69,17 +101,4 @@ const PlayButton = styled.button`
     cursor: pointer;
     background-color: ${props => props.theme.darkRed};
   }
-`
-
-const Overlay = styled.div`
-  visibility: hidden;
-  transition: visibility 0s, opacity 0.5s linear;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background-image: linear-gradient(to bottom, rgba(255,255,255,0) 80%,rgba(0,0,0,0.3) 100%); );
 `

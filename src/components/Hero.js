@@ -39,16 +39,23 @@ const Hero = styled.div`
   background-color: #1a1e28; // #1C1422
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 
-  ${media.phone`
+  ${media.break1`
     width: 100%;
     margin-top: 0;
+  `};
+
+  ${media.break2`
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  `};
+
+  ${media.break3`
     height: 75vh;
     clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
   `};
 `
 
 const NavLinks = styled.div`
-  ${media.phone`
+  ${media.break3`
     display: none;
   `};
 `
@@ -60,7 +67,7 @@ const Header = styled.div`
   align-items: center;
   padding: 3rem 6rem;
 
-  ${media.phone`
+  ${media.break3`
     padding: 3rem 3rem;
   `};
 `
@@ -86,7 +93,15 @@ const Title = styled.h1`
   padding-bottom: 3rem;
   letter-spacing: 3px;
 
-  ${media.phone`
+  ${media.break2`
+    font-size: 5.5rem;
+  `};
+
+  ${media.break3`
+    font-size: 5rem;
+  `};
+
+  ${media.break4`
     font-size: 4rem;
     font-weight: 500;
     letter-spacing: 1px;
