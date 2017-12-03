@@ -9,6 +9,7 @@ export default {
 
   white:         '#ffffff',
   lightestGrey:  '#f7f7f7',
+  lighterGrey:   '#d9d9d9',
   lightGrey:     '#ccc',
   grey:          '#999',
   darkGrey:      '#666',

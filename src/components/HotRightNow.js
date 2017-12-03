@@ -1,10 +1,8 @@
 // @flow
 import React, { Component } from 'react'
-import styled from 'styled-components'
-
-import { media } from '../lib/styleUtils'
 
 import PlayablePlaylist from './PlayablePlaylist'
+import Grid from './Grid'
 
 type Props = {||}
 
@@ -51,24 +49,5 @@ class HotRightNow extends Component<Props, void> {
     )
   }
 }
-
-const Grid = styled.div`
-  width: 100%;
-  max-width: 123rem;
-  margin: 0 auto;
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-  ${media.break3`
-    display: flex;
-    max-width: 100%;
-    flex-wrap: nowrap;
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-  `};
-`
 
 export default HotRightNow

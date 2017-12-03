@@ -1,0 +1,46 @@
+// @flow
+import React, { Component } from 'react'
+import styled from 'styled-components'
+
+import { boxShadow } from '../lib/styleUtils'
+
+import { Play } from './svgs'
+
+type Props = {|
+  onClick: () => any,
+  size?: number,
+|}
+
+export default class extends Component<Props, void> {
+  render() {
+    const { onClick, size } = this.props
+
+    return (
+      <PlayButton size={size} onClick={onClick}>
+        <Play fill="#fff" />
+      </PlayButton>
+    )
+  }
+}
+
+const PlayButton = styled.button`
+  background-color: ${props => props.theme.primaryRedOpacity(0.98)};
+  height: ${props => (props.size ? `${props.size / 10}rem` : '6rem')};
+  width: ${props => (props.size ? `${props.size / 10}rem` : '6rem')};
+
+  border-radius: 500px;
+  transition: all 75ms ease-out;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+
+  ${boxShadow()};
+
+  &:hover {
+    background-color: ${props => props.theme.darkRed};
+    cursor: pointer;
+  }
+`

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import { boxShadow } from '../lib/styleUtils'
 
-import { Play } from './svgs'
+import PlayButton from './PlayButton'
 
 type Props = {|
   image: string,
@@ -17,9 +17,7 @@ export default class extends Component<Props, void> {
     return (
       <Artwork image={image}>
         <Overlay>
-          <PlayButton onClick={() => console.log('play')}>
-            <Play fill="#fff" />
-          </PlayButton>
+          <PlayButton onClick={() => console.log('play')} />
         </Overlay>
       </Artwork>
     )
@@ -67,26 +65,4 @@ const Overlay = styled.div`
   position: absolute;
 
   background-image: linear-gradient(to bottom, rgba(255,255,255,0) 80%,rgba(0,0,0,0.3) 100%); );
-`
-
-const PlayButton = styled.button`
-  background-color: ${props => props.theme.primaryRedOpacity(0.98)};
-
-  height: 6rem;
-  width: 6rem;
-  border-radius: 500px;
-  transition: all 75ms ease-out;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  outline: none;
-
-  ${boxShadow()};
-
-  &:hover {
-    background-color: ${props => props.theme.darkRed};
-    cursor: pointer;
-  }
 `
