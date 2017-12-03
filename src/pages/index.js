@@ -25,7 +25,17 @@ class Index extends Component<Props, void> {
 
         <ForTheLoveOfMusic>
           <Grid>
-            <Left>Hello Left</Left>
+            <Left>
+              <SectionTitle>For the love of music.</SectionTitle>
+              <SectionDescription>
+                Imagine a great paragraph that points out how Tunebay is all
+                about putting the artist first. How anyone that uploads their
+                music controls all their rights and royalties. How you get to
+                set the price of albums and how we understand that for many
+                artists music is much more than just an art form, its their
+                livelihood.
+              </SectionDescription>
+            </Left>
             <Right>
               <PlayButton
                 size={70}
@@ -66,9 +76,22 @@ const ForTheLoveOfMusic = styled.section`
 `
 
 const Left = styled.div`
-  background-color: red;
+  align-items: center;
   width: 48%;
+  padding-top: 7rem;
 `
+
+const SectionTitle = styled.h2`
+  padding-bottom: 3rem;
+  font-weight: 700;
+  font-size: 4.8rem;
+`
+
+const SectionDescription = styled.p`
+  line-height: 1.7;
+  font-size: 1.8rem;
+`
+
 const Right = styled.button`
   /* background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1650&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); */
   background-color: ${props => props.theme.white};
