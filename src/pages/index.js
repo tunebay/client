@@ -69,7 +69,8 @@ const Left = styled.div`
   background-color: red;
   width: 48%;
 `
-const Right = styled.div`
+const Right = styled.button`
+  /* background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1650&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); */
   background-color: ${props => props.theme.white};
   color: ${props => props.theme.lighterGrey};
 
@@ -81,11 +82,18 @@ const Right = styled.div`
   border-radius: 6px 0 0 6px;
   padding-left: 12rem; /* Make content look centered */
 
+  background-size: cover;
   position: absolute;
+  outline: none;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: auto;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   ${boxShadow()};
 `
