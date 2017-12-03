@@ -92,8 +92,8 @@ const SectionDescription = styled.p`
   font-size: 1.8rem;
 `
 
-const Right = styled.button`
-  /* background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1650&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); */
+const Right = styled.div`
+  background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1650&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
   background-color: ${props => props.theme.white};
   color: ${props => props.theme.lighterGrey};
 

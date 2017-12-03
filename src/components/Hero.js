@@ -22,7 +22,13 @@ export default () => (
     </Nav>
     <Shoutout>
       <Title>Directly support the music and artists you love.</Title>
-      <Button onClick={() => console.log('Learn more')}>Learn more.</Button>
+      <Button
+        onClick={() => {
+          console.log('CLICKED')
+        }}
+      >
+        Learn more.
+      </Button>
     </Shoutout>
     {/* media: phone only */}
     <MenuButton />
