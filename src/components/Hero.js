@@ -9,7 +9,7 @@ import { Button, NavLink, Logo } from '../components/common'
 
 export default () => (
   <Hero>
-    <Header>
+    <Nav>
       <Logo />
       <NavLinks>
         <Link href="#">
@@ -19,7 +19,7 @@ export default () => (
           <NavLink color={theme.white}>Log in</NavLink>
         </Link>
       </NavLinks>
-    </Header>
+    </Nav>
     <Shoutout>
       <Title>Directly support the music and artists you love.</Title>
       <Button onClick={() => console.log('Learn more')}>Learn more.</Button>
@@ -29,14 +29,15 @@ export default () => (
   </Hero>
 )
 
-const Hero = styled.div`
-  position: relative;
-  width: calc(100% - 6rem);
-  height: 80vh;
-  margin: auto;
-  margin-top: 3rem;
+const Hero = styled.header`
+  background-color: ${props => props.theme.deepBlue};
 
-  background-color: #1a1e28; // #1C1422
+  margin: 3rem auto;
+  height: 80vh;
+
+  position: relative;
+
+  width: calc(100% - 6rem);
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 
   ${media.break1`
@@ -60,12 +61,13 @@ const NavLinks = styled.div`
   `};
 `
 
-const Header = styled.div`
-  display: flex;
+const Nav = styled.nav`
   width: 100%;
+  padding: 3rem 6rem;
+
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 6rem;
 
   ${media.break3`
     padding: 3rem 3rem;
@@ -73,9 +75,10 @@ const Header = styled.div`
 `
 
 const Shoutout = styled.div`
-  position: absolute;
   top: 25%;
   left: 8%;
+
+  position: absolute;
 
   ${media.phone`
     left: 0;
@@ -86,8 +89,9 @@ const Shoutout = styled.div`
 `
 
 const Title = styled.h1`
+  color: ${props => props.theme.white};
+
   font-weight: 900;
-  color: #fff;
   font-size: 6rem;
   max-width: 50rem;
   padding-bottom: 3rem;
@@ -111,6 +115,7 @@ const Title = styled.h1`
 
 const MenuButton = styled.button`
   display: none;
+
   ${media.phone`
     background-color: ${props => props.theme.white};
     display: block;

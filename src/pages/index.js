@@ -25,19 +25,19 @@ class Index extends Component<Props, void> {
 
 const Section = styled.section`
   width: 100%;
-  background-color: #fff;
-  text-align: center;
   height: 40.5rem;
   padding: 0 3rem;
-  padding-top: 3rem;
+
+  text-align: center;
 `
 
 const Title = styled.h3`
-  text-transform: uppercase;
   margin: 0 auto;
   padding-bottom: 6rem;
   font-size: 1.4rem;
   font-weight: 600;
+
+  text-transform: uppercase;
 `
 
 export default Index

@@ -10,10 +10,11 @@ type Props = {|
 
 const NavLink = styled.a`
   color: ${props => props.color};
+
   font-size: 1.4rem;
   font-weight: 500;
-  text-transform: uppercase;
   padding-left: 3rem;
+  text-transform: uppercase;
 
   &:hover {
     cursor: pointer;

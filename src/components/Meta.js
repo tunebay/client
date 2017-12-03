@@ -5,7 +5,9 @@ import { injectGlobal } from 'styled-components'
 
 import { media } from '../lib/styleUtils'
 
-export default () => (
+type Props = {||}
+
+export default (props: Props) => (
   <div>
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,21 +26,26 @@ injectGlobal`
   *::after {
     padding: 0;
     margin: 0;
+
     box-sizing: inherit;
   }
 
   html {
     font-size: 62.5%;
+
     ${media.phone`font-size: 50%`};
   }
 
   body {
+    color: ${props => props.theme.black};
+
     font-family: 'Roboto', sans-serif;
+
     font-size: 1.6rem;
     font-weight: 400;
     line-height: 1.1;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.4px;
+
     box-sizing: border-box;
-    color: #111;
   }
 `

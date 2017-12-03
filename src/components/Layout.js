@@ -3,7 +3,7 @@ import * as React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 
 import theme from '../lib/theme'
-import { media } from '../lib/styleUtils'
+import { media, boxShadow } from '../lib/styleUtils'
 
 import Meta from './Meta'
 
@@ -21,7 +21,7 @@ class Layout extends React.Component<Props, void> {
           <Meta />
           {children}
           <DownloadApp>
-            Download the app for the best mobile experience!
+            Download the Tunebay app for the best on-the-go experience.
           </DownloadApp>
         </StyledLayout>
       </ThemeProvider>
@@ -30,20 +30,32 @@ class Layout extends React.Component<Props, void> {
 }
 
 const DownloadApp = styled.div`
-  position: fixed;
-  height: 60px;
-  background-color: #fff;
-  text-transform: uppercase;
-  width: 100%;
+  background-color: ${props => props.theme.primaryRedOpacity(0.98)};
+  color: ${props => props.theme.white};
+
   bottom: 0;
+  font-weight: 600;
+  height: 100px;
+  width: 100%;
+  padding: 2rem;
+
+  align-items: center;
   display: none;
+  justify-content: center;
+  position: fixed;
+  text-align: center;
+  text-transform: uppercase;
+
+  ${boxShadow()};
+
   ${media.phone`
-    display: block;
+    display: flex;
   `};
 `
 
 const StyledLayout = styled.div`
   width: 100%;
+  padding-bottom: 10rem;
 `
 
 export default Layout

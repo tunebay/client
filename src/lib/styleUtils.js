@@ -1,6 +1,7 @@
+// @flow
 import { css } from 'styled-components'
 
-export const truncate = width => `
+export const truncate = (width: string) => `
   width: ${width};
   white-space: nowrap;
   overflow: hidden;
@@ -22,7 +23,7 @@ const sizes = {
 
 export const media = Object.keys(sizes).reduce((accumulator, label) => {
   const emSize = sizes[label] / 16
-  accumulator[label] = (...args) => css`
+  accumulator[label] = (...args: Array<any>) => css`
     @media (max-width: ${emSize}em) {
       ${css(...args)};
     }
