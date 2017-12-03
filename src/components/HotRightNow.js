@@ -1,8 +1,9 @@
 // @flow
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import Link from 'next/link'
 
-import { media, boxShadow } from '../lib/styleUtils'
+import Artwork from './Artwork'
 
 type Props = {||}
 
@@ -39,7 +40,22 @@ class HotRightNow extends Component<Props, void> {
       <Grid>
         <List>
           {playlists.map(playlist => (
-            <Playlist image={playlist.image} key={playlist.id} />
+            <Playlist>
+              <Artwork image={playlist.image} key={playlist.id} />
+              <Description>
+                <span>
+                  <Link>
+                    <a>{playlist.title}</a>
+                  </Link>
+                </span>
+                <span>
+                  By
+                  <Link>
+                    <a>{playlist.artist}</a>
+                  </Link>
+                </span>
+              </Description>
+            </Playlist>
           ))}
         </List>
       </Grid>
@@ -51,6 +67,7 @@ const Grid = styled.div`
   width: 100%;
   max-width: 123rem;
   margin: 0 auto;
+  margin-bottom: 10rem;
 `
 
 const List = styled.ul`
@@ -58,19 +75,8 @@ const List = styled.ul`
   justify-content: space-between;
 `
 
-const Playlist = styled.div`
-  background-image: url(${props => props.image});
-  background-size: cover;
-  height: 27rem;
-  width: 27rem;
-  background-color: #ccc;
-  border-radius: 6px;
-  ${boxShadow()};
+const Playlist = styled.a``
 
-  ${media.desktop`
-    height: 21vw;
-    width: 21vw;
-  `};
-`
+const Description = styled.div``
 
 export default HotRightNow

@@ -15,7 +15,7 @@ class Index extends Component<Props, void> {
         <Hero />
 
         <Section>
-          <Title>Selling Right Now</Title>
+          <Title>Hot right now</Title>
           <HotRightNow />
         </Section>
       </Layout>
