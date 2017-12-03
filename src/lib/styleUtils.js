@@ -26,5 +26,5 @@ export const media = Object.keys(sizes).reduce((accumulator, label) => {
 }, {})
 
 export const boxShadow = () => `
-  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.08);
+  box-shadow: 0 4px 28px 0 rgba(0,0,0,0.08);
 `

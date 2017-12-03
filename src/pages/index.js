@@ -14,22 +14,22 @@ class Index extends Component<Props, void> {
       <Layout>
         <Hero />
 
-        <HotRightNowSection>
+        <Section>
           <Title>Selling Right Now</Title>
           <HotRightNow />
-        </HotRightNowSection>
+        </Section>
       </Layout>
     )
   }
 }
 
-const HotRightNowSection = styled.section`
+const Section = styled.section`
   width: 100%;
   background-color: #fff;
   text-align: center;
   height: 40.5rem;
-  padding-top: 3rem;
   padding: 0 3rem;
+  padding-top: 3rem;
 `
 
 const Title = styled.h3`

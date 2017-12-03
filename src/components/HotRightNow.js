@@ -1,17 +1,17 @@
 // @flow
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { media } from '../lib/styleUtils'
+
+import { media, boxShadow } from '../lib/styleUtils'
 
 type Props = {||}
 
 const playlists = [
   {
     id: 1,
-    title: 'A Long Way Home',
-    artist: 'Youngen',
-    image:
-      'https://www.bonzaiprogressive.com/wp-content/uploads/2015/11/12589000.jpg',
+    title: 'Walk Tall',
+    artist: 'General Roots',
+    image: 'https://i1.sndcdn.com/artworks-000174984121-jlksuw-t500x500.jpg',
   },
   {
     id: 2,
@@ -21,16 +21,15 @@ const playlists = [
   },
   {
     id: 3,
-    title: 'Unconditional',
-    artist: 'Sinead Harnett',
-    image: 'https://i.scdn.co/image/257c608a45726323cc56d20472502f791621ba8a',
+    title: 'One Night Stand Forever',
+    artist: 'White',
+    image: 'https://i1.sndcdn.com/avatars-000304701253-fj4cee-t500x500.jpg',
   },
   {
     id: 4,
     title: 'Undon',
     artist: 'Ezra Bruno',
-    image:
-      'https://www.bonzaiprogressive.com/wp-content/uploads/2015/11/12589000.jpg',
+    image: 'https://i.scdn.co/image/9da97eee896a43d6b5e3a924a23fb6efed7dfd9a',
   },
 ]
 
@@ -38,7 +37,11 @@ class HotRightNow extends Component<Props, void> {
   render() {
     return (
       <Grid>
-        <List>{playlists.map(playlist => <Playlist key={playlist.id} />)}</List>
+        <List>
+          {playlists.map(playlist => (
+            <Playlist image={playlist.image} key={playlist.id} />
+          ))}
+        </List>
       </Grid>
     )
   }
@@ -56,10 +59,13 @@ const List = styled.ul`
 `
 
 const Playlist = styled.div`
+  background-image: url(${props => props.image});
+  background-size: cover;
   height: 27rem;
   width: 27rem;
   background-color: #ccc;
   border-radius: 6px;
+  ${boxShadow()};
 
   ${media.desktop`
     height: 21vw;
