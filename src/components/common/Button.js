@@ -6,6 +6,7 @@ import { media } from '../../lib/styleUtils'
 export default styled.button`
   background-color: ${props => props.theme.primaryRed};
   color: ${props => props.theme.white};
+  box-shadow: ${props => props.theme.boxShadow};
 
   font-family: 'Roboto', sans-serif;
 
@@ -22,6 +23,11 @@ export default styled.button`
   &:hover {
     cursor: pointer;
     background-color: ${props => props.theme.darkRed};
+  }
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow: none;
   }
 
   ${media.phone`

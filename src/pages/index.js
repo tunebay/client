@@ -7,6 +7,7 @@ import Hero from '../components/Hero'
 import HotRightNow from '../components/HotRightNow'
 import ForTheLoveOfMusic from '../components/ForTheLoveOfMusic'
 import FeaturedArtists from '../components/FeaturedArtists'
+import CallToActionFooter from '../components/CallToActionFooter'
 
 type Props = {||}
 
@@ -27,6 +28,8 @@ class Index extends Component<Props, void> {
           <Title>Featured artists</Title>
           <FeaturedArtists />
         </Section>
+
+        <CallToActionFooter />
       </Layout>
     )
   }

@@ -11,17 +11,16 @@ type Props = {||}
 
 const featuredArtists = [
   {
-    id: 1,
-    name: 'Mabel',
-    image: 'https://vg-images.condecdn.net/image/P3eJ4y3QoA9/crop/1020',
+    id: 4,
+    name: 'Kwabs',
+    image: 'http://www.mobo.com/sites/default/files/Kwabs-Press1-.jpg',
     bio:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
   },
   {
-    id: 2,
-    name: 'Minx',
-    image:
-      'https://static1.squarespace.com/static/5820f18a6b8f5b12160bf8d4/583211efc534a553942e0b96/583212069de4bb0ca85df473/1479676455578/DSC_8344+copylogo.jpg?format=1000w',
+    id: 1,
+    name: 'Mabel',
+    image: 'https://vg-images.condecdn.net/image/P3eJ4y3QoA9/crop/1020',
     bio:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
   },
@@ -34,9 +33,9 @@ const featuredArtists = [
       "Stupidly fun, sample-happy and eight members strong, Superorganism are a force for good.\n \nDebut single 'Something For Your M.I.N.D.' proudly boasts the collective's skill in making saccharine, sense-zapping pop without the cheese.",
   },
   {
-    id: 4,
-    name: 'Michael Kiwanuka',
-    image: 'https://i.scdn.co/image/33071f161f9a57c639a6707f84498152b0c3e015',
+    id: 2,
+    name: 'Dan Shake',
+    image: 'https://s3.eu-west-2.amazonaws.com/tunebay/Dan-Shake-2.jpg',
     bio:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
   },
@@ -45,7 +44,7 @@ const featuredArtists = [
 class FeaturedArtists extends Component<Props, void> {
   render() {
     return (
-      <Grid width={1310}>
+      <Grid width={1300}>
         {featuredArtists.map(({ image, bio, name, id }) => (
           <ArtistCard key={id}>
             <CardFront image={image}>{name}</CardFront>
@@ -54,7 +53,8 @@ class FeaturedArtists extends Component<Props, void> {
               <Name>{name}</Name>
               <Bio>
                 {bio.split('\n').map((item, key) => (
-                  <span>
+                  // lol TODO better key solution
+                  <span key={`${`${key}`}-bio}`}>
                     {item}
                     <br />
                   </span>
@@ -133,7 +133,7 @@ const Name = styled.h3`
   font-size: 3.2rem;
   width: 100%;
   font-weight: 800;
-  padding-bottom: 1.5rem;
+  padding-bottom: 2rem;
 
   text-transform: uppercase;
 `
@@ -141,7 +141,7 @@ const Name = styled.h3`
 const Bio = styled.p`
   font-size: 1.3rem;
   width: 100%;
-  line-height: 1.7;
+  line-height: 1.6;
   flex: 1;
 
   text-align: left;

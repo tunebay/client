@@ -40,4 +40,8 @@ const PlayButton = styled.button`
     background-color: ${props => props.theme.darkRed};
     cursor: pointer;
   }
+
+  &:active {
+    transform: scale(0.98);
+  }
 `
