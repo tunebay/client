@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import { boxShadow } from '../lib/styleUtils'
+import { aspectRatio } from '../lib/styleUtils'
 
 import PlayButton from './PlayButton'
 
@@ -26,6 +26,7 @@ export default class extends Component<Props, void> {
 
 const Artwork = styled.div`
   background-image: url(${props => props.image});
+  box-shadow: ${props => props.theme.boxShadow};
 
   width: 100%;
   border-radius: 6px;
@@ -34,13 +35,7 @@ const Artwork = styled.div`
   position: relative;
   overflow: hidden;
 
-  ${boxShadow()};
-
-  &::before {
-    content: '';
-    display: block;
-    padding-top: 100%; /* initial ratio of 1:1*/
-  }
+  ${aspectRatio('100%')};
 
   &:hover {
     cursor: pointer;

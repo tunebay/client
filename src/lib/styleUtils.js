@@ -34,3 +34,11 @@ export const media = Object.keys(sizes).reduce((accumulator, label) => {
 export const boxShadow = () => `
   box-shadow: 0 4px 28px 0 rgba(0,0,0,0.08);
 `
+
+export const aspectRatio = (percent: string) => `
+  &::before {
+    content: '';
+    display: block;
+    padding-top: ${percent};
+  }
+`

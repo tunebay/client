@@ -2,8 +2,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import { boxShadow } from '../lib/styleUtils'
-
 import { Play } from './svgs'
 
 type Props = {|
@@ -27,6 +25,7 @@ const PlayButton = styled.button`
   background-color: ${props => props.theme.primaryRedOpacity(0.98)};
   height: ${props => (props.size ? `${props.size / 10}rem` : '6rem')};
   width: ${props => (props.size ? `${props.size / 10}rem` : '6rem')};
+  box-shadow: ${props => props.theme.boxShadow};
 
   border-radius: 500px;
   transition: all 75ms ease-out;
@@ -36,8 +35,6 @@ const PlayButton = styled.button`
   align-items: center;
   border: none;
   outline: none;
-
-  ${boxShadow()};
 
   &:hover {
     background-color: ${props => props.theme.darkRed};
