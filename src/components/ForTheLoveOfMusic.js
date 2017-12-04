@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { boxShadow, media } from '../lib/styleUtils'
+import { media } from '../lib/styleUtils'
 
 // import PlayButton from './PlayButton'
 import Grid from './Grid'
@@ -73,6 +73,7 @@ const SectionDescription = styled.p`
 const Right = styled.div`
   background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1650&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
   background-color: ${props => props.theme.white};
+  box-shadow: ${props => props.theme.boxShadow};
   color: ${props => props.theme.lighterGrey};
 
   width: 48%;
@@ -95,8 +96,6 @@ const Right = styled.div`
   &:hover {
     cursor: pointer;
   }
-
-  ${boxShadow()};
 
   ${media.break2`
     padding-left: 0;

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Link from 'next/link'
 
 import theme from '../lib/theme'
-import { media, boxShadow } from '../lib/styleUtils'
+import { media } from '../lib/styleUtils'
 import { Button, NavLink, Logo } from '../components/common'
 
 export default () => (
@@ -123,6 +123,7 @@ const MenuButton = styled.button`
   display: none;
 
   ${media.phone`
+    box-shadow: ${props => props.theme.boxShadow};
     background-color: ${props => props.theme.white};
     display: block;
     top: 3rem;
@@ -133,6 +134,5 @@ const MenuButton = styled.button`
     border: none;
     outline: none;
     border-radius: 500px;
-    ${boxShadow()};
   `};
 `

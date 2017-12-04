@@ -3,7 +3,7 @@ import * as React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 
 import theme from '../lib/theme'
-import { media, boxShadow } from '../lib/styleUtils'
+import { media } from '../lib/styleUtils'
 
 import Meta from './Meta'
 
@@ -30,6 +30,7 @@ class Layout extends React.Component<Props, void> {
 }
 
 const DownloadApp = styled.div`
+  box-shadow: ${props => props.theme.boxShadow};
   background-color: ${props => props.theme.primaryRedOpacity(0.98)};
   color: ${props => props.theme.white};
 
@@ -45,8 +46,6 @@ const DownloadApp = styled.div`
   position: fixed;
   text-align: center;
   text-transform: uppercase;
-
-  ${boxShadow()};
 
   ${media.phone`
     display: flex;
