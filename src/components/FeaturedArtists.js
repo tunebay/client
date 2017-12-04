@@ -21,14 +21,14 @@ const featuredArtists = [
     bio: 'Minx bio',
   },
   {
-    name: 'Pale Waves',
-    image: 'https://pbs.twimg.com/media/DMq9jrgXUAAaKI0.jpg',
+    name: 'Alma',
+    image:
+      'https://cdn.mbw.44bytes.net/files/2017/11/Screen-Shot-2017-11-08-at-08.59.52.jpg',
     bio: 'Pale waves bio',
   },
   {
-    name: 'Earthgang',
-    image:
-      'http://media-s3-us-east-1.ceros.com/vevo/images/2017/11/07/61d41b3ae33c03abc8584c50a97a9541/00-idle-state-720x720-earthgang.jpg',
+    name: 'Joel Compoass',
+    image: 'https://i.scdn.co/image/33071f161f9a57c639a6707f84498152b0c3e015',
     bio: 'Earthgang bio',
   },
 ]
