@@ -17,9 +17,11 @@ export default styled.button`
   outline: none;
   padding: 0.25rem 1rem;
   width: 180px;
+  transition: all 75 ease-out;
 
   &:hover {
     cursor: pointer;
+    background-color: ${props => props.theme.darkRed};
   }
 
   ${media.phone`
