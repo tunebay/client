@@ -71,10 +71,10 @@ class FeaturedArtists extends Component<Props, void> {
 
 const ArtistCard = styled.div`
   perspective: 150rem;
-  width: 23%;
+  width: 23.7%;
   position: relative;
 
-  ${aspectRatio('150%')};
+  ${aspectRatio('160%')};
 `
 
 const CardSide = styled.div`

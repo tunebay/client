@@ -13,8 +13,8 @@ export default class extends Component<Props, void> {
         <ContentBox>
           <Title>Start being heard today.</Title>
           <Tag>
-            Some clever little sales line that makes you want to click that
-            button instantly.
+            A line targeted towards creators that make them want to click the
+            call to action button.
           </Tag>
           <Button>Create account.</Button>
         </ContentBox>
@@ -29,7 +29,7 @@ const CallToActionFooter = styled.div`
 
   clip-path: polygon(0 0, 100% 10%, 100% 100%, 0% 90%);
 
-  height: 65vh;
+  height: 60vh;
   margin: 10rem 3rem 0 3rem;
 
   display: flex;
@@ -38,7 +38,7 @@ const CallToActionFooter = styled.div`
 `
 
 const ContentBox = styled.div`
-  max-width: 60rem;
+  max-width: 55rem;
   margin: 0 0 4rem 10rem;
 `
 
