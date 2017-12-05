@@ -19,8 +19,8 @@ const featuredArtists = [
   },
   {
     id: 1,
-    name: 'Mabel',
-    image: 'https://vg-images.condecdn.net/image/P3eJ4y3QoA9/crop/1020',
+    name: 'Taya',
+    image: 'https://s3.eu-west-2.amazonaws.com/tunebay/taya.jpg',
     bio:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
   },
