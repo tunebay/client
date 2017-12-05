@@ -74,7 +74,7 @@ const ArtistCard = styled.div`
   width: 23.7%;
   position: relative;
 
-  ${aspectRatio('160%')};
+  ${aspectRatio('150%')};
 `
 
 const CardSide = styled.div`
