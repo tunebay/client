@@ -6,6 +6,7 @@ import theme from '../lib/theme'
 import { media } from '../lib/styleUtils'
 
 import Meta from './Meta'
+import Header from './Header'
 
 type Props = {|
   children: React.Node,
@@ -19,6 +20,7 @@ class Layout extends React.Component<Props, void> {
       <ThemeProvider theme={theme}>
         <StyledLayout>
           <Meta />
+          <Header />
           {children}
           <DownloadApp>
             Download the Tunebay app for the best on-the-go experience.

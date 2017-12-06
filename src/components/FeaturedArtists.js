@@ -44,7 +44,7 @@ const featuredArtists = [
 class FeaturedArtists extends Component<Props, void> {
   render() {
     return (
-      <Grid width={1300}>
+      <Grid width={1320}>
         {featuredArtists.map(({ image, bio, name, id }) => (
           <ArtistCard key={id}>
             <CardFront image={image}>{name}</CardFront>
@@ -89,6 +89,7 @@ const CardSide = styled.div`
   border-radius: 6px;
   transition: all 500ms ease;
 
+  overflow: hidden;
   backface-visibility: hidden;
   position: absolute;
 `

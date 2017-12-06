@@ -2,22 +2,29 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-type Props = {||}
+type Props = {|
+  size: number,
+|}
 
-class Logo extends Component<Props, void> {
+export default class extends Component<Props, void> {
   render() {
+    const { size } = this.props
     return (
-      <LogoBox>
+      <Logo size={size}>
         <Image src="/static/logo.png" />
-      </LogoBox>
+      </Logo>
     )
   }
 }
 
-const LogoBox = styled.div``
+const Logo = styled.div`
+  height: ${props => (props.size ? `${props.size}px` : '35px')};
 
-const Image = styled.img`
-  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
-export default Logo
+const Image = styled.img`
+  height: 100%;
+`
