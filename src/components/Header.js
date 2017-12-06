@@ -18,6 +18,9 @@ export default class extends Component<Props, void> {
           <NavLink color="#111111" spacing="5rem">
             Discover
           </NavLink>
+          <Search>
+            <SearchInput placeholder="Search" />
+          </Search>
         </Left>
         <Right>
           <NavLink color="#111111">Login</NavLink>
@@ -28,6 +31,28 @@ export default class extends Component<Props, void> {
     )
   }
 }
+
+const Search = styled.form`
+  padding-left: 5rem;
+  flex: 1;
+`
+
+const SearchInput = styled.input`
+  background-color: ${props => props.theme.lightestGrey};
+  height: 36px;
+  border-radius: 5px;
+  width: 55%;
+  transition: all 200ms ease;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  outline: none;
+  border: none;
+  font-family: inherit;
+
+  &:focus {
+    width: 65%;
+  }
+`
 
 const Header = styled.header`
   background-color: ${props => props.theme.white};
@@ -47,6 +72,7 @@ const Header = styled.header`
 `
 
 const Left = styled.nav`
+  flex: 1;
   display: flex;
   align-items: center;
 `
