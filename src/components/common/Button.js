@@ -8,8 +8,6 @@ export default styled.button`
   color: ${props => props.theme.white};
   box-shadow: ${props => props.theme.boxShadow};
 
-  font-family: 'Roboto', sans-serif;
-
   border-radius: 6px;
   border: none;
   font-size: 1.4rem;
@@ -19,6 +17,8 @@ export default styled.button`
   padding: 0.25rem 1rem;
   width: 180px;
   transition: all 75 ease-out;
+
+  font-family: inherit;
 
   &:hover {
     cursor: pointer;
