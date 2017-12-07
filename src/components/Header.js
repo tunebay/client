@@ -3,10 +3,16 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 import { Logo, NavLink } from './common'
+import { Search } from './svgs'
 
 type Props = {||}
 
 export default class extends Component<Props, void> {
+  handleSearch = (e: SyntheticEvent<*>) => {
+    e.preventDefault()
+    console.log('submit form')
+  }
+
   render() {
     return (
       <Header>
@@ -18,10 +24,10 @@ export default class extends Component<Props, void> {
           <NavLink color="#111111" spacing="5rem">
             Discover
           </NavLink>
-          <Search>
-            <SearchInput placeholder="Search" />
-          </Search>
         </Left>
+        <Middle>
+          <SearchBar onSubmit={this.handleSearch} />
+        </Middle>
         <Right>
           <NavLink color="#111111">Login</NavLink>
           <NavLink color="#111111">Create account</NavLink>
@@ -32,8 +38,20 @@ export default class extends Component<Props, void> {
   }
 }
 
-const Search = styled.form`
+const SearchBar = (props: { onSubmit: (e: SyntheticEvent<*>) => any }) => {
+  const { onSubmit } = props
+  return (
+    <SearchForm onSubmit={onSubmit}>
+      <SearchInput placeholder="Search" />
+      <Search />
+    </SearchForm>
+  )
+}
+
+const SearchForm = styled.form`
   padding-left: 5rem;
+  display: flex;
+  align-items: center;
   flex: 1;
 `
 
@@ -45,12 +63,16 @@ const SearchInput = styled.input`
   transition: all 200ms ease;
   padding: 1rem 2rem;
   font-size: 1.4rem;
+  margin-right: -3.5rem;
+
   outline: none;
   border: none;
+  color: inherit;
   font-family: inherit;
 
   &:focus {
-    width: 65%;
+    width: 60%;
+    background-color: #f0f0f0;
   }
 `
 
@@ -72,9 +94,12 @@ const Header = styled.header`
 `
 
 const Left = styled.nav`
-  flex: 1;
   display: flex;
   align-items: center;
+`
+
+const Middle = styled.div`
+  flex: 1;
 `
 
 const Right = styled.nav`
