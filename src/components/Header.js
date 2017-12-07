@@ -57,22 +57,26 @@ const SearchForm = styled.form`
 
 const SearchInput = styled.input`
   background-color: ${props => props.theme.lightestGrey};
+  color: ${props => props.theme.black};
   height: 36px;
   border-radius: 5px;
   width: 55%;
   transition: all 200ms ease;
   padding: 1rem 2rem;
+  font-weight: 400;
   font-size: 1.4rem;
-  margin-right: -3.5rem;
+  margin-right: -3rem;
 
   outline: none;
   border: none;
-  color: inherit;
   font-family: inherit;
+
+  &::-webkit-input-placeholder {
+    color: ${props => props.theme.lightGrey};
+  }
 
   &:focus {
     width: 60%;
-    background-color: #f0f0f0;
   }
 `
 
