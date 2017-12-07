@@ -8,6 +8,7 @@ import { Search } from './svgs'
 type Props = {||}
 
 export default class extends Component<Props, void> {
+  // TODO fix type errors
   handleSearch = (e: SyntheticEvent<*>) => {
     e.preventDefault()
     console.log('submit form')
@@ -60,10 +61,10 @@ const SearchInput = styled.input`
   color: ${props => props.theme.black};
   height: 36px;
   border-radius: 5px;
+  font-weight: 400;
   width: 55%;
   transition: all 200ms ease;
   padding: 1rem 2rem;
-  font-weight: 400;
   font-size: 1.4rem;
   margin-right: -3rem;
 
@@ -72,11 +73,15 @@ const SearchInput = styled.input`
   font-family: inherit;
 
   &::-webkit-input-placeholder {
+    font-weight: 400;
     color: ${props => props.theme.lightGrey};
   }
 
   &:focus {
     width: 60%;
+    &::-webkit-input-placeholder {
+      color: ${props => props.theme.lighterGrey};
+    }
   }
 `
 
