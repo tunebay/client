@@ -2,6 +2,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
+import { media } from '../lib/styleUtils'
+
 import { Logo, NavLink } from './common'
 import { Search } from './svgs'
 
@@ -83,6 +85,12 @@ const SearchInput = styled.input`
       color: ${props => props.theme.lighterGrey};
     }
   }
+
+  ${media.break1`
+    width: 100%;
+    &:focus {
+      width: 100%;
+  `};
 `
 
 const Header = styled.header`

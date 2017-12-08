@@ -39,4 +39,8 @@ const Search = styled.button`
   background-color: transparent;
   outline: none;
   border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 `

@@ -16,7 +16,7 @@ export default styled.button`
   outline: none;
   padding: 0.25rem 1rem;
   width: 180px;
-  transition: all 75 ease-out;
+  transition: all 75ms ease-out;
 
   font-family: inherit;
 
