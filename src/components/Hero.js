@@ -13,10 +13,10 @@ export default () => (
       <Logo />
       <NavLinks>
         <Link href="#">
-          <NavLink color={theme.primaryRed}>Create account</NavLink>
+          <NavLink color={theme.white}>Log in</NavLink>
         </Link>
         <Link href="#">
-          <NavLink color={theme.white}>Log in</NavLink>
+          <NavLink color={theme.primaryRed}>Create account</NavLink>
         </Link>
       </NavLinks>
     </Nav>

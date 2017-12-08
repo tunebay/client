@@ -33,8 +33,7 @@ export default class extends Component<Props, void> {
         </Middle>
         <Right>
           <NavLink color="#111111">Login</NavLink>
-          <NavLink color="#111111">Create account</NavLink>
-          <NavLink color="#E43D3C">Upload</NavLink>
+          <NavLink color="#E43D3C">Create account</NavLink>
         </Right>
       </Header>
     )
