@@ -1,6 +1,5 @@
 // @flow
 import React from 'react'
-import axios from 'axios'
 
 import Layout from '../components/Layout'
 
@@ -18,14 +17,14 @@ const User = (props: {
   </Layout>
 )
 
-User.getInitialProps = async function(context) {
-  const { id } = context.query
-  const res = await axios.get(`https://api.tvmaze.com/shows/${id}`)
-  const show = res.data
-
-  console.log(`Fetched show: ${show.name}`)
-
-  return { show }
-}
+// User.getInitialProps = async function(context) {
+//   const { id } = context.query
+//   const res = await axios.get(`https://api.tvmaze.com/shows/${id}`)
+//   const show = res.data
+//
+//   console.log(`Fetched show: ${show.name}`)
+//
+//   return { show }
+// }
 
 export default User

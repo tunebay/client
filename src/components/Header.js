@@ -1,46 +1,52 @@
 // @flow
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { withRouter, type $Router } from 'next/router'
 
 import { media } from '../lib/styleUtils'
 
 import { Logo, NavLink } from './common'
 import { Search } from './svgs'
 
-type Props = {||}
+type Props = {|
+  router: $Router,
+|}
 
-export default class extends Component<Props, void> {
-  // TODO fix type errors
-  handleSearch = (e: SyntheticEvent<*>) => {
-    e.preventDefault()
-    console.log('submit form')
-  }
+export default withRouter(
+  class extends Component<Props, void> {
+    handleSearch = e => {
+      e.preventDefault()
+      console.log('submit form')
+    }
 
-  render() {
-    return (
-      <Header>
-        <Left>
-          <Logo size={30} />
-          <NavLink color="#111111" spacing="5rem">
-            Home
-          </NavLink>
-          <NavLink color="#111111" spacing="5rem">
-            Discover
-          </NavLink>
-        </Left>
-        <Middle>
-          <SearchBar onSubmit={this.handleSearch} />
-        </Middle>
-        <Right>
-          <NavLink color="#111111">Login</NavLink>
-          <NavLink color="#E43D3C">Create account</NavLink>
-        </Right>
-      </Header>
-    )
-  }
-}
+    render() {
+      if (this.props.router.pathname === '/') return null
 
-const SearchBar = (props: { onSubmit: (e: SyntheticEvent<*>) => any }) => {
+      return (
+        <Header>
+          <Left>
+            <Logo size={30} />
+            <NavLink color="#111111" spacing="5rem">
+              Home
+            </NavLink>
+            <NavLink color="#111111" spacing="5rem">
+              Discover
+            </NavLink>
+          </Left>
+          <Middle>
+            <SearchBar onSubmit={this.handleSearch} />
+          </Middle>
+          <Right>
+            <NavLink color="#111111">Login</NavLink>
+            <NavLink color="#E43D3C">Create account</NavLink>
+          </Right>
+        </Header>
+      )
+    }
+  },
+)
+
+const SearchBar = (props: { onSubmit: () => any }) => {
   const { onSubmit } = props
   return (
     <SearchForm onSubmit={onSubmit}>
