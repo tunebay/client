@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import Layout, { Grid, Section } from '../components/Layout'
 
-import { aspectRatio } from '../lib/styleUtils'
+import { aspectRatio, float } from '../lib/styleUtils'
 
 type Props = {|
   user: {
@@ -34,7 +34,13 @@ class Profile extends Component<Props, void> {
               <Name>{user.name}</Name>
               <Bio>{user.bio}</Bio>
             </User>
-            <Playlists />
+            <Playlists>
+              <Grid>
+                <Playlist />
+                <Playlist />
+                <Playlist />
+              </Grid>
+            </Playlists>
           </Grid>
         </Main>
       </Layout>
@@ -47,6 +53,14 @@ export const Main = styled.main`
   width: 100%;
   padding: 0 3rem;
   text-align: left;
+`
+
+const Playlist = styled.div`
+  width: 30.5%;
+  background-color: #f7f7f7;
+  border-radius: 6px;
+
+  ${aspectRatio('100%')};
 `
 
 const User = styled.div`
@@ -72,21 +86,20 @@ const ProfilePicture = styled.button`
 
   border: none;
   outline: none;
-  width: 80%;
+  width: 75%;
   ${aspectRatio('100%')};
   background-size: cover;
+  transition: all 300ms ease-out;
   border-radius: 100%;
-  transition: all 200ms ease-out;
 
   &:hover {
     cursor: pointer;
-    transform: translateY(-2px);
-    box-shadow: ${props => props.theme.boxShadow};
+    animation: ${float()} 1000ms infinite;
+    animation-direction: alternate;
   }
 `
 
 const Playlists = styled.div`
-  background-color: green;
   width: 73%;
   height: 50px;
 `

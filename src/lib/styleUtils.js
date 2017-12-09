@@ -1,5 +1,5 @@
 // @flow
-import { css } from 'styled-components'
+import { css, keyframes } from 'styled-components'
 
 export const truncate = (width: string) => `
   width: ${width};
@@ -36,5 +36,16 @@ export const aspectRatio = (percent: string) => `
     content: '';
     display: block;
     padding-top: ${percent};
+  }
+`
+
+export const float = () => keyframes`
+  0% {
+    transform: translateY(0px);
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.15);
+  }
+  100% {
+    box-shadow: 0 4px 28px 0 rgba(0,0,0,0.08);
+    transform: translateY(-3px);
   }
 `
