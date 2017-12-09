@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import Link from 'next/link'
 
 import { aspectRatio } from '../lib/styleUtils'
 
@@ -60,7 +61,9 @@ class FeaturedArtists extends Component<Props, void> {
                   </span>
                 ))}
               </Bio>
-              <Button>Go to profile.</Button>
+              <Link href="/profile">
+                <Button>Go to profile.</Button>
+              </Link>
             </CardBack>
           </ArtistCard>
         ))}

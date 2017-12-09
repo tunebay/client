@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import Link from 'next/link'
 
 import { media } from '../lib/styleUtils'
 
@@ -25,12 +26,16 @@ export default class extends Component<Props, void> {
       <Header>
         <Left>
           <Logo size={30} />
-          <NavLink color="#111111" spacing="5rem">
-            Home
-          </NavLink>
-          <NavLink color="#111111" spacing="5rem">
-            Discover
-          </NavLink>
+          <Link href="/">
+            <NavLink color="#111111" spacing="5rem">
+              Home
+            </NavLink>
+          </Link>
+          <Link href="/profile">
+            <NavLink color="#111111" spacing="5rem">
+              Discover
+            </NavLink>
+          </Link>
         </Left>
         <Middle>
           <SearchBar onSubmit={this.handleSearch} />
