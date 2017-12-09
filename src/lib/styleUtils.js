@@ -42,7 +42,7 @@ export const aspectRatio = (percent: string) => `
 export const float = () => keyframes`
   0% {
     transform: translateY(0px);
-    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 2px 20px 0 rgba(0,0,0,0.1);
   }
   100% {
     box-shadow: 0 4px 28px 0 rgba(0,0,0,0.08);

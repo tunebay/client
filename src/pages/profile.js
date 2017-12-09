@@ -2,17 +2,13 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import Layout, { Grid, Section } from '../components/Layout'
+import Layout, { Grid } from '../components/Layout'
+import type { UserType } from '../types'
 
-import { aspectRatio, float } from '../lib/styleUtils'
+import { aspectRatio } from '../lib/styleUtils'
 
 type Props = {|
-  user: {
-    name: string,
-    bio: string,
-    cover: string,
-    photo: string,
-  },
+  user: UserType,
 |}
 
 class Profile extends Component<Props, void> {
@@ -33,12 +29,13 @@ class Profile extends Component<Props, void> {
               <ProfilePicture photo={user.photo} />
               <Name>{user.name}</Name>
               <Bio>{user.bio}</Bio>
+              <FollowButton>Follow</FollowButton>
             </User>
             <Playlists>
               <Grid>
-                <Playlist />
-                <Playlist />
-                <Playlist />
+                {user.playlists.map(playlist => (
+                  <Playlist key={playlist.id} image={playlist.artwork} />
+                ))}
               </Grid>
             </Playlists>
           </Grid>
@@ -48,6 +45,29 @@ class Profile extends Component<Props, void> {
   }
 }
 
+const FollowButton = styled.button`
+  background-color: ${props => props.theme.primaryRed};
+  color: ${props => props.theme.white};
+
+  height: 3.6rem;
+  width: 12rem;
+  border-radius: 5px;
+  font-weight: 400;
+  font-size: 1.3rem;
+  transition: all 75ms ease-out;
+
+  letter-spacing: inherit;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  text-transform: uppercase;
+
+  &:hover {
+    cursor: pointer;
+    background-color: ${props => props.theme.darkRed};
+  }
+`
+
 export const Main = styled.main`
   margin-top: 5rem;
   width: 100%;
@@ -56,15 +76,21 @@ export const Main = styled.main`
 `
 
 const Playlist = styled.div`
+  background-image: url(${props => props.image});
+  box-shadow: ${props => props.theme.boxShadow};
+
   width: 30.5%;
-  background-color: #f7f7f7;
+  margin-bottom: 3rem;
+  background-color: #e4e4e4;
   border-radius: 6px;
+
+  background-size: cover;
 
   ${aspectRatio('100%')};
 `
 
 const User = styled.div`
-  margin-top: -10rem;
+  margin-top: -11rem;
   width: 24%;
 `
 
@@ -76,17 +102,17 @@ const Name = styled.h1`
 
 const Bio = styled.p`
   font-size: 1.5rem;
-  padding: 1rem 0;
+  padding: 1.2rem 0;
   line-height: 1.4;
 `
 
 const ProfilePicture = styled.button`
   background-image: url(${props => props.photo});
-  box-shadow: ${props => props.theme.boxShadowFlat};
+  box-shadow: ${props => props.theme.boxShadow};
 
   border: none;
   outline: none;
-  width: 75%;
+  width: 80%;
   ${aspectRatio('100%')};
   background-size: cover;
   transition: all 300ms ease-out;
@@ -94,8 +120,6 @@ const ProfilePicture = styled.button`
 
   &:hover {
     cursor: pointer;
-    animation: ${float()} 1000ms infinite;
-    animation-direction: alternate;
   }
 `
 
@@ -134,6 +158,26 @@ Profile.getInitialProps = async () => {
     bio: '🚀 Just out here writing fake bios that are at least 2 lines long',
     cover: 'https://i1.sndcdn.com/visuals-000161652148-8uID1y-t2480x520.jpg',
     photo: 'https://hamadamania.files.wordpress.com/2017/03/mabel08.jpg',
+    playlists: [
+      {
+        id: 1,
+        title: 'Ivy To Roses',
+        artwork:
+          'https://i2.wp.com/s1.xclusivejams.com/2017/10/Mabel-Ivy-To-Roses-Mixtape-iTunes-Plus-M4A.jpg?w=640&ssl=1',
+      },
+      {
+        id: 2,
+        title: 'My Boy My Town',
+        artwork:
+          'https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/58/6e/51/586e51d3-6175-c286-a06b-7f2d007875f2/15UMGIM65453.jpg/1200x630bb.jpg',
+      },
+      {
+        id: 3,
+        title: 'Thinking Of You',
+        artwork:
+          'https://images.genius.com/122c310b162d72c5d271d32753b5fa60.630x630x1.jpg',
+      },
+    ],
   }
   return { user }
 }

@@ -10,7 +10,7 @@ import { Button, NavLink, Logo } from '../components/common'
 export default () => (
   <Hero>
     <Nav>
-      <Logo />
+      <Logo size={36} />
       <NavLinks>
         <Link href="#">
           <NavLink color={theme.white}>Log in</NavLink>

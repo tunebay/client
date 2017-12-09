@@ -1,12 +1,12 @@
 // @flow
 import React, { Component } from 'react'
 
+import type { PlaylistType } from '../types'
+
 import PlayablePlaylist from './PlayablePlaylist'
 import { Grid } from './Layout'
 
-type Props = {||}
-
-const playlists = [
+const dummyPlaylists = [
   {
     id: 1,
     title: 'Walk Tall',
@@ -33,8 +33,18 @@ const playlists = [
   },
 ]
 
+type Props = {|
+  playlists: Array<PlaylistType>,
+|}
+
 class HotRightNow extends Component<Props, void> {
+  static getInitialProps: () => any
+
+  static defaultProps: { playlists: Array<PlaylistType> }
+
   render() {
+    const { playlists } = this.props
+
     return (
       <Grid>
         {playlists.map(playlist => (
@@ -49,5 +59,7 @@ class HotRightNow extends Component<Props, void> {
     )
   }
 }
+
+HotRightNow.defaultProps = { playlists: dummyPlaylists }
 
 export default HotRightNow
