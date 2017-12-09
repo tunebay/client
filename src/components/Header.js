@@ -1,7 +1,6 @@
 // @flow
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { withRouter, type $Router } from 'next/router'
 
 import { media } from '../lib/styleUtils'
 
@@ -9,42 +8,41 @@ import { Logo, NavLink } from './common'
 import { Search } from './svgs'
 
 type Props = {|
-  router: $Router,
+  visible: boolean,
 |}
 
-export default withRouter(
-  class extends Component<Props, void> {
-    handleSearch = e => {
-      e.preventDefault()
-      console.log('submit form')
-    }
+export default class extends Component<Props, void> {
+  handleSearch = () => {
+    console.log('submit form')
+  }
 
-    render() {
-      if (this.props.router.pathname === '/') return null
+  render() {
+    const { visible } = this.props
 
-      return (
-        <Header>
-          <Left>
-            <Logo size={30} />
-            <NavLink color="#111111" spacing="5rem">
-              Home
-            </NavLink>
-            <NavLink color="#111111" spacing="5rem">
-              Discover
-            </NavLink>
-          </Left>
-          <Middle>
-            <SearchBar onSubmit={this.handleSearch} />
-          </Middle>
-          <Right>
-            <NavLink color="#111111">Login</NavLink>
-            <NavLink color="#E43D3C">Create account</NavLink>
-          </Right>
-        </Header>
-      )
-    }
-  },
-)
+    if (!visible) return null
+
+    return (
+      <Header>
+        <Left>
+          <Logo size={30} />
+          <NavLink color="#111111" spacing="5rem">
+            Home
+          </NavLink>
+          <NavLink color="#111111" spacing="5rem">
+            Discover
+          </NavLink>
+        </Left>
+        <Middle>
+          <SearchBar onSubmit={this.handleSearch} />
+        </Middle>
+        <Right>
+          <NavLink color="#111111">Login</NavLink>
+          <NavLink color="#E43D3C">Create account</NavLink>
+        </Right>
+      </Header>
+    )
+  }
+}
 
 const SearchBar = (props: { onSubmit: () => any }) => {
   const { onSubmit } = props

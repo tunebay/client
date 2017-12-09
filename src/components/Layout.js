@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react'
+import { withRouter } from 'next/router'
 import styled, { ThemeProvider } from 'styled-components'
 
 import theme from '../lib/theme'
@@ -10,18 +11,20 @@ import Header from './Header'
 
 type Props = {|
   children: React.Node,
+  router: any,
 |}
 
 class Layout extends React.Component<Props, void> {
   render() {
     console.log('Props', this.props)
-    const { children } = this.props
+    const { children, router } = this.props
+    const headerVisible = router.pathname !== '/'
 
     return (
       <ThemeProvider theme={theme}>
-        <StyledLayout>
+        <StyledLayout headerVisible={headerVisible}>
           <Meta />
-          <Header />
+          <Header visible={headerVisible} />
           {children}
           <DownloadApp>
             Download the Tunebay app for the best on-the-go experience.
@@ -56,8 +59,10 @@ const DownloadApp = styled.div`
 `
 
 const StyledLayout = styled.div`
+  padding-top: ${props => (props.headerVisible ? '60px' : '0')};
+
   width: 100%;
   padding-bottom: 10rem;
 `
 
-export default Layout
+export default withRouter(Layout)

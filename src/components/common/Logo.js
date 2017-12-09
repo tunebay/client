@@ -18,7 +18,9 @@ export default class extends Component<Props, void> {
 }
 
 const Logo = styled.div`
-  height: ${props => (props.size ? `${props.size}px` : '35px')};
+  height: ${props => (props.size ? `${props.size}px` : '36px')};
+  /* TODO */
+  width: ${props => (props.size ? `${props.size + 2}px` : '36px')};
 
   display: flex;
   justify-content: center;

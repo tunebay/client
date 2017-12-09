@@ -11,14 +11,6 @@ app
   .then(() => {
     const server = express()
 
-    server.get('/about', (req, res) => handle(req, res))
-
-    server.get('/:id', (req, res) => {
-      const actualPage = '/user'
-      const queryParams = { id: req.params.id }
-      app.render(req, res, actualPage, queryParams)
-    })
-
     server.get('*', (req, res) => handle(req, res))
 
     server.listen(port, err => {
