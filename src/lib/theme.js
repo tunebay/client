@@ -19,5 +19,7 @@ export default {
 
   boxShadow: '0 4px 28px 0 rgba(0,0,0,0.08)',
 
+  contentWidth: '123rem',
+
   primaryRedOpacity: (opacity: number) => `rgba(238, 81, 80, ${opacity})`,
 }

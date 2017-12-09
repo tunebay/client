@@ -16,7 +16,6 @@ type Props = {|
 
 class Layout extends React.Component<Props, void> {
   render() {
-    console.log('Props', this.props)
     const { children, router } = this.props
     const headerVisible = router.pathname !== '/'
 
