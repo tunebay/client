@@ -69,7 +69,7 @@ const FollowButton = styled.button`
 `
 
 export const Main = styled.main`
-  margin-top: 5rem;
+  margin-top: 7rem;
   width: 100%;
   padding: 0 3rem;
   text-align: left;
