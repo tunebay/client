@@ -18,6 +18,7 @@ export default {
   deepBlueGradient: 'linear-gradient(to right bottom, rgba(44, 53, 71, 0.7), rgba(26, 30, 40, 1))',
 
   boxShadow: '0 4px 28px 0 rgba(0,0,0,0.08)',
+  boxShadowFlat: '0 2px 6px 0 rgba(0,0,0,0.09)',
 
   contentWidth: '123rem',
 

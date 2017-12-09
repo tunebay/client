@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import { aspectRatio } from '../lib/styleUtils'
 
-import Grid from './Grid'
+import { Grid } from './Layout'
 import { Button } from './common'
 
 type Props = {||}

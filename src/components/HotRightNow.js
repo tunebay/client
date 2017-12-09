@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 
 import PlayablePlaylist from './PlayablePlaylist'
-import Grid from './Grid'
+import { Grid } from './Layout'
 
 type Props = {||}
 

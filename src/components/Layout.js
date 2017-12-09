@@ -34,6 +34,29 @@ class Layout extends React.Component<Props, void> {
   }
 }
 
+// exports
+
+export const Grid = styled.div`
+  max-width: ${props => (props.width ? `${props.width / 10}rem` : '123rem')};
+
+  width: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`
+
+export const Section = styled.section`
+  width: 100%;
+  padding: 0 3rem;
+  margin-bottom: 6rem;
+
+  text-align: center;
+`
+
+// private
+
 const DownloadApp = styled.div`
   box-shadow: ${props => props.theme.boxShadow};
   background-color: ${props => props.theme.primaryRedOpacity(0.98)};

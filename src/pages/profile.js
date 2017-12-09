@@ -2,8 +2,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import Layout from '../components/Layout'
-import Grid from '../components/Grid'
+import Layout, { Grid, Section } from '../components/Layout'
 
 import { aspectRatio } from '../lib/styleUtils'
 
@@ -28,44 +27,62 @@ class Profile extends Component<Props, void> {
           <Overlay />
         </Cover>
 
-        <Section>
+        <Main>
           <Grid>
             <User>
               <ProfilePicture photo={user.photo} />
               <Name>{user.name}</Name>
+              <Bio>{user.bio}</Bio>
             </User>
             <Playlists />
           </Grid>
-        </Section>
+        </Main>
       </Layout>
     )
   }
 }
 
-const Section = styled.section`
+export const Main = styled.main`
+  margin-top: 5rem;
   width: 100%;
   padding: 0 3rem;
-  margin-bottom: 6rem;
-
-  text-align: center;
-`
-
-const User = styled.div`
-  background-color: pink;
-  width: 24%;
   text-align: left;
 `
 
-const Name = styled.h1``
+const User = styled.div`
+  margin-top: -10rem;
+  width: 24%;
+`
 
-const ProfilePicture = styled.div`
+const Name = styled.h1`
+  padding-top: 2rem;
+  font-size: 3rem;
+  font-weight: 900;
+`
+
+const Bio = styled.p`
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  line-height: 1.4;
+`
+
+const ProfilePicture = styled.button`
   background-image: url(${props => props.photo});
-  box-shadow: ${props => props.theme.boxShadow};
+  box-shadow: ${props => props.theme.boxShadowFlat};
 
+  border: none;
+  outline: none;
   width: 80%;
   ${aspectRatio('100%')};
   background-size: cover;
   border-radius: 100%;
+  transition: all 200ms ease-out;
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: ${props => props.theme.boxShadow};
+  }
 `
 
 const Playlists = styled.div`

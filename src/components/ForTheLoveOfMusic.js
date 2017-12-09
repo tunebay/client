@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { media } from '../lib/styleUtils'
 
 // import PlayButton from './PlayButton'
-import Grid from './Grid'
+import { Grid } from './Layout'
 
 export default () => (
   <ForTheLoveOfMusic>

@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import Layout from '../components/Layout'
+import Layout, { Section } from '../components/Layout'
 import Hero from '../components/Hero'
 import HotRightNow from '../components/HotRightNow'
 import ForTheLoveOfMusic from '../components/ForTheLoveOfMusic'
@@ -34,14 +34,6 @@ class Index extends Component<Props, void> {
     )
   }
 }
-
-const Section = styled.section`
-  width: 100%;
-  padding: 0 3rem;
-  margin-bottom: 6rem;
-
-  text-align: center;
-`
 
 const Title = styled.h3`
   margin: 0 auto;
