@@ -14,6 +14,7 @@ const featuredArtists = [
   {
     id: 4,
     name: 'Kwabs',
+    username: 'kwabs',
     image: 'http://www.mobo.com/sites/default/files/Kwabs-Press1-.jpg',
     bio:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
@@ -21,6 +22,7 @@ const featuredArtists = [
   {
     id: 1,
     name: 'Taya',
+    username: 'taya',
     image: 'https://s3.eu-west-2.amazonaws.com/tunebay/taya.jpg',
     bio:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
@@ -28,6 +30,7 @@ const featuredArtists = [
   {
     id: 3,
     name: 'Super-organism',
+    username: 'superorganism',
     image:
       'https://cdn.mbw.44bytes.net/files/2017/11/Screen-Shot-2017-11-08-at-08.59.52.jpg',
     bio:
@@ -36,6 +39,7 @@ const featuredArtists = [
   {
     id: 2,
     name: 'Dan Shake',
+    username: 'danshake',
     image: 'https://s3.eu-west-2.amazonaws.com/tunebay/Dan-Shake-2.jpg',
     bio:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
@@ -46,7 +50,7 @@ class FeaturedArtists extends Component<Props, void> {
   render() {
     return (
       <Grid width={1320}>
-        {featuredArtists.map(({ image, bio, name, id }) => (
+        {featuredArtists.map(({ image, bio, name, id, username }) => (
           <ArtistCard key={id}>
             <CardFront image={image}>{name}</CardFront>
             <CardBack>
@@ -61,7 +65,7 @@ class FeaturedArtists extends Component<Props, void> {
                   </span>
                 ))}
               </Bio>
-              <Link href="/profile">
+              <Link as={username} href={`/profile?username=${username}`}>
                 <Button>Go to profile.</Button>
               </Link>
             </CardBack>

@@ -11,6 +11,12 @@ app
   .then(() => {
     const server = express()
 
+    server.get('/:username', (req, res) => {
+      const actualPage = '/profile'
+      const queryParams = { username: req.params.username }
+      app.render(req, res, actualPage, queryParams)
+    })
+
     server.get('*', (req, res) => handle(req, res))
 
     server.listen(port, err => {

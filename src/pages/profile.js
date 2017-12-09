@@ -152,33 +152,135 @@ const Overlay = styled.div`
   background-image: linear-gradient(rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0.2));
 `
 
-Profile.getInitialProps = async () => {
-  const user = {
-    name: 'Mabel',
-    bio: '🚀 Just out here writing fake bios that are at least 2 lines long',
-    cover: 'https://i1.sndcdn.com/visuals-000161652148-8uID1y-t2480x520.jpg',
-    photo: 'https://hamadamania.files.wordpress.com/2017/03/mabel08.jpg',
-    playlists: [
-      {
-        id: 1,
-        title: 'Ivy To Roses',
-        artwork:
-          'https://i2.wp.com/s1.xclusivejams.com/2017/10/Mabel-Ivy-To-Roses-Mixtape-iTunes-Plus-M4A.jpg?w=640&ssl=1',
-      },
-      {
-        id: 2,
-        title: 'My Boy My Town',
-        artwork:
-          'https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/58/6e/51/586e51d3-6175-c286-a06b-7f2d007875f2/15UMGIM65453.jpg/1200x630bb.jpg',
-      },
-      {
-        id: 3,
-        title: 'Thinking Of You',
-        artwork:
-          'https://images.genius.com/122c310b162d72c5d271d32753b5fa60.630x630x1.jpg',
-      },
-    ],
-  }
+Profile.getInitialProps = async context => {
+  // if context.query
+  console.log(context)
+  const { username } = context.query
+  console.log('username is', username)
+  const user = [
+    {
+      id: 1,
+      name: 'Mabel',
+      username: 'mabel',
+      bio: '🚀 Just out here writing fake bios that are at least 2 lines long',
+      cover: 'https://i1.sndcdn.com/visuals-000161652148-8uID1y-t2480x520.jpg',
+      photo: 'https://hamadamania.files.wordpress.com/2017/03/mabel08.jpg',
+      playlists: [
+        {
+          id: 1,
+          title: 'Ivy To Roses',
+          artwork:
+            'https://i2.wp.com/s1.xclusivejams.com/2017/10/Mabel-Ivy-To-Roses-Mixtape-iTunes-Plus-M4A.jpg?w=640&ssl=1',
+        },
+        {
+          id: 2,
+          title: 'My Boy My Town',
+          artwork:
+            'https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/58/6e/51/586e51d3-6175-c286-a06b-7f2d007875f2/15UMGIM65453.jpg/1200x630bb.jpg',
+        },
+        {
+          id: 3,
+          title: 'Thinking Of You',
+          artwork:
+            'https://images.genius.com/122c310b162d72c5d271d32753b5fa60.630x630x1.jpg',
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: 'Kwabs',
+      username: 'kwabs',
+      bio: '🚀 Just out here writing fake bios that are at least 2 lines long',
+      cover: 'https://i1.sndcdn.com/visuals-000002842378-gQ9HT3-t2480x520.jpg',
+      photo: 'https://i1.sndcdn.com/avatars-000129316563-iqfoha-t500x500.jpg',
+      playlists: [
+        {
+          id: 1,
+          title: 'Love + War',
+          artwork: 'https://i1.sndcdn.com/artworks-0hDPbHUtMjWO-0-t500x500.jpg',
+        },
+        {
+          id: 2,
+          title: 'Cheating On Me',
+          artwork:
+            'https://i1.sndcdn.com/artworks-000138126630-gops5c-t500x500.jpg',
+        },
+        {
+          id: 3,
+          title: 'Walk',
+          artwork: 'https://i1.sndcdn.com/artworks-wylrh6pNAk2b-0-t500x500.jpg',
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: 'Taya',
+      username: 'taya',
+      bio: '🚀 Just out here writing fake bios that are at least 2 lines long',
+      cover: 'https://i1.sndcdn.com/visuals-000024328107-Rz0BGo-t2480x520.jpg',
+      photo: 'https://i1.sndcdn.com/avatars-000332530388-c4w465-t500x500.jpg',
+      playlists: [
+        {
+          id: 1,
+          title: 'When Ur Sober',
+          artwork: 'https://i1.sndcdn.com/artworks-7xbVEf5nJf1s-0-t500x500.jpg',
+        },
+        {
+          id: 2,
+          title: 'Redlight',
+          artwork:
+            'https://i1.sndcdn.com/artworks-b2350727-2418-480b-87c0-47178c030ea2-0-t500x500.jpg',
+        },
+        {
+          id: 3,
+          title: 'Deeper',
+          artwork: 'https://i1.sndcdn.com/artworks-S5enoBO1t7ca-0-t500x500.jpg',
+        },
+      ],
+    },
+    {
+      id: 4,
+      name: 'Super-organism',
+      username: 'superorganism',
+      bio: '🚀 Just out here writing fake bios that are at least 2 lines long',
+      cover: 'https://i1.sndcdn.com/visuals-000280613089-o3KIxO-t2480x520.jpg',
+      photo: 'https://i1.sndcdn.com/avatars-000291846497-whxcmc-t500x500.jpg',
+      playlists: [
+        {
+          id: 1,
+          title: 'Something For Your M.I.N.D',
+          artwork: 'https://i1.sndcdn.com/artworks-NeORKaFfnXy0-0-t500x500.png',
+        },
+        {
+          id: 2,
+          title: 'Nobody Cares',
+          artwork: 'https://i1.sndcdn.com/artworks-w1rexXd0Krku-0-t500x500.png',
+        },
+      ],
+    },
+    {
+      id: 5,
+      name: 'Dan Shake',
+      username: 'danshake',
+      bio: '🚀 Just out here writing fake bios that are at least 2 lines long',
+      cover: 'https://i1.sndcdn.com/visuals-000017457541-BH5eIh-t2480x520.jpg',
+      photo: 'https://i1.sndcdn.com/avatars-000115448975-e9t5cp-t500x500.jpg',
+      playlists: [
+        {
+          id: 1,
+          title: "Shake's On A Plane ",
+          artwork:
+            'https://i1.sndcdn.com/artworks-000246329913-s5iwvy-t500x500.jpg',
+        },
+        {
+          id: 2,
+          title: 'Northern Merry',
+          artwork:
+            'https://i1.sndcdn.com/artworks-000142313354-20yxz2-t500x500.jpg',
+        },
+      ],
+    },
+  ].find(user => user.username === username)
   return { user }
 }
 export default Profile
