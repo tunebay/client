@@ -18,7 +18,6 @@ class Profile extends Component<Props, void> {
   static getInitialProps: () => any
 
   render() {
-    console.log('profile props', this.props)
     const { user, statusCode, url } = this.props
 
     if (statusCode) return <Error statusCode={statusCode} url={url} />
@@ -119,7 +118,7 @@ const ProfilePicture = styled.button`
 
   border: none;
   outline: none;
-  width: 80%;
+  width: 75%;
   ${aspectRatio('100%')};
   background-size: cover;
   transition: all 300ms ease-out;
