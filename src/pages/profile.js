@@ -79,7 +79,7 @@ const Playlist = styled.div`
   background-image: url(${props => props.image});
   box-shadow: ${props => props.theme.boxShadow};
 
-  width: 30.5%;
+  width: 31%;
   margin-bottom: 3rem;
   background-color: #e4e4e4;
   border-radius: 6px;
@@ -90,8 +90,8 @@ const Playlist = styled.div`
 `
 
 const User = styled.div`
-  margin-top: -11rem;
-  width: 24%;
+  margin-top: -15rem;
+  width: 23.5%;
 `
 
 const Name = styled.h1`
