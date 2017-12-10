@@ -41,7 +41,9 @@ export default class extends Component<Props, void> {
           <SearchBar onSubmit={this.handleSearch} />
         </Middle>
         <Right>
-          <NavLink color="#111111">Login</NavLink>
+          <Link as="/hello" href="/profile?username=hello">
+            <NavLink color="#111111">Login</NavLink>
+          </Link>
           <NavLink color="#E43D3C">Create account</NavLink>
         </Right>
       </Header>

@@ -4,18 +4,25 @@ import styled from 'styled-components'
 
 import Layout, { Grid } from '../components/Layout'
 import type { UserType } from '../types'
-
 import { aspectRatio } from '../lib/styleUtils'
+
+import Error from './_error'
 
 type Props = {|
   user: UserType,
+  statusCode?: 404 | 500,
+  url: any,
 |}
 
 class Profile extends Component<Props, void> {
   static getInitialProps: () => any
 
   render() {
-    const { user } = this.props
+    console.log('profile props', this.props)
+    const { user, statusCode, url } = this.props
+
+    if (statusCode) return <Error statusCode={statusCode} url={url} />
+
     return (
       <Layout>
         <Cover>
@@ -153,10 +160,7 @@ const Overlay = styled.div`
 `
 
 Profile.getInitialProps = async context => {
-  // if context.query
-  console.log(context)
   const { username } = context.query
-  console.log('username is', username)
   const user = [
     {
       id: 1,
@@ -280,7 +284,8 @@ Profile.getInitialProps = async context => {
         },
       ],
     },
-  ].find(user => user.username === username)
-  return { user }
+  ].find(foundUser => foundUser.username === username)
+  const statusCode = user ? null : 404
+  return { user, statusCode }
 }
 export default Profile
