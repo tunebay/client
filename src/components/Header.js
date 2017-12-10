@@ -31,7 +31,7 @@ export default class extends Component<Props, void> {
               Home
             </NavLink>
           </Link>
-          <Link href="/profile">
+          <Link as="/mabel" href="/profile?username=mabel">
             <NavLink color="#111111" spacing="5rem">
               Discover
             </NavLink>

@@ -65,7 +65,11 @@ class FeaturedArtists extends Component<Props, void> {
                   </span>
                 ))}
               </Bio>
-              <Link as={username} href={`/profile?username=${username}`}>
+              <Link
+                prefetch
+                as={username}
+                href={`/profile?username=${username}`}
+              >
                 <Button>Go to profile.</Button>
               </Link>
             </CardBack>
