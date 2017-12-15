@@ -24,7 +24,7 @@ class Profile extends Component<Props, void> {
     if (statusCode) return <Error statusCode={statusCode} url={url} />
 
     return (
-      <Layout>
+      <Layout title={user.name}>
         <Cover>
           <CoverPhoto src={user.cover} />
           <Overlay />

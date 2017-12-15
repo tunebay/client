@@ -14,7 +14,7 @@ type Props = {||}
 class Index extends Component<Props, void> {
   render() {
     return (
-      <Layout>
+      <Layout title="Tunebay - For the love of music">
         <Hero />
 
         <Section>

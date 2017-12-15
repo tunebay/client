@@ -13,7 +13,7 @@ export default class Error extends Component<Props, void> {
   render() {
     const { statusCode, url } = this.props
     return (
-      <Layout>
+      <Layout title="Page not found 👀">
         <Main>
           <Heading>Sorry that page does not exist!</Heading>
           <P>Try searching for a result instead</P>
@@ -24,22 +24,18 @@ export default class Error extends Component<Props, void> {
     )
   }
 }
-
 const Main = styled.main`
   text-align: center;
   padding-top: 7rem;
 `
-
 const P = styled.p`
   line-height: 1.4;
   padding: 3rem 0;
 `
-
 const Heading = styled.h2`
   font-size: 3.6rem;
   font-weight: 800;
 `
-
 const Input = styled.input`
   background-color: ${props => props.theme.lightestGrey};
   font-size: 1.6rem;

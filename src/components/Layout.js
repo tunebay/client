@@ -12,17 +12,18 @@ import Header from './Header'
 type Props = {|
   children: React.Node,
   router: any,
+  title: string,
 |}
 
 class Layout extends React.Component<Props, void> {
   render() {
-    const { children, router } = this.props
+    const { children, router, title } = this.props
     const headerVisible = router.pathname !== '/'
 
     return (
       <ThemeProvider theme={theme}>
         <StyledLayout headerVisible={headerVisible}>
-          <Meta />
+          <Meta title={title} />
           <Header visible={headerVisible} />
           {children}
           <DownloadApp>
