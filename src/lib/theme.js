@@ -9,10 +9,11 @@ export default {
 
   white:         '#ffffff',
   lightestGrey:  '#f7f7f7',
-  lighterGrey:   '#d9d9d9',
-  lightGrey:     '#ccc',
-  grey:          '#999',
-  darkGrey:      '#666',
+  lighterGrey:   '#EEEEEE',
+  lightGrey:     '#d9d9d9',
+  grey:          '#ccc',
+  darkGrey:      '#999',
+  darkestGrey:   '#666',
   black:         '#111111',
 
   deepBlueGradient: 'linear-gradient(to right bottom, rgba(44, 53, 71, 0.7), rgba(26, 30, 40, 1))',

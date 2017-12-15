@@ -5,6 +5,6 @@ import Layout from '../components/Layout'
 
 export default () => (
   <Layout>
-    <p>This is the about page</p>
+    <h1>Playlist Page</h1>
   </Layout>
 )

@@ -11,6 +11,8 @@ app
   .then(() => {
     const server = express()
 
+    server.get('/playlist', (req, res) => handle(req, res))
+
     server.get('/:username', (req, res) => {
       const actualPage = '/profile'
       const queryParams = { username: req.params.username }

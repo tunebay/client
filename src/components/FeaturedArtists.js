@@ -53,7 +53,6 @@ class FeaturedArtists extends Component<Props, void> {
           <ArtistCard key={id}>
             <CardFront image={image}>{name}</CardFront>
             <CardBack>
-              <Avatar image={image} />
               <Name>{name}</Name>
               <Bio>
                 {bio.split('\n').map((item, key) => (
@@ -156,16 +155,6 @@ const Bio = styled.p`
   flex: 1;
 
   text-align: left;
-`
-
-const Avatar = styled.div`
-  background-image: ${props => props.image};
-
-  height: 60px;
-  width: 60px;
-  border-radius: 500px;
-
-  background-size: cover;
 `
 
 export default FeaturedArtists

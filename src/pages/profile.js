@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import Layout, { Grid } from '../components/Layout'
 import type { UserType } from '../types'
-import { aspectRatio } from '../lib/styleUtils'
+import { aspectRatio, truncate } from '../lib/styleUtils'
 
 import Error from './_error'
 
@@ -40,7 +40,10 @@ class Profile extends Component<Props, void> {
             <Playlists>
               <Grid>
                 {user.playlists.map(playlist => (
-                  <Playlist key={playlist.id} image={playlist.artwork} />
+                  <Playlist>
+                    <Artwork key={playlist.id} image={playlist.artwork} />
+                    <PlaylistTitle>{playlist.title}</PlaylistTitle>
+                  </Playlist>
                 ))}
               </Grid>
             </Playlists>
@@ -74,29 +77,48 @@ const FollowButton = styled.button`
   }
 `
 
+const PlaylistTitle = styled.h2`
+  font-size: 2rem;
+  padding: 1.2rem 0;
+
+  ${truncate('100%')};
+
+  &:hover {
+    cursor: pointer;
+  }
+`
+
 export const Main = styled.main`
   margin-top: 6rem;
   width: 100%;
   padding: 0 3rem;
+
   text-align: left;
 `
 
-const Playlist = styled.div`
+const Artwork = styled.div`
   background-image: url(${props => props.image});
   box-shadow: ${props => props.theme.boxShadow};
 
-  width: 31%;
-  margin-bottom: 3rem;
-  background-color: #e4e4e4;
+  width: 100%;
   border-radius: 6px;
 
   background-size: cover;
 
   ${aspectRatio('100%')};
+
+  &:hover {
+    cursor: pointer;
+  }
+`
+
+const Playlist = styled.div`
+  width: 31%;
+  margin-bottom: 3rem;
 `
 
 const User = styled.div`
-  margin-top: -15rem;
+  margin-top: -13rem;
   width: 23.5%;
 `
 
@@ -116,16 +138,21 @@ const ProfilePicture = styled.button`
   background-image: url(${props => props.photo});
   box-shadow: ${props => props.theme.boxShadow};
 
-  border: none;
-  outline: none;
   width: 75%;
-  ${aspectRatio('100%')};
-  background-size: cover;
   transition: all 300ms ease-out;
   border-radius: 100%;
+  border: 0.5rem solid white;
+
+  outline: none;
+  background-size: cover;
+  box-sizing: content-box;
+
+  ${aspectRatio('100%')};
 
   &:hover {
     cursor: pointer;
+    border-radius: 4px;
+    border: 0.5rem solid white;
   }
 `
 

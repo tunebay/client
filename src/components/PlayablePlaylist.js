@@ -66,7 +66,7 @@ const Title = styled.div`
 `
 
 const Artist = styled.div`
-  color: ${props => props.theme.grey};
+  color: ${props => props.theme.darkGrey};
 
   font-weight: 400;
   font-size: 1.4rem;

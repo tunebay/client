@@ -69,7 +69,7 @@ const SearchForm = styled.form`
 `
 
 const SearchInput = styled.input`
-  background-color: ${props => props.theme.lightestGrey};
+  background-color: ${props => props.theme.lighterGrey};
   color: ${props => props.theme.black};
   height: 36px;
   border-radius: 5px;
@@ -86,13 +86,13 @@ const SearchInput = styled.input`
 
   &::-webkit-input-placeholder {
     font-weight: 400;
-    color: ${props => props.theme.lightGrey};
+    color: ${props => props.theme.darkGrey};
   }
 
   &:focus {
     width: 60%;
     &::-webkit-input-placeholder {
-      color: ${props => props.theme.lighterGrey};
+      color: ${props => props.theme.grey};
     }
   }
 
