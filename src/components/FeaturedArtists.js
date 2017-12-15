@@ -31,8 +31,7 @@ const featuredArtists = [
     id: 3,
     name: 'Super-organism',
     username: 'superorganism',
-    image:
-      'https://cdn.mbw.44bytes.net/files/2017/11/Screen-Shot-2017-11-08-at-08.59.52.jpg',
+    image: 'https://s3.eu-west-2.amazonaws.com/tunebay/super.jpg',
     bio:
       "Stupidly fun, sample-happy and eight members strong, Superorganism are a force for good.\n \nDebut single 'Something For Your M.I.N.D.' proudly boasts the collective's skill in making saccharine, sense-zapping pop without the cheese.",
   },

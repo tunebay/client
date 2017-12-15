@@ -19,6 +19,7 @@ class Index extends Component<Props, void> {
 
         <Section>
           <Title>Hot right now</Title>
+          {/* $FlowFixMe will be fixed with real data */}
           <HotRightNow />
         </Section>
 
