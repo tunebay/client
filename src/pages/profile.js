@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import Link from 'next/link'
 
 import Layout, { Grid } from '../components/Layout'
 import type { UserType } from '../types'
@@ -40,10 +41,12 @@ class Profile extends Component<Props, void> {
             <Playlists>
               <Grid>
                 {user.playlists.map(playlist => (
-                  <Playlist>
-                    <Artwork key={playlist.id} image={playlist.artwork} />
-                    <PlaylistTitle>{playlist.title}</PlaylistTitle>
-                  </Playlist>
+                  <Link href="/">
+                    <Playlist>
+                      <Artwork key={playlist.id} image={playlist.artwork} />
+                      <PlaylistTitle>{playlist.title}</PlaylistTitle>
+                    </Playlist>
+                  </Link>
                 ))}
               </Grid>
             </Playlists>
@@ -182,7 +185,7 @@ const Overlay = styled.div`
 
   position: absolute;
 
-  background-image: linear-gradient(rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0.2));
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0.4));
 `
 
 Profile.getInitialProps = async context => {
