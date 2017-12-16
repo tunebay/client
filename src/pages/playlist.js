@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import type { PlaylistType } from '../types';
 import Layout, { Grid } from '../components/Layout';
 import { aspectRatio } from '../lib/styleUtils';
+import { Chevron } from '../components/svgs';
 
 type Props = {|
   playlist: PlaylistType,
@@ -24,11 +25,13 @@ class Playlist extends Component<Props, void> {
               <Artwork image={artwork} />
               <BuyButton>
                 <BuyMain>Buy now £{price}</BuyMain>
-                <BuyMenu />
+                <BuyMenu>
+                  <Chevron fill="#ffffff" />
+                </BuyMenu>
               </BuyButton>
               <Supporters supporters={supporters} />
             </LeftContent>
-            <RightCotent>Right</RightCotent>
+            <RightCotent>Right side content</RightCotent>
           </Grid>
         </Main>
       </Layout>
@@ -144,8 +147,15 @@ const BuyMenu = styled.button`
   flex: 1;
   border-radius: 0 6px 6px 0;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   outline: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const LeftContent = styled.div`
