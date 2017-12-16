@@ -1,10 +1,20 @@
 // @flow
-import React from 'react'
+import React, { Component } from 'react'
 
 import Layout from '../components/Layout'
 
-export default () => (
-  <Layout>
-    <h1>Playlist Page</h1>
-  </Layout>
-)
+type Props = {||}
+
+class Playlist extends Component<Props, void> {
+  static getInitialProps: () => any
+
+  render() {
+    return (
+      <Layout>
+        <h1>Playlist Page</h1>
+      </Layout>
+    )
+  }
+}
+
+export default Playlist
