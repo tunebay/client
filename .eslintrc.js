@@ -18,6 +18,7 @@ module.exports = {
     'space-before-function-paren': 'off',
     'no-underscore-dangle': 'off',
     'no-console': 'off',
+    'no-use-before-define': 'off',
     'func-names': 'off',
     semi: 'off',
     'no-unused-expressions': [

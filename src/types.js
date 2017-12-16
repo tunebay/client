@@ -1,9 +1,19 @@
 // @flow
+export type TrackType = {|
+  id: number,
+  name: string,
+  duraiton: number, // seconds
+  price: number | null,
+|}
+
 export type PlaylistType = {|
   artwork: string,
   title: string,
   id: number,
-  artist: string,
+  price: number,
+  artist: UserType,
+  tracks: Array<TrackType>,
+  supporters: Array<UserType>,
 |}
 
 export type UserType = {|

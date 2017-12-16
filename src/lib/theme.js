@@ -5,6 +5,9 @@ export default {
   primaryRed:    '#ee5150',
   darkRed:       '#E43D3C',
 
+  green:         '#43AC6A',
+  darkGreen:     '#40A164',
+
   deepBlue:      '#1a1e28',
 
   white:         '#ffffff',
@@ -18,8 +21,8 @@ export default {
 
   deepBlueGradient: 'linear-gradient(to right bottom, rgba(44, 53, 71, 0.7), rgba(26, 30, 40, 1))',
 
-  boxShadow: '0 4px 28px 0 rgba(0,0,0,0.08)',
-  boxShadowFlat: '0 2px 20px 0 rgba(0,0,0,0.1)',
+  boxShadow: '0 8px 28px 0 rgba(0,0,0,0.1)',
+  boxShadowFlat: '0 1px 8px 0 rgba(0,0,0,0.1)',
 
   contentWidth: '123rem',
 

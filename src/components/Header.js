@@ -106,7 +106,7 @@ const SearchInput = styled.input`
 const Header = styled.header`
   background-color: ${props => props.theme.white};
   /* Look into different shadow for header */
-  box-shadow: ${props => props.theme.boxShadow};
+  box-shadow: ${props => props.theme.boxShadowFlat};
 
   width: 100%;
   padding: 0 6rem;

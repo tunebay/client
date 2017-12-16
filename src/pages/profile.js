@@ -99,6 +99,7 @@ export const Main = styled.main`
   text-align: left;
 `
 
+// TODO break out - same as one on playlist page
 const Artwork = styled.div`
   background-image: url(${props => props.image});
   box-shadow: ${props => props.theme.boxShadow};
