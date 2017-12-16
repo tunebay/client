@@ -17,6 +17,7 @@ export type PlaylistType = {
 };
 
 export type UserType = {
+  id: number,
   name: string,
   bio: string,
   cover: string,

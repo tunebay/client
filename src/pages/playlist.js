@@ -32,7 +32,7 @@ class Playlist extends Component<Props, void> {
               <Supporters supporters={supporters} />
             </LeftContent>
 
-            <RightCotent>Right side content</RightCotent>
+            <RightCotent />
           </Grid>
         </Main>
       </Layout>
@@ -54,7 +54,7 @@ const Supporters = props => {
         </NoSupporters>
       ) : (
         <SupportersList>
-          {supporters.map(user => <Avatar image={user.avatar} />)}
+          {supporters.map(user => <Avatar key={user.id} image={user.avatar} />)}
         </SupportersList>
       )}
     </Section>
@@ -70,8 +70,8 @@ const SupportersList = styled.ul`
 const Avatar = styled.li`
   background-image: url(${props => props.image});
 
-  width: 4.2rem;
-  height: 4.2rem;
+  width: 4.4rem;
+  height: 4.4rem;
   border-radius: 500px;
   margin-right: 0.8rem;
   margin-bottom: 0.8rem;
@@ -167,7 +167,7 @@ const LeftContent = styled.div`
 
 const RightCotent = styled.div`
   width: 65%;
-  background-color: #e4e4e4;
+  background-color: #fafafa;
 `;
 
 // TODO break out same as in profile
