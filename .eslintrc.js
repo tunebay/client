@@ -20,7 +20,6 @@ module.exports = {
     'no-console': 'off',
     'no-use-before-define': 'off',
     'func-names': 'off',
-    semi: 'off',
     'no-unused-expressions': [
       'error',
       {
@@ -42,4 +41,4 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
   },
-}
+};

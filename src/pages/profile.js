@@ -1,27 +1,27 @@
 // @flow
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import Link from 'next/link'
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import Link from 'next/link';
 
-import Layout, { Grid } from '../components/Layout'
-import type { UserType } from '../types'
-import { aspectRatio, truncate } from '../lib/styleUtils'
+import Layout, { Grid } from '../components/Layout';
+import type { UserType } from '../types';
+import { aspectRatio, truncate } from '../lib/styleUtils';
 
-import Error from './_error'
+import Error from './_error';
 
 type Props = {|
   user: UserType,
   statusCode?: 404 | 500,
   url: any,
-|}
+|};
 
 class Profile extends Component<Props, void> {
-  static getInitialProps: () => any
+  static getInitialProps: () => any;
 
   render() {
-    const { user, statusCode, url } = this.props
+    const { user, statusCode, url } = this.props;
 
-    if (statusCode) return <Error statusCode={statusCode} url={url} />
+    if (statusCode) return <Error statusCode={statusCode} url={url} />;
 
     return (
       <Layout title={user.name}>
@@ -53,7 +53,7 @@ class Profile extends Component<Props, void> {
           </Grid>
         </Main>
       </Layout>
-    )
+    );
   }
 }
 
@@ -78,7 +78,7 @@ const FollowButton = styled.button`
     cursor: pointer;
     background-color: ${props => props.theme.darkRed};
   }
-`
+`;
 
 const PlaylistTitle = styled.h2`
   font-size: 2rem;
@@ -89,7 +89,7 @@ const PlaylistTitle = styled.h2`
   &:hover {
     cursor: pointer;
   }
-`
+`;
 
 export const Main = styled.main`
   margin-top: 6rem;
@@ -97,7 +97,7 @@ export const Main = styled.main`
   padding: 0 3rem;
 
   text-align: left;
-`
+`;
 
 // TODO break out - same as one on playlist page
 const Artwork = styled.div`
@@ -114,29 +114,29 @@ const Artwork = styled.div`
   &:hover {
     cursor: pointer;
   }
-`
+`;
 
 const Playlist = styled.div`
   width: 31%;
   margin-bottom: 3rem;
-`
+`;
 
 const User = styled.div`
   margin-top: -13rem;
   width: 23.5%;
-`
+`;
 
 const Name = styled.h1`
   padding-top: 2rem;
   font-size: 3rem;
   font-weight: 900;
-`
+`;
 
 const Bio = styled.p`
   font-size: 1.5rem;
   padding: 1.2rem 0;
   line-height: 1.4;
-`
+`;
 
 const ProfilePicture = styled.button`
   background-image: url(${props => props.photo});
@@ -158,23 +158,23 @@ const ProfilePicture = styled.button`
     border-radius: 4px;
     border: 0.5rem solid white;
   }
-`
+`;
 
 const Playlists = styled.div`
   width: 73%;
   height: 50px;
-`
+`;
 
 const Cover = styled.header`
   position: relative;
   z-index: -1;
-`
+`;
 
 const CoverPhoto = styled.img`
   width: 100%;
 
   height: auto;
-`
+`;
 
 const Overlay = styled.div`
   height: 99%;
@@ -187,10 +187,10 @@ const Overlay = styled.div`
   position: absolute;
 
   background-image: linear-gradient(rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0.4));
-`
+`;
 
 Profile.getInitialProps = async context => {
-  const { username } = context.query
+  const { username } = context.query;
   const user = [
     {
       id: 1,
@@ -314,8 +314,8 @@ Profile.getInitialProps = async context => {
         },
       ],
     },
-  ].find(foundUser => foundUser.username === username)
-  const statusCode = user ? null : 404
-  return { user, statusCode }
-}
-export default Profile
+  ].find(foundUser => foundUser.username === username);
+  const statusCode = user ? null : 404;
+  return { user, statusCode };
+};
+export default Profile;

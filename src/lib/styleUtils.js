@@ -1,12 +1,12 @@
 // @flow
-import { css, keyframes } from 'styled-components'
+import { css, keyframes } from 'styled-components';
 
 export const truncate = (width: string) => `
   width: ${width};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-`
+`;
 
 const sizes = {
   giant: 1800,
@@ -19,17 +19,17 @@ const sizes = {
   break2: 993,
   break3: 760,
   break4: 600,
-}
+};
 
 export const media = Object.keys(sizes).reduce((accumulator, label) => {
-  const emSize = sizes[label] / 16
+  const emSize = sizes[label] / 16;
   accumulator[label] = (...args: Array<any>) => css`
     @media (max-width: ${emSize}em) {
       ${css(...args)};
     }
-  `
-  return accumulator
-}, {})
+  `;
+  return accumulator;
+}, {});
 
 export const aspectRatio = (percent: string) => `
   &::before {
@@ -37,7 +37,7 @@ export const aspectRatio = (percent: string) => `
     display: block;
     padding-top: ${percent};
   }
-`
+`;
 
 export const float = () => keyframes`
   0% {
@@ -48,4 +48,4 @@ export const float = () => keyframes`
     box-shadow: 0 4px 28px 0 rgba(0,0,0,0.08);
     transform: translateY(-3px);
   }
-`
+`;

@@ -1,8 +1,8 @@
 // @flow
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-type Props = {||}
+type Props = {||};
 
 export default (props: Props) => (
   <Search>
@@ -30,7 +30,7 @@ export default (props: Props) => (
       </g>
     </svg>
   </Search>
-)
+);
 
 const Search = styled.button`
   height: 16px;
@@ -43,4 +43,4 @@ const Search = styled.button`
   &:hover {
     cursor: pointer;
   }
-`
+`;

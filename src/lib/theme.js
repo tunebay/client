@@ -30,4 +30,4 @@ export default {
   headerHeight: '6rem',
 
   primaryRedOpacity: (opacity: number) => `rgba(238, 81, 80, ${opacity})`,
-}
+};

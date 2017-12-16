@@ -1,13 +1,13 @@
 // @flow
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 type Props = {|
   fill: string,
-|}
+|};
 
 export default (props: Props) => {
-  const { fill } = props
+  const { fill } = props;
   return (
     <Play>
       <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -34,11 +34,11 @@ export default (props: Props) => {
         </g>
       </svg>
     </Play>
-  )
-}
+  );
+};
 
 const Play = styled.div`
   padding-left: 2px;
   height: 24px;
   width: 24px;
-`
+`;

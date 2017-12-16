@@ -1,18 +1,18 @@
 // @flow
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
-import { aspectRatio } from '../lib/styleUtils'
+import { aspectRatio } from '../lib/styleUtils';
 
-import PlayButton from './PlayButton'
+import PlayButton from './PlayButton';
 
 type Props = {|
   image: string,
-|}
+|};
 
 export default class extends Component<Props, void> {
   render() {
-    const { image } = this.props
+    const { image } = this.props;
 
     return (
       <Artwork image={image}>
@@ -20,7 +20,7 @@ export default class extends Component<Props, void> {
           <PlayButton onClick={() => console.log('play')} />
         </Overlay>
       </Artwork>
-    )
+    );
   }
 }
 
@@ -44,7 +44,7 @@ const Artwork = styled.div`
   &:hover > * {
     visibility: visible;
   }
-`
+`;
 
 const Overlay = styled.div`
   transition: visibility 0s, opacity 0.5s linear;
@@ -60,4 +60,4 @@ const Overlay = styled.div`
   position: absolute;
 
   background-image: linear-gradient(to bottom, rgba(255,255,255,0) 80%,rgba(0,0,0,0.3) 100%); );
-`
+`;

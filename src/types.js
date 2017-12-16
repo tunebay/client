@@ -4,7 +4,7 @@ export type TrackType = {
   name: string,
   duraiton: number, // seconds
   price: number | null,
-}
+};
 
 export type PlaylistType = {
   artwork: string,
@@ -14,7 +14,7 @@ export type PlaylistType = {
   artist: UserType,
   tracks: Array<TrackType>,
   supporters: Array<UserType>,
-}
+};
 
 export type UserType = {
   name: string,
@@ -23,4 +23,4 @@ export type UserType = {
   photo: string,
   avatar: string,
   playlists: Array<PlaylistType>,
-}
+};

@@ -1,14 +1,14 @@
 // @flow
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import Link from 'next/link'
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import Link from 'next/link';
 
-import { aspectRatio } from '../lib/styleUtils'
+import { aspectRatio } from '../lib/styleUtils';
 
-import { Grid } from './Layout'
-import { Button } from './common'
+import { Grid } from './Layout';
+import { Button } from './common';
 
-type Props = {||}
+type Props = {||};
 
 const featuredArtists = [
   {
@@ -43,7 +43,7 @@ const featuredArtists = [
     bio:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
   },
-]
+];
 
 class FeaturedArtists extends Component<Props, void> {
   render() {
@@ -74,7 +74,7 @@ class FeaturedArtists extends Component<Props, void> {
           </ArtistCard>
         ))}
       </Grid>
-    )
+    );
   }
 }
 
@@ -84,7 +84,7 @@ const ArtistCard = styled.div`
   position: relative;
 
   ${aspectRatio('150%')};
-`
+`;
 
 const CardSide = styled.div`
   box-shadow: ${props => props.theme.boxShadow};
@@ -101,7 +101,7 @@ const CardSide = styled.div`
   overflow: hidden;
   backface-visibility: hidden;
   position: absolute;
-`
+`;
 
 const CardFront = CardSide.extend`
   background-image: url(${props => props.image});
@@ -120,7 +120,7 @@ const CardFront = CardSide.extend`
   ${ArtistCard}:hover & {
     transform: rotateY(180deg);
   }
-`
+`;
 
 const CardBack = CardSide.extend`
   background-color: ${props => props.theme.deepBlue};
@@ -137,7 +137,7 @@ const CardBack = CardSide.extend`
   ${ArtistCard}:hover & {
     transform: rotateY(0);
   }
-`
+`;
 
 const Name = styled.h3`
   font-size: 3.2rem;
@@ -146,7 +146,7 @@ const Name = styled.h3`
   padding-bottom: 2rem;
 
   text-transform: uppercase;
-`
+`;
 
 const Bio = styled.p`
   font-size: 1.3rem;
@@ -155,6 +155,6 @@ const Bio = styled.p`
   flex: 1;
 
   text-align: left;
-`
+`;
 
-export default FeaturedArtists
+export default FeaturedArtists;

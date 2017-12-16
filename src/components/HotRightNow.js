@@ -1,10 +1,10 @@
 // @flow
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import type { PlaylistType } from '../types'
+import type { PlaylistType } from '../types';
 
-import PlayablePlaylist from './PlayablePlaylist'
-import { Grid } from './Layout'
+import PlayablePlaylist from './PlayablePlaylist';
+import { Grid } from './Layout';
 
 const dummyPlaylists = [
   {
@@ -31,19 +31,19 @@ const dummyPlaylists = [
     artist: { name: 'Ezra Bruno' },
     artwork: 'https://i.scdn.co/image/9da97eee896a43d6b5e3a924a23fb6efed7dfd9a',
   },
-]
+];
 
 type Props = {|
   playlists: Array<PlaylistType>,
-|}
+|};
 
 class HotRightNow extends Component<Props, void> {
-  static getInitialProps: () => any
+  static getInitialProps: () => any;
 
-  static defaultProps: { playlists: Array<PlaylistType> }
+  static defaultProps: { playlists: Array<PlaylistType> };
 
   render() {
-    const { playlists } = this.props
+    const { playlists } = this.props;
 
     return (
       <Grid>
@@ -56,10 +56,10 @@ class HotRightNow extends Component<Props, void> {
           />
         ))}
       </Grid>
-    )
+    );
   }
 }
 
-HotRightNow.defaultProps = { playlists: dummyPlaylists }
+HotRightNow.defaultProps = { playlists: dummyPlaylists };
 
-export default HotRightNow
+export default HotRightNow;

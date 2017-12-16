@@ -1,26 +1,26 @@
 // @flow
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import Link from 'next/link'
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import Link from 'next/link';
 
-import { media } from '../lib/styleUtils'
+import { media } from '../lib/styleUtils';
 
-import { Logo, NavLink } from './common'
-import { Search } from './svgs'
+import { Logo, NavLink } from './common';
+import { Search } from './svgs';
 
 type Props = {|
   visible: boolean,
-|}
+|};
 
 export default class extends Component<Props, void> {
   handleSearch = () => {
-    console.log('submit form')
-  }
+    console.log('submit form');
+  };
 
   render() {
-    const { visible } = this.props
+    const { visible } = this.props;
 
-    if (!visible) return null
+    if (!visible) return null;
 
     return (
       <Header>
@@ -47,26 +47,26 @@ export default class extends Component<Props, void> {
           <NavLink color="#E43D3C">Create account</NavLink>
         </Right>
       </Header>
-    )
+    );
   }
 }
 
 const SearchBar = (props: { onSubmit: () => any }) => {
-  const { onSubmit } = props
+  const { onSubmit } = props;
   return (
     <SearchForm onSubmit={onSubmit}>
       <SearchInput placeholder="Search" />
       <Search />
     </SearchForm>
-  )
-}
+  );
+};
 
 const SearchForm = styled.form`
   padding-left: 5rem;
   display: flex;
   align-items: center;
   flex: 1;
-`
+`;
 
 const SearchInput = styled.input`
   background-color: ${props => props.theme.lighterGrey};
@@ -101,7 +101,7 @@ const SearchInput = styled.input`
     &:focus {
       width: 100%;
   `};
-`
+`;
 
 const Header = styled.header`
   background-color: ${props => props.theme.white};
@@ -118,18 +118,18 @@ const Header = styled.header`
   align-items: center;
   justify-content: space-between;
   position: fixed;
-`
+`;
 
 const Left = styled.nav`
   display: flex;
   align-items: center;
-`
+`;
 
 const Middle = styled.div`
   flex: 1;
-`
+`;
 
 const Right = styled.nav`
   display: flex;
   align-items: center;
-`
+`;

@@ -1,24 +1,24 @@
 // @flow
-import * as React from 'react'
-import { withRouter } from 'next/router'
-import styled, { ThemeProvider } from 'styled-components'
+import * as React from 'react';
+import { withRouter } from 'next/router';
+import styled, { ThemeProvider } from 'styled-components';
 
-import theme from '../lib/theme'
-import { media } from '../lib/styleUtils'
+import theme from '../lib/theme';
+import { media } from '../lib/styleUtils';
 
-import Meta from './Meta'
-import Header from './Header'
+import Meta from './Meta';
+import Header from './Header';
 
 type Props = {|
   children: React.Node,
   router: any,
   title: string,
-|}
+|};
 
 class Layout extends React.Component<Props, void> {
   render() {
-    const { children, router, title } = this.props
-    const headerVisible = router.pathname !== '/'
+    const { children, router, title } = this.props;
+    const headerVisible = router.pathname !== '/';
 
     return (
       <ThemeProvider theme={theme}>
@@ -31,7 +31,7 @@ class Layout extends React.Component<Props, void> {
           </DownloadApp>
         </StyledLayout>
       </ThemeProvider>
-    )
+    );
   }
 }
 
@@ -46,7 +46,7 @@ export const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-`
+`;
 
 export const Section = styled.section`
   width: 100%;
@@ -54,7 +54,7 @@ export const Section = styled.section`
   margin-bottom: 6rem;
 
   text-align: center;
-`
+`;
 
 // private
 
@@ -79,13 +79,13 @@ const DownloadApp = styled.div`
   ${media.phone`
     display: flex;
   `};
-`
+`;
 
 const StyledLayout = styled.div`
   padding-top: ${props => (props.headerVisible ? '60px' : '0')};
 
   width: 100%;
   padding-bottom: ${props => props.theme.layoutBottomPadding};
-`
+`;
 
-export default withRouter(Layout)
+export default withRouter(Layout);

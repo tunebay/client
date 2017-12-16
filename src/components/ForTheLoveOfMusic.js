@@ -1,9 +1,9 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { media } from '../lib/styleUtils'
+import { media } from '../lib/styleUtils';
 
 // import PlayButton from './PlayButton'
-import { Grid } from './Layout'
+import { Grid } from './Layout';
 
 export default () => (
   <ForTheLoveOfMusic>
@@ -26,7 +26,7 @@ export default () => (
       </Right>
     </Grid>
   </ForTheLoveOfMusic>
-)
+);
 
 const ForTheLoveOfMusic = styled.section`
   background-color: ${props => props.theme.lightestGrey};
@@ -43,7 +43,7 @@ const ForTheLoveOfMusic = styled.section`
     clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
     height: 100vh;
   `};
-`
+`;
 
 const Left = styled.div`
   align-items: center;
@@ -54,13 +54,13 @@ const Left = styled.div`
     width: 100%;
     padding: 0;
   `};
-`
+`;
 
 const SectionTitle = styled.h2`
   padding-bottom: 3rem;
   font-weight: 700;
   font-size: 4.8rem;
-`
+`;
 
 const SectionDescription = styled.p`
   line-height: 1.7;
@@ -68,7 +68,7 @@ const SectionDescription = styled.p`
   ${media.break2`
     display: none;
   `};
-`
+`;
 
 const Right = styled.div`
   background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1650&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
@@ -103,4 +103,4 @@ const Right = styled.div`
     width: 100%;
     padding-top: 55%;
   `};
-`
+`;

@@ -1,10 +1,10 @@
 // @flow
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
-import { Button } from './common'
+import { Button } from './common';
 
-type Props = {||}
+type Props = {||};
 
 export default class extends Component<Props, void> {
   render() {
@@ -19,7 +19,7 @@ export default class extends Component<Props, void> {
           <Button>Create account.</Button>
         </ContentBox>
       </CallToActionFooter>
-    )
+    );
   }
 }
 
@@ -35,23 +35,23 @@ const CallToActionFooter = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-`
+`;
 
 const ContentBox = styled.div`
   max-width: 55rem;
   margin: 0 0 4rem 10rem;
-`
+`;
 
 const Title = styled.h3`
   font-size: 4.6rem;
   font-weight: 900;
   letter-spacing: 1.2px;
   padding-bottom: 1.5rem;
-`
+`;
 
 const Tag = styled.h4`
   font-size: 2.4rem;
   line-height: 1.4;
   font-weight: 400;
   padding-bottom: 2rem;
-`
+`;

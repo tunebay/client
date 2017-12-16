@@ -1,11 +1,11 @@
 // @flow
-import React from 'react'
-import styled from 'styled-components'
-import Link from 'next/link'
+import React from 'react';
+import styled from 'styled-components';
+import Link from 'next/link';
 
-import theme from '../lib/theme'
-import { media } from '../lib/styleUtils'
-import { Button, NavLink, Logo } from '../components/common'
+import theme from '../lib/theme';
+import { media } from '../lib/styleUtils';
+import { Button, NavLink, Logo } from '../components/common';
 
 export default () => (
   <Hero>
@@ -24,7 +24,7 @@ export default () => (
       <Title>Directly support the music and artists you love.</Title>
       <Button
         onClick={() => {
-          console.log('CLICKED')
+          console.log('CLICKED');
         }}
       >
         Learn more.
@@ -33,7 +33,7 @@ export default () => (
     {/* media: phone only */}
     <MenuButton />
   </Hero>
-)
+);
 
 const Hero = styled.header`
   background-color: ${props => props.theme.deepBlue};
@@ -59,13 +59,13 @@ const Hero = styled.header`
     height: 75vh;
     clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
   `};
-`
+`;
 
 const NavLinks = styled.div`
   ${media.break3`
     display: none;
   `};
-`
+`;
 
 const Nav = styled.nav`
   width: 100%;
@@ -78,7 +78,7 @@ const Nav = styled.nav`
   ${media.break3`
     padding: 3rem 3rem;
   `};
-`
+`;
 
 const Shoutout = styled.div`
   top: 25%;
@@ -92,7 +92,7 @@ const Shoutout = styled.div`
     margin: auto;
     padding: 4rem;
   `};
-`
+`;
 
 const Title = styled.h1`
   color: ${props => props.theme.white};
@@ -117,7 +117,7 @@ const Title = styled.h1`
     letter-spacing: 1px;
     line-height: 1.2;
   `};
-`
+`;
 
 const MenuButton = styled.button`
   display: none;
@@ -135,4 +135,4 @@ const MenuButton = styled.button`
     outline: none;
     border-radius: 500px;
   `};
-`
+`;

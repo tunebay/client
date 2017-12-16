@@ -1,15 +1,15 @@
 // @flow
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
-import Layout, { Section } from '../components/Layout'
-import Hero from '../components/Hero'
-import HotRightNow from '../components/HotRightNow'
-import ForTheLoveOfMusic from '../components/ForTheLoveOfMusic'
-import FeaturedArtists from '../components/FeaturedArtists'
-import CallToActionFooter from '../components/CallToActionFooter'
+import Layout, { Section } from '../components/Layout';
+import Hero from '../components/Hero';
+import HotRightNow from '../components/HotRightNow';
+import ForTheLoveOfMusic from '../components/ForTheLoveOfMusic';
+import FeaturedArtists from '../components/FeaturedArtists';
+import CallToActionFooter from '../components/CallToActionFooter';
 
-type Props = {||}
+type Props = {||};
 
 class Index extends Component<Props, void> {
   render() {
@@ -32,7 +32,7 @@ class Index extends Component<Props, void> {
 
         <CallToActionFooter />
       </Layout>
-    )
+    );
   }
 }
 
@@ -43,6 +43,6 @@ const Title = styled.h3`
   font-weight: 600;
 
   text-transform: uppercase;
-`
+`;
 
-export default Index
+export default Index;

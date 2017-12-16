@@ -1,7 +1,7 @@
 // @flow
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { media } from '../../lib/styleUtils'
+import { media } from '../../lib/styleUtils';
 
 export default styled.button`
   background-color: ${props => props.theme.primaryRed};
@@ -33,4 +33,4 @@ export default styled.button`
   ${media.phone`
     font-size: 1.6rem;
   `};
-`
+`;

@@ -1,12 +1,12 @@
 // @flow
-import * as React from 'react'
-import styled from 'styled-components'
+import * as React from 'react';
+import styled from 'styled-components';
 
 type Props = {|
   children: React.Node,
   color: string,
   spacing?: string,
-|}
+|};
 
 const NavLink = styled.a`
   color: ${props => (props.color ? props.color : props.theme.black)};
@@ -20,6 +20,6 @@ const NavLink = styled.a`
   &:hover {
     cursor: pointer;
   }
-`
+`;
 
-export default (props: Props) => <NavLink {...props} />
+export default (props: Props) => <NavLink {...props} />;

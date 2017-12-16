@@ -1,34 +1,34 @@
-const express = require('express')
-const next = require('next')
+const express = require('express');
+const next = require('next');
 
-const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dir: './src', dev })
-const handle = app.getRequestHandler()
-const port = process.env.PORT || '3000'
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({ dir: './src', dev });
+const handle = app.getRequestHandler();
+const port = process.env.PORT || '3000';
 
 app
   .prepare()
   .then(() => {
-    const server = express()
+    const server = express();
 
-    server.get('/playlist', (req, res) => handle(req, res))
+    server.get('/playlist', (req, res) => handle(req, res));
 
     server.get('/:username', (req, res) => {
-      const actualPage = '/profile'
-      const queryParams = { username: req.params.username }
-      app.render(req, res, actualPage, queryParams)
-    })
+      const actualPage = '/profile';
+      const queryParams = { username: req.params.username };
+      app.render(req, res, actualPage, queryParams);
+    });
 
-    server.get('*', (req, res) => handle(req, res))
+    server.get('*', (req, res) => handle(req, res));
 
     server.listen(port, err => {
       if (err) {
-        throw err
+        throw err;
       }
-      console.log(`> Ready on port:${port}`)
-    })
+      console.log(`> Ready on port:${port}`);
+    });
   })
   .catch(ex => {
-    console.error(ex.stack)
-    process.exit(1)
-  })
+    console.error(ex.stack);
+    process.exit(1);
+  });

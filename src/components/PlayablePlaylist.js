@@ -1,27 +1,27 @@
 // @flow
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
-import { media, truncate } from '../lib/styleUtils'
+import { media, truncate } from '../lib/styleUtils';
 
-import Artwork from './Artwork'
+import Artwork from './Artwork';
 
 type Props = {|
   artwork: string,
   title: string,
   artist: string,
-|}
+|};
 
 export default class extends Component<Props, void> {
   render() {
-    const { artwork, title, artist } = this.props
+    const { artwork, title, artist } = this.props;
     return (
       <PlayablePlaylist onClick={() => console.log('navigate')}>
         <Artwork image={artwork} />
         <Title>{title}</Title>
         <Artist>{artist}</Artist>
       </PlayablePlaylist>
-    )
+    );
   }
 }
 
@@ -53,7 +53,7 @@ const PlayablePlaylist = styled.a`
       display: block;
     }
   `};
-`
+`;
 
 const Title = styled.div`
   padding-top: 12px;
@@ -63,7 +63,7 @@ const Title = styled.div`
   text-transform: capitalize;
 
   ${truncate('100%')};
-`
+`;
 
 const Artist = styled.div`
   color: ${props => props.theme.darkGrey};
@@ -73,4 +73,4 @@ const Artist = styled.div`
   padding-top: 6px;
 
   ${truncate('100%')};
-`
+`;

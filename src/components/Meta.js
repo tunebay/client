@@ -1,16 +1,16 @@
 // @flow
-import React from 'react'
-import Head from 'next/head'
-import { injectGlobal } from 'styled-components'
+import React from 'react';
+import Head from 'next/head';
+import { injectGlobal } from 'styled-components';
 
-import { media } from '../lib/styleUtils'
+import { media } from '../lib/styleUtils';
 
 type Props = {|
   title: string,
-|}
+|};
 
 export default (props: Props) => {
-  const { title } = props
+  const { title } = props;
   return (
     <div>
       <Head>
@@ -46,8 +46,8 @@ export default (props: Props) => {
         />
       </Head>
     </div>
-  )
-}
+  );
+};
 
 injectGlobal`
   *,
@@ -77,4 +77,4 @@ injectGlobal`
 
     box-sizing: border-box;
   }
-`
+`;

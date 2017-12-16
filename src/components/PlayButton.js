@@ -1,23 +1,23 @@
 // @flow
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
-import { Play } from './svgs'
+import { Play } from './svgs';
 
 type Props = {|
   onClick: () => any,
   size?: number,
-|}
+|};
 
 export default class extends Component<Props, void> {
   render() {
-    const { onClick, size } = this.props
+    const { onClick, size } = this.props;
 
     return (
       <PlayButton size={size} onClick={onClick}>
         <Play fill="#fff" />
       </PlayButton>
-    )
+    );
   }
 }
 
@@ -44,4 +44,4 @@ const PlayButton = styled.button`
   &:active {
     transform: scale(0.98);
   }
-`
+`;

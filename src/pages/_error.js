@@ -1,17 +1,17 @@
 // @flow
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
-import Layout from '../components/Layout'
+import Layout from '../components/Layout';
 
 type Props = {
   statusCode: 404 | 500,
   url: any,
-}
+};
 
 export default class Error extends Component<Props, void> {
   render() {
-    const { statusCode, url } = this.props
+    const { statusCode, url } = this.props;
     return (
       <Layout title="Page not found 👀">
         <Main>
@@ -21,21 +21,24 @@ export default class Error extends Component<Props, void> {
           <P>{statusCode}</P>
         </Main>
       </Layout>
-    )
+    );
   }
 }
 const Main = styled.main`
   text-align: center;
   padding-top: 7rem;
-`
+`;
+
 const P = styled.p`
   line-height: 1.4;
   padding: 3rem 0;
-`
+`;
+
 const Heading = styled.h2`
   font-size: 3.6rem;
   font-weight: 800;
-`
+`;
+
 const Input = styled.input`
   background-color: ${props => props.theme.lightestGrey};
   font-size: 1.6rem;
@@ -47,4 +50,4 @@ const Input = styled.input`
 
   outline: none;
   border: none;
-`
+`;
