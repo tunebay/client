@@ -7,6 +7,8 @@ export default {
 
   green:         '#43AC6A',
   darkGreen:     '#40A164',
+  // maybe new green 389E5E
+  // flux made current green look awesome
 
   deepBlue:      '#1a1e28',
 

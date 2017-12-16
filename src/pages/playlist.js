@@ -31,6 +31,7 @@ class Playlist extends Component<Props, void> {
               </BuyButton>
               <Supporters supporters={supporters} />
             </LeftContent>
+
             <RightCotent>Right side content</RightCotent>
           </Grid>
         </Main>
@@ -62,16 +63,18 @@ const Supporters = props => {
 
 const SupportersList = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
 `;
 
 const Avatar = styled.li`
   background-image: url(${props => props.image});
 
-  width: 4.4rem;
-  height: 4.4rem;
+  width: 4.2rem;
+  height: 4.2rem;
   border-radius: 500px;
   margin-right: 0.8rem;
+  margin-bottom: 0.8rem;
 
   &:hover {
     cursor: pointer;
