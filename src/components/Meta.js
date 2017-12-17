@@ -59,6 +59,10 @@ injectGlobal`
     box-sizing: inherit;
   }
 
+  ul {
+    list-style: none;
+  }
+
   html {
     font-size: 62.5%;
 

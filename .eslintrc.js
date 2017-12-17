@@ -19,6 +19,7 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'no-console': 'off',
     'no-use-before-define': 'off',
+    'no-confusing-arrow': 'off',
     'func-names': 'off',
     'no-unused-expressions': [
       'error',

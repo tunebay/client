@@ -7,6 +7,7 @@ import type { PlaylistType } from '../types';
 import Layout, { Grid } from '../components/Layout';
 import { aspectRatio } from '../lib/styleUtils';
 import { Chevron } from '../components/svgs';
+import TrackList from '../components/TrackList';
 
 type Props = {|
   playlist: PlaylistType,
@@ -26,7 +27,7 @@ class Playlist extends Component<Props, void> {
     } = this.props.playlist;
 
     return (
-      <Layout title="Walk Tall by General Roots">
+      <Layout title={`${title} by ${artist.name}`}>
         <Main>
           <Grid>
             <LeftContent>
@@ -55,8 +56,9 @@ class Playlist extends Component<Props, void> {
                 <PlaylistTitle>{title}</PlaylistTitle>
                 {/* TODO decide if to count and sum on client or server. */}
                 <PlaylistMeta>
-                  6 Songs, 25 mins &#8226; 12th September
+                  6 Songs, 25 min &#8226; 12th September
                 </PlaylistMeta>
+                <TrackList tracks={tracks} />
               </PlaylistDetails>
             </RightCotent>
           </Grid>
@@ -96,7 +98,6 @@ const Supporters = props => {
 const SupportersList = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  list-style: none;
 `;
 
 const Li = styled.li`
@@ -263,7 +264,12 @@ Playlist.getInitialProps = async () => {
     artwork: 'https://i1.sndcdn.com/artworks-7xbVEf5nJf1s-0-t500x500.jpg',
     price: 5.99,
     currency: 'GBP',
-    tracks: [],
+    tracks: [
+      { position: 1, name: "Dreamin'", price: 0.79, duration: 287 },
+      { position: 2, name: 'Cold Love', price: 0.79, duration: 287 },
+      { position: 3, name: 'When Ur Sober', price: 0.79, duration: 224 },
+      { position: 4, name: 'Night After Night', price: 0.79, duration: 287 },
+    ],
     supporters: [
       {
         id: 1,

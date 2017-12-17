@@ -4,6 +4,7 @@ export type TrackType = {
   name: string,
   duration: number, // seconds
   price: number | null,
+  position: number, // position in playlist
 };
 
 export type PlaylistType = {
