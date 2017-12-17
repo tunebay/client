@@ -4,16 +4,16 @@ import styled from 'styled-components';
 
 type Props = {|
   fill: string,
+  size?: string, // '1.4rem'
   // TODO
   // rotation: 'up' | 'down' | 'left' | 'right'
-  // size: number
 |};
 
 export default (props: Props) => {
-  const { fill } = props;
+  const { fill, size } = props;
   return (
-    <Chevron>
-      <svg width="16px" height="16px" viewBox="0 0 30 19" version="1.1">
+    <Chevron size={size}>
+      <svg width="16px" height={size} viewBox="0 0 30 19" version="1.1">
         <title>Chevron</title>
         <defs />
         <g
@@ -37,10 +37,10 @@ export default (props: Props) => {
 };
 
 const Chevron = styled.span`
+  height: ${props => (props.size ? props.size : '1.4rem')};
+  width: ${props => (props.size ? props.size : '1.4rem')};
+
   display: flex;
   align-items: center;
   justify-content: center;
-
-  height: 14px;
-  width: 14px;
 `;

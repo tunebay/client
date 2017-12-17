@@ -1,6 +1,8 @@
 // @flow
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import { Chevron } from './svgs';
 
 type Props = {|
   price: number,
@@ -10,24 +12,65 @@ type Props = {|
 export default class extends Component<Props, void> {
   render() {
     const { price, onClick } = this.props;
-    return <PricePill onClick={onClick}>£{price}</PricePill>;
+    return (
+      <PricePill>
+        <Main onClick={onClick}>£{price}</Main>
+        <Menu>
+          <Chevron size="0.6rem" fill="#666666" />
+        </Menu>
+      </PricePill>
+    );
   }
 }
 
-const PricePill = styled.button`
-  border: 1px solid ${props => props.theme.grey};
-
+const PricePill = styled.div`
   width: 7rem;
   font-weight: 500;
   height: 2.5rem;
-  border-radius: 500px;
 
   outline: none;
+  display: flex;
+`;
+
+const buttonStyles = css`
+  color: ${props => props.theme.darkestGrey};
+
   background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+
+  font-weight: 500;
 
   &:hover {
-    border: 1px solid ${props => props.theme.darkGrey};
-
     cursor: pointer;
   }
+
+  ${PricePill}:hover & {
+    border-color: ${props => props.theme.darkGrey};
+    color: ${props => props.theme.black};
+  }
+`;
+
+const Main = styled.button`
+  border: 1px solid ${props => props.theme.grey};
+
+  border-radius: 500px 0 0 500px;
+  flex: 3;
+  padding-left: 3px;
+
+  border-right: none;
+
+  ${buttonStyles};
+`;
+
+const Menu = styled.button`
+  border: 1px solid ${props => props.theme.grey};
+
+  border-radius: 0 500px 500px 0;
+  padding: 2px 2px 0 0;
+  flex: 1;
+
+  ${buttonStyles};
 `;
