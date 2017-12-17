@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 import type { PlaylistType } from '../types';
 import Layout, { Grid } from '../components/Layout';
@@ -15,7 +16,14 @@ class Playlist extends Component<Props, void> {
   static getInitialProps: () => any;
 
   render() {
-    const { artwork, supporters, price } = this.props.playlist;
+    const {
+      artwork,
+      supporters,
+      price,
+      artist,
+      title,
+      tracks,
+    } = this.props.playlist;
 
     return (
       <Layout title="Walk Tall by General Roots">
@@ -32,13 +40,33 @@ class Playlist extends Component<Props, void> {
               <Supporters supporters={supporters} />
             </LeftContent>
 
-            <RightCotent />
+            <RightCotent>
+              <Link
+                as={artist.username}
+                href={`/profile?username=${artist.username}`}
+              >
+                <ArtistDetails>
+                  <Avatar image={artist.avatar} />
+                  <ArtistName>{artist.name}</ArtistName>
+                </ArtistDetails>
+              </Link>
+
+              <PlaylistDetails>
+                <PlaylistTitle>{title}</PlaylistTitle>
+                {/* TODO decide if to count and sum on client or server. */}
+                <PlaylistMeta>
+                  6 Songs, 25 mins &#8226; 12th September
+                </PlaylistMeta>
+              </PlaylistDetails>
+            </RightCotent>
           </Grid>
         </Main>
       </Layout>
     );
   }
 }
+
+// LEFT SECTION
 
 const Supporters = props => {
   const { supporters } = props;
@@ -54,7 +82,11 @@ const Supporters = props => {
         </NoSupporters>
       ) : (
         <SupportersList>
-          {supporters.map(user => <Avatar key={user.id} image={user.avatar} />)}
+          {supporters.map(user => (
+            <Li key={user.id}>
+              <Avatar image={user.avatar} />
+            </Li>
+          ))}
         </SupportersList>
       )}
     </Section>
@@ -67,14 +99,18 @@ const SupportersList = styled.ul`
   list-style: none;
 `;
 
-const Avatar = styled.li`
+const Li = styled.li`
+  margin-right: 0.8rem;
+  margin-bottom: 0.8rem;
+`;
+const Avatar = styled.div`
   background-image: url(${props => props.image});
 
   width: 4.4rem;
   height: 4.4rem;
   border-radius: 500px;
-  margin-right: 0.8rem;
-  margin-bottom: 0.8rem;
+
+  background-size: contain;
 
   &:hover {
     cursor: pointer;
@@ -165,11 +201,6 @@ const LeftContent = styled.div`
   width: 31%;
 `;
 
-const RightCotent = styled.div`
-  width: 65%;
-  background-color: #fafafa;
-`;
-
 // TODO break out same as in profile
 const Main = styled.main`
   width: ${props => props.theme.contentWidth};
@@ -185,10 +216,51 @@ const NoSupporters = styled.p`
   font-size: 1.4rem;
 `;
 
+// RIGHT SECTION
+const RightCotent = styled.div`
+  width: 65%;
+`;
+
+const ArtistDetails = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const ArtistName = styled.h2`
+  color: ${props => props.theme.primaryRed};
+
+  font-size: 1.6rem;
+  padding-left: 1.5rem;
+
+  text-transform: uppercase;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const PlaylistDetails = styled.div`
+  width: 100%;
+  height: 50rem;
+`;
+
+const PlaylistTitle = styled.h1`
+  font-size: 4rem; /* TODO 4rem when Thienhardt is added */
+  font-weight: 800;
+  padding: 1.5rem 0;
+`;
+
+const PlaylistMeta = styled.p`
+  color: ${props => props.theme.darkGrey};
+  font-size: 1.3rem;
+  letter-spacing: 0.8px;
+  font-weight: 400;
+`;
+
 Playlist.getInitialProps = async () => {
   const playlist = {
-    title: 'Walk Tall',
-    artwork: 'https://i1.sndcdn.com/artworks-000174984121-jlksuw-t500x500.jpg',
+    title: 'When Ur Sober',
+    artwork: 'https://i1.sndcdn.com/artworks-7xbVEf5nJf1s-0-t500x500.jpg',
     price: 5.99,
     currency: 'GBP',
     tracks: [],
@@ -211,8 +283,9 @@ Playlist.getInitialProps = async () => {
     ],
     artist: {
       id: 1,
-      name: 'Mabel',
-      username: 'mabel',
+      name: 'Taya',
+      username: 'taya',
+      avatar: 'https://i1.sndcdn.com/avatars-000332530388-c4w465-t500x500.jpg',
     },
   };
 

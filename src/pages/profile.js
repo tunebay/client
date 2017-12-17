@@ -41,7 +41,7 @@ class Profile extends Component<Props, void> {
             <Playlists>
               <Grid>
                 {user.playlists.map(playlist => (
-                  <Link key={playlist.id} href="/">
+                  <Link key={playlist.id} href="/playlist">
                     <Playlist>
                       <Artwork key={playlist.id} image={playlist.artwork} />
                       <PlaylistTitle>{playlist.title}</PlaylistTitle>

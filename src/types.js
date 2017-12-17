@@ -2,7 +2,7 @@
 export type TrackType = {
   id: number,
   name: string,
-  duraiton: number, // seconds
+  duration: number, // seconds
   price: number | null,
 };
 
@@ -19,6 +19,7 @@ export type PlaylistType = {
 export type UserType = {
   id: number,
   name: string,
+  username: string,
   bio: string,
   cover: string,
   photo: string,
