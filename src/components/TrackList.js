@@ -45,34 +45,41 @@ const Row = styled.li`
 
   width: 100%;
   height: 5rem;
+  font-size: 1.5rem;
+  transition: all 100ms ease-out;
+  padding: 0 2rem;
+  font-weight: 500;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   &:hover {
+    border-radius: 3px;
+
     cursor: pointer;
   }
 `;
 
 const Name = styled.span`
-  font-size: 1.6rem;
-  flex: 24;
+  flex: 25;
   font-weight: 500;
 `;
 
 const Position = styled.span`
   color: ${props => props.theme.darkestGrey};
+
   display: flex;
   justify-content: center;
 
   flex: 1;
-  padding: 0 2rem;
-  font-weight: 500;
+  padding-right: 2rem;
 `;
 
 const Duration = styled.span`
-  flex: 3;
+  color: ${props => props.theme.darkestGrey};
+
+  flex: 2.5;
 `;
 
 const Price = styled.span`
