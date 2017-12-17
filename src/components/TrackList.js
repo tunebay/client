@@ -15,7 +15,9 @@ export default class extends Component<Props, void> {
     const { tracks } = this.props;
 
     return (
-      <TrackList>{tracks.map(track => <Track track={track} />)}</TrackList>
+      <TrackList>
+        {tracks.map(track => <Track key={track.id} track={track} />)}
+      </TrackList>
     );
   }
 }
@@ -32,7 +34,7 @@ const Track = props => {
         {price ? (
           <PricePill price={price} onClick={() => console.log('Clicked')} />
         ) : (
-          'N/A'
+          'N/A' // TODO playlist type?
         )}
       </Price>
     </Row>
@@ -45,7 +47,7 @@ const Row = styled.li`
 
   width: 100%;
   height: 5rem;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   transition: all 100ms ease-out;
   padding: 0 2rem;
   font-weight: 500;
@@ -63,7 +65,6 @@ const Row = styled.li`
 
 const Name = styled.span`
   flex: 25;
-  font-weight: 500;
 `;
 
 const Position = styled.span`

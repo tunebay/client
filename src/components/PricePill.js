@@ -42,14 +42,15 @@ const buttonStyles = css`
   outline: none;
 
   font-weight: 500;
+  transition: all 100ms ease;
 
   &:hover {
     cursor: pointer;
+    color: ${props => props.theme.black};
   }
 
   ${PricePill}:hover & {
     border-color: ${props => props.theme.darkGrey};
-    color: ${props => props.theme.black};
   }
 `;
 

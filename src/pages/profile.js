@@ -190,6 +190,7 @@ const Overlay = styled.div`
 `;
 
 Profile.getInitialProps = async context => {
+  // $FlowFixMe
   const { username } = context.query;
   const user = [
     {

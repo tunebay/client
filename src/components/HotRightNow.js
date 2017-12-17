@@ -60,6 +60,7 @@ class HotRightNow extends Component<Props, void> {
   }
 }
 
+// $FlowFixMe
 HotRightNow.defaultProps = { playlists: dummyPlaylists };
 
 export default HotRightNow;
