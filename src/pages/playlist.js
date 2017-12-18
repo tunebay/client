@@ -56,7 +56,7 @@ class Playlist extends Component<Props, void> {
                 <PlaylistTitle>{title}</PlaylistTitle>
                 {/* TODO decide if to count and sum on client or server. */}
                 <PlaylistMeta>
-                  6 Songs, 25 min &#8226; 12th September
+                  6 Songs, 25 min &#8226; 20th Dec 2017
                 </PlaylistMeta>
                 <TrackList tracks={tracks} />
               </PlaylistDetails>
@@ -265,10 +265,16 @@ Playlist.getInitialProps = async () => {
     price: 5.99,
     currency: 'GBP',
     tracks: [
-      { position: 1, name: "Dreamin'", price: 0.79, duration: 287 },
-      { position: 2, name: 'Cold Love', price: 0.79, duration: 287 },
-      { position: 3, name: 'When Ur Sober', price: 0.79, duration: 224 },
-      { position: 4, name: 'Night After Night', price: 0.79, duration: 287 },
+      { id: 1, position: 1, name: "Dreamin'", price: 0.79, duration: 190 },
+      { id: 2, position: 2, name: 'Cold Love', price: 0.79, duration: 231 },
+      { id: 3, position: 3, name: 'When Ur Sober', price: 0.79, duration: 224 },
+      {
+        id: 4,
+        position: 4,
+        name: 'Night After Night',
+        price: 0.79,
+        duration: 287,
+      },
     ],
     supporters: [
       {
