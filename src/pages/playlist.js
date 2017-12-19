@@ -274,12 +274,12 @@ const PlaylistMeta = styled.p`
 `;
 
 Playlist.getInitialProps = async context => {
-  const { username, permalink } = context.query;
-  console.log('INITIAL DATA', `${username} ${permalink}`);
-  console.log('QUERY:', context.query);
+  const { username, permalink, id } = context.query;
+  const isServer = !!context.req;
 
-  const playlist = [
+  const playlists = [
     {
+      id: 1,
       title: 'When Ur Sober',
       artwork: 'https://i1.sndcdn.com/artworks-7xbVEf5nJf1s-0-t500x500.jpg',
       price: 5.99,
@@ -328,6 +328,7 @@ Playlist.getInitialProps = async context => {
       },
     },
     {
+      id: 2,
       title: 'Redlight',
       artwork:
         'https://i1.sndcdn.com/artworks-b2350727-2418-480b-87c0-47178c030ea2-0-t500x500.jpg',
@@ -377,6 +378,7 @@ Playlist.getInitialProps = async context => {
       },
     },
     {
+      id: 3,
       title: 'Deeper',
       artwork: 'https://i1.sndcdn.com/artworks-S5enoBO1t7ca-0-t500x500.jpg',
       price: 5.99,
@@ -424,10 +426,13 @@ Playlist.getInitialProps = async context => {
           'https://i1.sndcdn.com/avatars-000332530388-c4w465-t500x500.jpg',
       },
     },
-  ].find(
-    found =>
-      found.permalink === permalink && found.artist.username === username,
-  );
+  ];
+
+  const playlist = isServer
+    ? playlists.find(
+        p => p.permalink === permalink && p.artist.username === username,
+      )
+    : playlists.find(p => p.id === parseInt(id, 10));
 
   const statusCode = playlist ? null : 404;
   return { playlist, statusCode };

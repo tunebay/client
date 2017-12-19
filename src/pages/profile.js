@@ -51,9 +51,7 @@ class Profile extends Component<Props, void> {
                   <Link
                     key={playlist.id}
                     as={`/${user.username}/${playlist.permalink}`}
-                    href={`/playlist?username=${user.username}&permalink=${
-                      playlist.permalink
-                    }`}
+                    href={`/playlist?id=${playlist.id}`}
                   >
                     <Playlist>
                       <Artwork key={playlist.id} image={playlist.artwork} />

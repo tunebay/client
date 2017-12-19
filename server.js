@@ -12,7 +12,6 @@ app
     const server = express();
 
     server.get('/:username', (req, res) => {
-      console.log('MATCH USERNAME');
       const actualPage = '/profile';
       const queryParams = { username: req.params.username };
       app.render(req, res, actualPage, queryParams);
