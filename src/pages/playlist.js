@@ -278,7 +278,7 @@ Playlist.getInitialProps = async () => {
     title: 'When Ur Sober',
     artwork: 'https://i1.sndcdn.com/artworks-7xbVEf5nJf1s-0-t500x500.jpg',
     price: 5.99,
-    currency: 'GBP',
+    permalink: 'when-ur-sober',
     tracks: [
       { id: 1, position: 1, name: "Dreamin'", price: 0.79, duration: 190 },
       { id: 2, position: 2, name: 'Cold Love', price: 0.79, duration: 231 },

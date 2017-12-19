@@ -213,18 +213,21 @@ Profile.getInitialProps = async context => {
           title: 'Ivy To Roses',
           artwork:
             'https://i2.wp.com/s1.xclusivejams.com/2017/10/Mabel-Ivy-To-Roses-Mixtape-iTunes-Plus-M4A.jpg?w=640&ssl=1',
+          permalink: 'ivy-to-roses',
         },
         {
           id: 2,
           title: 'My Boy My Town',
           artwork:
             'https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/58/6e/51/586e51d3-6175-c286-a06b-7f2d007875f2/15UMGIM65453.jpg/1200x630bb.jpg',
+          permalink: 'ivy-to-roses',
         },
         {
           id: 3,
           title: 'Thinking Of You',
           artwork:
             'https://images.genius.com/122c310b162d72c5d271d32753b5fa60.630x630x1.jpg',
+          permalink: 'ivy-to-roses',
         },
       ],
     },
@@ -240,17 +243,20 @@ Profile.getInitialProps = async context => {
           id: 1,
           title: 'Love + War',
           artwork: 'https://i1.sndcdn.com/artworks-0hDPbHUtMjWO-0-t500x500.jpg',
+          permalink: 'ivy-to-roses',
         },
         {
           id: 2,
           title: 'Cheating On Me',
           artwork:
             'https://i1.sndcdn.com/artworks-000138126630-gops5c-t500x500.jpg',
+          permalink: 'ivy-to-roses',
         },
         {
           id: 3,
           title: 'Walk',
           artwork: 'https://i1.sndcdn.com/artworks-wylrh6pNAk2b-0-t500x500.jpg',
+          permalink: 'ivy-to-roses',
         },
       ],
     },
@@ -266,17 +272,20 @@ Profile.getInitialProps = async context => {
           id: 1,
           title: 'When Ur Sober',
           artwork: 'https://i1.sndcdn.com/artworks-7xbVEf5nJf1s-0-t500x500.jpg',
+          permalink: 'ivy-to-roses',
         },
         {
           id: 2,
           title: 'Redlight',
           artwork:
             'https://i1.sndcdn.com/artworks-b2350727-2418-480b-87c0-47178c030ea2-0-t500x500.jpg',
+          permalink: 'ivy-to-roses',
         },
         {
           id: 3,
           title: 'Deeper',
           artwork: 'https://i1.sndcdn.com/artworks-S5enoBO1t7ca-0-t500x500.jpg',
+          permalink: 'ivy-to-roses',
         },
       ],
     },
@@ -292,11 +301,13 @@ Profile.getInitialProps = async context => {
           id: 1,
           title: 'Something For Your M.I.N.D',
           artwork: 'https://i1.sndcdn.com/artworks-NeORKaFfnXy0-0-t500x500.png',
+          permalink: 'ivy-to-roses',
         },
         {
           id: 2,
           title: 'Nobody Cares',
           artwork: 'https://i1.sndcdn.com/artworks-w1rexXd0Krku-0-t500x500.png',
+          permalink: 'ivy-to-roses',
         },
       ],
     },
@@ -313,12 +324,14 @@ Profile.getInitialProps = async context => {
           title: "Shake's On A Plane ",
           artwork:
             'https://i1.sndcdn.com/artworks-000246329913-s5iwvy-t500x500.jpg',
+          permalink: 'ivy-to-roses',
         },
         {
           id: 2,
           title: 'Northern Merry',
           artwork:
             'https://i1.sndcdn.com/artworks-000142313354-20yxz2-t500x500.jpg',
+          permalink: 'ivy-to-roses',
         },
       ],
     },
