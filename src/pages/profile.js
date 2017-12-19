@@ -25,7 +25,7 @@ class Profile extends Component<Props, void> {
     image: user.photo,
     imageWidth: '500',
     imageHeight: '500',
-    description: `Listen to and directly support ${user.name}`,
+    description: `Listen to and directly support ${user.name} on Tunebay`,
   });
 
   render() {
