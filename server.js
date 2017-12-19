@@ -11,11 +11,19 @@ app
   .then(() => {
     const server = express();
 
-    server.get('/playlist', (req, res) => handle(req, res));
-
     server.get('/:username', (req, res) => {
+      console.log('MATCH USERNAME');
       const actualPage = '/profile';
       const queryParams = { username: req.params.username };
+      app.render(req, res, actualPage, queryParams);
+    });
+
+    server.get('/:username/:permalink', (req, res) => {
+      const actualPage = '/playlist';
+      const queryParams = {
+        permalink: req.params.permalink,
+        username: req.params.username,
+      };
       app.render(req, res, actualPage, queryParams);
     });
 

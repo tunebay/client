@@ -9,12 +9,16 @@ import { aspectRatio } from '../lib/styleUtils';
 import { Chevron } from '../components/svgs';
 import TrackList from '../components/TrackList';
 
+import Error from './_error';
+
 type Props = {|
   playlist: PlaylistType,
+  statusCode?: 404 | 500,
+  url: any,
 |};
 
 class Playlist extends Component<Props, void> {
-  static getInitialProps: () => any;
+  static getInitialProps: any => any;
 
   ogMeta = (playlist: PlaylistType): OgMetaType => ({
     title: `${playlist.title} by ${playlist.artist.name}`, // og title not page title
@@ -29,14 +33,10 @@ class Playlist extends Component<Props, void> {
   });
 
   render() {
-    const {
-      artwork,
-      supporters,
-      price,
-      artist,
-      title,
-      tracks,
-    } = this.props.playlist;
+    const { playlist, statusCode, url } = this.props;
+    if (statusCode) return <Error statusCode={statusCode} url={url} />;
+
+    const { artwork, supporters, price, artist, title, tracks } = playlist;
 
     return (
       <Layout
@@ -58,7 +58,7 @@ class Playlist extends Component<Props, void> {
 
             <RightCotent>
               <Link
-                as={artist.username}
+                as={`/${artist.username}`}
                 href={`/profile?username=${artist.username}`}
               >
                 <ArtistDetails>
@@ -273,50 +273,164 @@ const PlaylistMeta = styled.p`
   font-weight: 400;
 `;
 
-Playlist.getInitialProps = async () => {
-  const playlist = {
-    title: 'When Ur Sober',
-    artwork: 'https://i1.sndcdn.com/artworks-7xbVEf5nJf1s-0-t500x500.jpg',
-    price: 5.99,
-    permalink: 'when-ur-sober',
-    tracks: [
-      { id: 1, position: 1, name: "Dreamin'", price: 0.79, duration: 190 },
-      { id: 2, position: 2, name: 'Cold Love', price: 0.79, duration: 231 },
-      { id: 3, position: 3, name: 'When Ur Sober', price: 0.79, duration: 224 },
-      {
-        id: 4,
-        position: 4,
-        name: 'Night After Night',
-        price: 0.79,
-        duration: 287,
-      },
-    ],
-    supporters: [
-      {
-        id: 1,
-        avatar:
-          'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/16996405_10154356162762895_1493811469734824672_n.jpg?oh=a3be628e8c9b5f2d25fb92d9a9829ac3&oe=5AB97316',
-      },
-      {
-        id: 2,
-        avatar:
-          'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/21740414_10159322113150427_6477255442795043231_n.jpg?oh=3bd907166d28d0217feda45a5c1dde83&oe=5AB8F817',
-      },
-      {
-        id: 3,
-        avatar:
-          'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/16105616_10210380459341549_8574739943940922093_n.jpg?oh=278eb3751023aea174493e8342e4aaa3&oe=5AD749D0',
-      },
-    ],
-    artist: {
-      id: 1,
-      name: 'Taya',
-      username: 'taya',
-      avatar: 'https://i1.sndcdn.com/avatars-000332530388-c4w465-t500x500.jpg',
-    },
-  };
+Playlist.getInitialProps = async context => {
+  const { username, permalink } = context.query;
+  console.log('INITIAL DATA', `${username} ${permalink}`);
+  console.log('QUERY:', context.query);
 
-  return { playlist };
+  const playlist = [
+    {
+      title: 'When Ur Sober',
+      artwork: 'https://i1.sndcdn.com/artworks-7xbVEf5nJf1s-0-t500x500.jpg',
+      price: 5.99,
+      permalink: 'when-ur-sober',
+      tracks: [
+        { id: 1, position: 1, name: "Dreamin'", price: 0.79, duration: 190 },
+        { id: 2, position: 2, name: 'Cold Love', price: 0.79, duration: 231 },
+        {
+          id: 3,
+          position: 3,
+          name: 'When Ur Sober',
+          price: 0.79,
+          duration: 224,
+        },
+        {
+          id: 4,
+          position: 4,
+          name: 'Night After Night',
+          price: 0.79,
+          duration: 287,
+        },
+      ],
+      supporters: [
+        {
+          id: 1,
+          avatar:
+            'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/16996405_10154356162762895_1493811469734824672_n.jpg?oh=a3be628e8c9b5f2d25fb92d9a9829ac3&oe=5AB97316',
+        },
+        {
+          id: 2,
+          avatar:
+            'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/21740414_10159322113150427_6477255442795043231_n.jpg?oh=3bd907166d28d0217feda45a5c1dde83&oe=5AB8F817',
+        },
+        {
+          id: 3,
+          avatar:
+            'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/16105616_10210380459341549_8574739943940922093_n.jpg?oh=278eb3751023aea174493e8342e4aaa3&oe=5AD749D0',
+        },
+      ],
+      artist: {
+        id: 1,
+        name: 'Taya',
+        username: 'taya',
+        avatar:
+          'https://i1.sndcdn.com/avatars-000332530388-c4w465-t500x500.jpg',
+      },
+    },
+    {
+      title: 'Redlight',
+      artwork:
+        'https://i1.sndcdn.com/artworks-b2350727-2418-480b-87c0-47178c030ea2-0-t500x500.jpg',
+      price: 5.99,
+      permalink: 'redlight',
+      tracks: [
+        { id: 1, position: 1, name: "Dreamin'", price: 0.79, duration: 190 },
+        { id: 2, position: 2, name: 'Cold Love', price: 0.79, duration: 231 },
+        {
+          id: 3,
+          position: 3,
+          name: 'Red',
+          price: 0.79,
+          duration: 224,
+        },
+        {
+          id: 4,
+          position: 4,
+          name: 'Night After Night',
+          price: 0.79,
+          duration: 287,
+        },
+      ],
+      supporters: [
+        {
+          id: 1,
+          avatar:
+            'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/16996405_10154356162762895_1493811469734824672_n.jpg?oh=a3be628e8c9b5f2d25fb92d9a9829ac3&oe=5AB97316',
+        },
+        {
+          id: 2,
+          avatar:
+            'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/21740414_10159322113150427_6477255442795043231_n.jpg?oh=3bd907166d28d0217feda45a5c1dde83&oe=5AB8F817',
+        },
+        {
+          id: 3,
+          avatar:
+            'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/16105616_10210380459341549_8574739943940922093_n.jpg?oh=278eb3751023aea174493e8342e4aaa3&oe=5AD749D0',
+        },
+      ],
+      artist: {
+        id: 1,
+        name: 'Taya',
+        username: 'taya',
+        avatar:
+          'https://i1.sndcdn.com/avatars-000332530388-c4w465-t500x500.jpg',
+      },
+    },
+    {
+      title: 'Deeper',
+      artwork: 'https://i1.sndcdn.com/artworks-S5enoBO1t7ca-0-t500x500.jpg',
+      price: 5.99,
+      permalink: 'deeper',
+      tracks: [
+        { id: 1, position: 1, name: "Dreamin'", price: 0.79, duration: 190 },
+        { id: 2, position: 2, name: 'Cold Love', price: 0.79, duration: 231 },
+        {
+          id: 3,
+          position: 3,
+          name: 'When Ur Sober',
+          price: 0.79,
+          duration: 224,
+        },
+        {
+          id: 4,
+          position: 4,
+          name: 'Night After Night',
+          price: 0.79,
+          duration: 287,
+        },
+      ],
+      supporters: [
+        {
+          id: 1,
+          avatar:
+            'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/16996405_10154356162762895_1493811469734824672_n.jpg?oh=a3be628e8c9b5f2d25fb92d9a9829ac3&oe=5AB97316',
+        },
+        {
+          id: 2,
+          avatar:
+            'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/21740414_10159322113150427_6477255442795043231_n.jpg?oh=3bd907166d28d0217feda45a5c1dde83&oe=5AB8F817',
+        },
+        {
+          id: 3,
+          avatar:
+            'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/16105616_10210380459341549_8574739943940922093_n.jpg?oh=278eb3751023aea174493e8342e4aaa3&oe=5AD749D0',
+        },
+      ],
+      artist: {
+        id: 1,
+        name: 'Taya',
+        username: 'taya',
+        avatar:
+          'https://i1.sndcdn.com/avatars-000332530388-c4w465-t500x500.jpg',
+      },
+    },
+  ].find(
+    found =>
+      found.permalink === permalink && found.artist.username === username,
+  );
+
+  const statusCode = playlist ? null : 404;
+  return { playlist, statusCode };
 };
 
 export default Playlist;
