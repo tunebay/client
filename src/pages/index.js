@@ -17,9 +17,11 @@ class Index extends Component<Props, void> {
     title: 'Tunebay | For the love of music', // og title not page title
     type: 'website',
     url: 'https://tunebay.com',
-    image: 'https://s3.eu-west-2.amazonaws.com/tunebay/ogimage.png',
-    imageWidth: '1200',
-    imageHeight: '630',
+    image: {
+      url: 'https://s3.eu-west-2.amazonaws.com/tunebay/ogimage.png',
+      height: '630',
+      width: '1200',
+    },
     description:
       'Directly support the music and artist you love on Tunebay. Discover new music from around the world or upload and sell your own.',
   });

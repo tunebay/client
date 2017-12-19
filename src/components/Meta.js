@@ -24,8 +24,8 @@ export default (props: Props) => {
       <meta property="og:title" content={og.title} />
 
       <meta property="og:image" content={og.image} />
-      <meta property="og:image:width" content={og.imageWidth} />
-      <meta property="og:image:height" content={og.imageHeight} />
+      <meta property="og:image:width" content={og.image.width} />
+      <meta property="og:image:height" content={og.image.height} />
       <meta property="og:description" content={og.description} />
       <meta property="og:audio" content={og.audio} />
       <meta property="og:locality" content="London" />

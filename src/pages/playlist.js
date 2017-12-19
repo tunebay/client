@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
-import type { PlaylistType, UserType, OgMetaType } from '../types';
+import type { PlaylistType, OgMetaType } from '../types';
 import Layout, { Grid } from '../components/Layout';
 import { aspectRatio } from '../lib/styleUtils';
 import { Chevron } from '../components/svgs';
@@ -22,9 +22,7 @@ class Playlist extends Component<Props, void> {
     url: `https://tunebay.com/${playlist.artist.username}/${
       playlist.permalink
     }`,
-    image: playlist.artwork,
-    imageWidth: '500',
-    imageHeight: '500',
+    image: { url: playlist.artwork, width: '500', height: '500' },
     description: `Listen to and ${playlist.title} by ${
       playlist.artist.name
     } on Tunebay`,

@@ -1,43 +1,47 @@
 // @flow
 export type TrackType = {
+  duration: number, // seconds
   id: number,
   name: string,
-  duration: number, // seconds
-  price: number | null,
   position: number, // position in playlist
+  price: number | null,
 };
 
 export type PlaylistType = {
-  artwork: string,
-  title: string,
-  id: number,
-  price: number,
   artist: UserType,
-  tracks: Array<TrackType>,
-  supporters: Array<UserType>,
+  artwork: string,
+  id: number,
   permalink: string,
+  price: number,
+  supporters: Array<UserType>,
+  title: string,
+  tracks: Array<TrackType>,
 };
 
 export type UserType = {
-  id: number,
-  name: string,
-  username: string,
+  avatar: string,
   bio: string,
   cover: string,
+  id: number,
+  name: string,
   photo: string,
-  avatar: string,
   playlists: Array<PlaylistType>,
+  username: string,
 };
 
 export type OgMetaType = {|
   // required
+  description: string,
+  image: OgImageType,
   title: string,
   type: string,
   url: string,
-  image: string,
-  imageHeight: string,
-  imageWidth: string,
-  description: string,
   // not required
   audio?: string,
+|};
+
+type OgImageType = {|
+  height: string,
+  url: string,
+  width: string,
 |};

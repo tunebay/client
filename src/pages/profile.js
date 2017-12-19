@@ -22,9 +22,7 @@ class Profile extends Component<Props, void> {
     title: user.name, // og title not page title
     type: 'music.musician',
     url: `https://tunebay.com/${user.username}`,
-    image: user.photo,
-    imageWidth: '500',
-    imageHeight: '500',
+    image: { url: user.photo, width: '500', height: '500' },
     description: `Listen to and directly support ${user.name} on Tunebay`,
   });
 
