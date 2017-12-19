@@ -8,13 +8,25 @@ import HotRightNow from '../components/HotRightNow';
 import ForTheLoveOfMusic from '../components/ForTheLoveOfMusic';
 import FeaturedArtists from '../components/FeaturedArtists';
 import CallToActionFooter from '../components/CallToActionFooter';
+import type { OgMetaType } from '../types';
 
 type Props = {||};
 
 class Index extends Component<Props, void> {
+  ogMeta = (): OgMetaType => ({
+    title: 'Tunebay | For the love of music', // og title not page title
+    type: 'website',
+    url: 'https://tunebay.com',
+    image: 'https://s3.eu-west-2.amazonaws.com/tunebay/ogimage.png',
+    imageWidth: '1200',
+    imageHeight: '630',
+    description:
+      'Directly support the music and artist you love on Tunebay. Discover new music from around the world or upload and sell your own.',
+  });
+
   render() {
     return (
-      <Layout title="Tunebay - For the love of music">
+      <Layout ogMeta={this.ogMeta()} title="Tunebay | For the love of music">
         <Hero />
 
         <Section>

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
-import type { PlaylistType } from '../types';
+import type { PlaylistType, UserType, OgMetaType } from '../types';
 import Layout, { Grid } from '../components/Layout';
 import { aspectRatio } from '../lib/styleUtils';
 import { Chevron } from '../components/svgs';
@@ -16,6 +16,20 @@ type Props = {|
 class Playlist extends Component<Props, void> {
   static getInitialProps: () => any;
 
+  ogMeta = (playlist: PlaylistType): OgMetaType => ({
+    title: `${playlist.title} by ${playlist.artist.name}`, // og title not page title
+    type: 'music.musician',
+    url: `https://tunebay.com/${playlist.artist.username}/${
+      playlist.permalink
+    }`,
+    image: playlist.artwork,
+    imageWidth: '500',
+    imageHeight: '500',
+    description: `Listen to and ${playlist.title} by ${
+      playlist.artist.name
+    } on Tunebay`,
+  });
+
   render() {
     const {
       artwork,
@@ -27,7 +41,10 @@ class Playlist extends Component<Props, void> {
     } = this.props.playlist;
 
     return (
-      <Layout title={`${title} by ${artist.name}`}>
+      <Layout
+        ogMeta={this.ogMeta(this.props.playlist)}
+        title={`${title} by ${artist.name}`}
+      >
         <Main>
           <Grid>
             <LeftContent>

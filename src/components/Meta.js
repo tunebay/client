@@ -4,48 +4,39 @@ import Head from 'next/head';
 import { injectGlobal } from 'styled-components';
 
 import { media } from '../lib/styleUtils';
+import type { OgMetaType } from '../types';
 
 type Props = {|
+  og: OgMetaType,
   title: string,
 |};
 
 export default (props: Props) => {
-  const { title } = props;
+  const { og, title } = props;
   return (
-    <div>
-      <Head>
-        <title>{title}</title>
+    <Head>
+      <title>{title}</title>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="utf-8" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://tunebay.com" />
-        <meta property="og:title" content="Tunebay | For the love of music" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta charSet="utf-8" />
+      <meta property="og:type" content={og.type} />
+      <meta property="og:url" content={og.url} />
+      <meta property="og:title" content={og.title} />
 
-        <meta
-          property="og:image"
-          content="https://s3.eu-west-2.amazonaws.com/tunebay/ogimage.png"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta
-          property="og:description"
-          content="Directly support the music and artist you love on Tunebay. Discover new music from around the world or upload and sell your own."
-        />
-        <meta property="og:locality" content="London" />
-        <meta
-          property="og:audio"
-          content="https://s3.eu-west-2.amazonaws.com/tunebay-upload/users/music/0305b386-2be0-45b1-a701-c3594afb0241"
-        />
-        <meta property="og:country-name" content="United Kingdom" />
+      <meta property="og:image" content={og.image} />
+      <meta property="og:image:width" content={og.imageWidth} />
+      <meta property="og:image:height" content={og.imageHeight} />
+      <meta property="og:description" content={og.description} />
+      <meta property="og:audio" content={og.audio} />
+      <meta property="og:locality" content="London" />
+      <meta property="og:country-name" content="United Kingdom" />
 
-        <link rel="icon" href="favicon.ico" type="image/x-icon" />
-        <link
-          href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900,900i"
-          rel="stylesheet"
-        />
-      </Head>
-    </div>
+      <link rel="icon" href="favicon.ico" type="image/x-icon" />
+      <link
+        href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900,900i"
+        rel="stylesheet"
+      />
+    </Head>
   );
 };
 

@@ -6,6 +6,8 @@ import styled, { ThemeProvider } from 'styled-components';
 import theme from '../lib/theme';
 import { media } from '../lib/styleUtils';
 
+import type { OgMetaType } from '../types';
+
 import Meta from './Meta';
 import Header from './Header';
 
@@ -13,17 +15,18 @@ type Props = {|
   children: React.Node,
   router: any,
   title: string,
+  ogMeta: OgMetaType,
 |};
 
 class Layout extends React.Component<Props, void> {
   render() {
-    const { children, router, title } = this.props;
+    const { children, router, title, ogMeta } = this.props;
     const headerVisible = router.pathname !== '/';
 
     return (
       <ThemeProvider theme={theme}>
         <StyledLayout headerVisible={headerVisible}>
-          <Meta title={title} />
+          <Meta og={ogMeta} title={title} />
           <Header visible={headerVisible} />
           {children}
           <DownloadApp>

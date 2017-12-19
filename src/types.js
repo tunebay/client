@@ -15,6 +15,7 @@ export type PlaylistType = {
   artist: UserType,
   tracks: Array<TrackType>,
   supporters: Array<UserType>,
+  permalink: string,
 };
 
 export type UserType = {
@@ -27,3 +28,16 @@ export type UserType = {
   avatar: string,
   playlists: Array<PlaylistType>,
 };
+
+export type OgMetaType = {|
+  // required
+  title: string,
+  type: string,
+  url: string,
+  image: string,
+  imageHeight: string,
+  imageWidth: string,
+  description: string,
+  // not required
+  audio?: string,
+|};

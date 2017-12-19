@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 import Layout, { Grid } from '../components/Layout';
-import type { UserType } from '../types';
+import type { UserType, OgMetaType } from '../types';
 import { aspectRatio, truncate } from '../lib/styleUtils';
 
 import Error from './_error';
@@ -18,13 +18,23 @@ type Props = {|
 class Profile extends Component<Props, void> {
   static getInitialProps: () => any;
 
+  ogMeta = (user: UserType): OgMetaType => ({
+    title: user.name, // og title not page title
+    type: 'music.musician',
+    url: `https://tunebay.com/${user.username}`,
+    image: user.photo,
+    imageWidth: '500',
+    imageHeight: '500',
+    description: `Listen to and directly support ${user.name}`,
+  });
+
   render() {
     const { user, statusCode, url } = this.props;
 
     if (statusCode) return <Error statusCode={statusCode} url={url} />;
 
     return (
-      <Layout title={user.name}>
+      <Layout ogMeta={this.ogMeta(user)} title={user.name}>
         <Cover>
           <CoverPhoto src={user.cover} />
           <Overlay />
@@ -56,7 +66,6 @@ class Profile extends Component<Props, void> {
     );
   }
 }
-
 const FollowButton = styled.button`
   background-color: ${props => props.theme.primaryRed};
   color: ${props => props.theme.white};
