@@ -22,16 +22,17 @@ export default (props: Props) => {
       <meta property="og:type" content={og.type} />
       <meta property="og:url" content={og.url} />
       <meta property="og:title" content={og.title} />
-
       <meta property="og:image" content={og.image} />
       <meta property="og:image:width" content={og.image.width} />
       <meta property="og:image:height" content={og.image.height} />
       <meta property="og:description" content={og.description} />
-      <meta property="og:audio" content={og.audio} />
+
       <meta property="og:locality" content="London" />
       <meta property="og:country-name" content="United Kingdom" />
+      <meta property="og:audio" content={og.audio} />
 
-      <link rel="icon" href="favicon.ico" type="image/x-icon" />
+      <link rel="icon" href="/static/favicon-32x32.png" type="image/x-icon" />
+      <link rel="icon" href="/static/favicon-16x16.png" type="image/x-icon" />
       <link
         href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900,900i"
         rel="stylesheet"
