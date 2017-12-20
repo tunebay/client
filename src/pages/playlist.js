@@ -428,6 +428,34 @@ Playlist.getInitialProps = async context => {
     },
   ];
 
+  // const query = gql`
+  //   query Playlist($playlistId: String!) {
+  //     playlist(id: $playlistId) {
+  //       id
+  //       title
+  //       artwork(size: 500)
+  //       price
+  //       permalink
+  //       tracks {
+  //         id
+  //         price
+  //         position # could just order response?
+  //         name
+  //         duration
+  //       }
+  //       supporters {
+  //         id
+  //         avatar(size: 50)
+  //       }
+  //       artist {
+  //         id
+  //         name
+  //         username
+  //         avatar(size: 50)
+  //       }
+  //     }
+  //   }
+  // `;
   const playlist = isServer
     ? playlists.find(
         p => p.permalink === permalink && p.artist.username === username,
