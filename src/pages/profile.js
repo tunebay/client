@@ -72,8 +72,7 @@ const CSSGrid = styled.div`
   display: grid;
   width: 100%;
   grid-template-columns: repeat(3, 31%);
-  justify-content: space-between;
-  grid-row-gap: 5%;
+  grid-gap: 5%;
 `;
 
 const Playlist = styled.div``;
