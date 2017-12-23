@@ -46,7 +46,7 @@ class Profile extends Component<Props, void> {
               <FollowButton>Follow</FollowButton>
             </User>
             <Playlists>
-              <Grid>
+              <CSSGrid>
                 {user.playlists.map(playlist => (
                   <Link
                     key={playlist.id}
@@ -59,7 +59,7 @@ class Profile extends Component<Props, void> {
                     </Playlist>
                   </Link>
                 ))}
-              </Grid>
+              </CSSGrid>
             </Playlists>
           </Grid>
         </Main>
@@ -67,6 +67,16 @@ class Profile extends Component<Props, void> {
     );
   }
 }
+
+const CSSGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 3%;
+  grid-column-gap: 4%;
+`;
+
+const Playlist = styled.div``;
+
 const FollowButton = styled.button`
   background-color: ${props => props.theme.primaryRed};
   color: ${props => props.theme.white};
@@ -126,11 +136,6 @@ const Artwork = styled.div`
   }
 `;
 
-const Playlist = styled.div`
-  width: 31%;
-  margin-bottom: 3rem;
-`;
-
 const User = styled.div`
   margin-top: -13rem;
   width: 23.5%;
@@ -165,8 +170,6 @@ const ProfilePicture = styled.button`
 
   &:hover {
     cursor: pointer;
-    border-radius: 4px;
-    border: 0.5rem solid white;
   }
 `;
 
@@ -231,6 +234,13 @@ Profile.getInitialProps = async context => {
           artwork:
             'https://images.genius.com/122c310b162d72c5d271d32753b5fa60.630x630x1.jpg',
           permalink: 'thinking-of-you',
+        },
+        {
+          id: 3,
+          title: 'Finders Keepers',
+          artwork:
+            'https://pbs.twimg.com/profile_images/862396484658057223/0RDeiaKc.jpg',
+          permalink: 'finders-keepers',
         },
       ],
     },
