@@ -73,14 +73,14 @@ const CSSGrid = styled.div`
   width: 100%;
   grid-template-columns: repeat(3, 31%);
   justify-content: space-between;
-  grid-row-gap: 3%;
+  grid-row-gap: 5%;
 `;
 
 const Playlist = styled.div``;
 
 const PlaylistTitle = styled.h2`
   font-size: 2rem;
-  padding: 1.2rem 0;
+  padding: 1.6rem 0 0 0;
 
   ${truncate('100%')};
 
