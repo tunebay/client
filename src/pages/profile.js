@@ -70,12 +70,24 @@ class Profile extends Component<Props, void> {
 
 const CSSGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  grid-template-columns: repeat(3, 31%);
+  justify-content: space-between;
   grid-row-gap: 3%;
-  grid-column-gap: 4%;
 `;
 
 const Playlist = styled.div``;
+
+const PlaylistTitle = styled.h2`
+  font-size: 2rem;
+  padding: 1.2rem 0;
+
+  ${truncate('100%')};
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 const FollowButton = styled.button`
   background-color: ${props => props.theme.primaryRed};
@@ -100,19 +112,8 @@ const FollowButton = styled.button`
   }
 `;
 
-const PlaylistTitle = styled.h2`
-  font-size: 2rem;
-  padding: 1.2rem 0;
-
-  ${truncate('100%')};
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
 export const Main = styled.main`
-  margin-top: 6rem;
+  margin-top: 5rem;
   width: 100%;
   padding: 0 3rem;
 
