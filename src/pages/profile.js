@@ -46,7 +46,7 @@ class Profile extends Component<Props, void> {
               <FollowButton>Follow</FollowButton>
             </User>
             <Playlists>
-              <Grid>
+              <CSSGrid>
                 {user.playlists.map(playlist => (
                   <Link
                     key={playlist.id}
@@ -59,7 +59,7 @@ class Profile extends Component<Props, void> {
                     </Playlist>
                   </Link>
                 ))}
-              </Grid>
+              </CSSGrid>
             </Playlists>
           </Grid>
         </Main>
@@ -67,6 +67,27 @@ class Profile extends Component<Props, void> {
     );
   }
 }
+
+const CSSGrid = styled.div`
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 31%);
+  grid-gap: 5%;
+`;
+
+const Playlist = styled.div``;
+
+const PlaylistTitle = styled.h2`
+  font-size: 2rem;
+  padding: 1.6rem 0 0 0;
+
+  ${truncate('100%')};
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 const FollowButton = styled.button`
   background-color: ${props => props.theme.primaryRed};
   color: ${props => props.theme.white};
@@ -90,19 +111,8 @@ const FollowButton = styled.button`
   }
 `;
 
-const PlaylistTitle = styled.h2`
-  font-size: 2rem;
-  padding: 1.2rem 0;
-
-  ${truncate('100%')};
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
 export const Main = styled.main`
-  margin-top: 6rem;
+  margin-top: 5rem;
   width: 100%;
   padding: 0 3rem;
 
@@ -124,11 +134,6 @@ const Artwork = styled.div`
   &:hover {
     cursor: pointer;
   }
-`;
-
-const Playlist = styled.div`
-  width: 31%;
-  margin-bottom: 3rem;
 `;
 
 const User = styled.div`
@@ -165,8 +170,6 @@ const ProfilePicture = styled.button`
 
   &:hover {
     cursor: pointer;
-    border-radius: 4px;
-    border: 0.5rem solid white;
   }
 `;
 
@@ -231,6 +234,13 @@ Profile.getInitialProps = async context => {
           artwork:
             'https://images.genius.com/122c310b162d72c5d271d32753b5fa60.630x630x1.jpg',
           permalink: 'thinking-of-you',
+        },
+        {
+          id: 3,
+          title: 'Finders Keepers',
+          artwork:
+            'https://pbs.twimg.com/profile_images/862396484658057223/0RDeiaKc.jpg',
+          permalink: 'finders-keepers',
         },
       ],
     },
