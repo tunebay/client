@@ -13,7 +13,6 @@ import withData from '../lib/withData';
 import Error from './_error';
 
 type Props = {|
-  statusCode?: 404 | 500,
   url: any,
   data: { user: UserType },
 |};
@@ -24,21 +23,16 @@ class Profile extends Component<Props, void> {
   ogMeta = (user: UserType): OgMetaType => ({
     title: user.name, // og title not page title
     type: 'music.musician',
-    url: `https://tunebay.com/${user}`,
+    url: `https://tunebay.com/${user.username}`,
     image: { url: user.photo, width: '500', height: '500' },
     description: `Listen to and directly support ${user.name} on Tunebay`,
   });
 
   render() {
-    console.log('Props', this.props);
-    const { data, statusCode, url } = this.props;
-    if (!data || data.loading) {
-      return null;
-    }
-
+    const { data, url } = this.props;
+    if (!data || data.loading) return null;
     const { user } = data;
-
-    if (statusCode) return <Error statusCode={statusCode} url={url} />;
+    if (!data.user) return <Error statusCode={404} url={url} />;
 
     return (
       <Layout ogMeta={this.ogMeta(user)} title={user.name}>
