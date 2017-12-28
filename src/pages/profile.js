@@ -24,12 +24,13 @@ class Profile extends Component<Props, void> {
   ogMeta = (user: UserType): OgMetaType => ({
     title: user.name, // og title not page title
     type: 'music.musician',
-    url: `https://tunebay.com/${user.username}`,
+    url: `https://tunebay.com/${user}`,
     image: { url: user.photo, width: '500', height: '500' },
     description: `Listen to and directly support ${user.name} on Tunebay`,
   });
 
   render() {
+    console.log('Props', this.props);
     const { data, statusCode, url } = this.props;
     if (!data || data.loading) {
       return null;
@@ -212,8 +213,8 @@ const Overlay = styled.div`
 `;
 
 const query = gql`
-  query ProfileUser {
-    user: getUser(id: 1) {
+  query Profile($username: String!) {
+    user: getUser(username: $username) {
       id
       name
       username
@@ -230,5 +231,16 @@ const query = gql`
   }
 `;
 
-const graphqlProfile = graphql(query)(Profile);
+Profile.getInitialProps = context => ({
+  serverRendered: !!context.req,
+  query: context.query,
+});
+
+const graphqlProfile = graphql(query, {
+  options: props => {
+    const { username } = props.query;
+    return { variables: { username } };
+  },
+})(Profile);
+
 export default withData(graphqlProfile);
