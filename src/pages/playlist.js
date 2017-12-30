@@ -41,12 +41,10 @@ class Playlist extends Component<Props, void> {
     const { playlist } = data;
 
     if (!playlist) return <Error statusCode={404} url={url} />;
-    const { artwork, price, artist, title } = playlist;
-    console.log(artist.photo);
+    const { artwork, price, artist, title, tracks } = playlist;
 
     // TODO still need to come from server
     const supporters = [];
-    const tracks = [];
 
     return (
       <Layout
@@ -292,13 +290,13 @@ const query = gql`
       artwork
       price
       permalink
-      # tracks {
-      #   id
-      #   price
-      #   position
-      #   name
-      #   duration
-      # }
+      tracks {
+        id
+        price
+        position
+        name
+        duration
+      }
       # supporters {
       #   id
       #   avatar
