@@ -270,7 +270,7 @@ const PlaylistDetails = styled.div`
 `;
 
 const PlaylistTitle = styled.h1`
-  font-size: 4rem; /* TODO 4rem when Thienhardt is added */
+  font-size: 4rem;
   font-weight: 800;
   padding: 1.5rem 0;
 `;
@@ -283,8 +283,8 @@ const PlaylistMeta = styled.p`
 `;
 
 const query = gql`
-  query Playlist($id: Int!) {
-    playlist: getPlaylist(id: $id) {
+  query Playlist($id: Int, $username: String, $permalink: String) {
+    playlist: getPlaylist(id: $id, username: $username, permalink: $permalink) {
       id
       title
       artwork
@@ -318,8 +318,10 @@ Playlist.getInitialProps = context => ({
 
 const graphqlPlaylist = graphql(query, {
   options: props => {
-    const { id } = props.query;
-    return { variables: { id } };
+    const { id, permalink, username } = props.query;
+    return props.serverRendered
+      ? { variables: { permalink, username, id: null } }
+      : { variables: { id, permalink: null, username: null } };
   },
 })(Playlist);
 

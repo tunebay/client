@@ -96,9 +96,9 @@ const FollowButton = styled.button`
   background-color: ${props => props.theme.primaryRed};
   color: ${props => props.theme.white};
 
-  height: 3.6rem;
-  width: 12rem;
-  border-radius: 5px;
+  height: 4.4rem;
+  width: 100%;
+  border-radius: 500px;
   font-weight: 400;
   font-size: 1.3rem;
   transition: all 75ms ease-out;
@@ -142,7 +142,7 @@ const Artwork = styled.div`
 
 const User = styled.div`
   margin-top: -13rem;
-  width: 23.5%;
+  width: 22%;
 `;
 
 const Name = styled.h1`
@@ -161,7 +161,7 @@ const ProfilePicture = styled.button`
   background-image: url(${props => props.photo});
   box-shadow: ${props => props.theme.boxShadow};
 
-  width: 75%;
+  width: 80%;
   transition: all 300ms ease-out;
   border-radius: 100%;
   border: 0.5rem solid white;
@@ -178,7 +178,7 @@ const ProfilePicture = styled.button`
 `;
 
 const Playlists = styled.div`
-  width: 73%;
+  width: 74%;
   height: 50px;
 `;
 
