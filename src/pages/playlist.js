@@ -5,7 +5,7 @@ import Link from 'next/link';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
-import type { PlaylistType, OgMetaType } from '../types';
+import type { PlaylistType, OgMetaType, UserType } from '../types';
 import Layout, { Grid } from '../components/Layout';
 import { aspectRatio } from '../lib/styleUtils';
 import { Chevron } from '../components/svgs';
@@ -93,7 +93,7 @@ class Playlist extends Component<Props, void> {
 
 // LEFT SECTION
 
-const Supporters = props => {
+const Supporters = (props: { supporters: Array<UserType> }) => {
   const { supporters } = props;
   return (
     <Section>
@@ -129,7 +129,7 @@ const Li = styled.li`
 `;
 
 const Avatar = styled.div`
-  background-image: url(${props => props.image});
+  background-image: url(${(props: { image: string }) => props.image});
 
   width: 4.4rem;
   height: 4.4rem;
