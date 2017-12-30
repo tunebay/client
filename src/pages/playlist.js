@@ -2,18 +2,20 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import gql from 'graphql-tag';
+import { graphql } from 'react-apollo';
 
 import type { PlaylistType, OgMetaType } from '../types';
 import Layout, { Grid } from '../components/Layout';
 import { aspectRatio } from '../lib/styleUtils';
 import { Chevron } from '../components/svgs';
 import TrackList from '../components/TrackList';
+import withData from '../lib/withData';
 
 import Error from './_error';
 
 type Props = {|
-  playlist: PlaylistType,
-  statusCode?: 404 | 500,
+  data: { playlist: PlaylistType, loading: boolean },
   url: any,
 |};
 
@@ -33,14 +35,22 @@ class Playlist extends Component<Props, void> {
   });
 
   render() {
-    const { playlist, statusCode, url } = this.props;
-    if (statusCode) return <Error statusCode={statusCode} url={url} />;
+    const { data, url } = this.props;
 
-    const { artwork, supporters, price, artist, title, tracks } = playlist;
+    if (!data || data.loading) return null;
+    const { playlist } = data;
+
+    if (!playlist) return <Error statusCode={404} url={url} />;
+    const { artwork, price, artist, title } = playlist;
+    console.log(artist.photo);
+
+    // TODO still need to come from server
+    const supporters = [];
+    const tracks = [];
 
     return (
       <Layout
-        ogMeta={this.ogMeta(this.props.playlist)}
+        ogMeta={this.ogMeta(playlist)}
         title={`${title} by ${artist.name}`}
       >
         <Main>
@@ -62,7 +72,7 @@ class Playlist extends Component<Props, void> {
                 href={`/profile?username=${artist.username}`}
               >
                 <ArtistDetails>
-                  <Avatar image={artist.avatar} />
+                  <Avatar image={artist.photo /* TODO avatar */} />
                   <ArtistName>{artist.name}</ArtistName>
                 </ArtistDetails>
               </Link>
@@ -119,6 +129,7 @@ const Li = styled.li`
   margin-right: 0.8rem;
   margin-bottom: 0.8rem;
 `;
+
 const Avatar = styled.div`
   background-image: url(${props => props.image});
 
@@ -273,48 +284,45 @@ const PlaylistMeta = styled.p`
   font-weight: 400;
 `;
 
-Playlist.getInitialProps = async context => {
-  const { username, permalink, id } = context.query;
-  const isServer = !!context.req;
+const query = gql`
+  query Playlist($id: Int!) {
+    playlist: getPlaylist(id: $id) {
+      id
+      title
+      artwork
+      price
+      permalink
+      # tracks {
+      #   id
+      #   price
+      #   position
+      #   name
+      #   duration
+      # }
+      # supporters {
+      #   id
+      #   avatar
+      # }
+      artist {
+        id
+        name
+        username
+        photo
+      }
+    }
+  }
+`;
 
-  // const query = gql`
-  //   query Playlist($playlistId: String!) {
-  //     playlist(id: $playlistId) {
-  //       id
-  //       title
-  //       artwork(size: 500)
-  //       price
-  //       permalink
-  //       tracks {
-  //         id
-  //         price
-  //         position # could just order response?
-  //         name
-  //         duration
-  //       }
-  //       supporters {
-  //         id
-  //         avatar(size: 50)
-  //       }
-  //       artist {
-  //         id
-  //         name
-  //         username
-  //         avatar(size: 50)
-  //       }
-  //     }
-  //   }
-  // `;
-  const playlist = isServer
-    ? playlists.find(
-        p => p.permalink === permalink && p.artist.username === username,
-      )
-    : playlists.find(p => p.id === parseInt(id, 10));
+Playlist.getInitialProps = context => ({
+  serverRendered: !!context.req,
+  query: context.query,
+});
 
-  const statusCode = playlist ? null : 404;
-  return { playlist, statusCode };
-};
+const graphqlPlaylist = graphql(query, {
+  options: props => {
+    const { id } = props.query;
+    return { variables: { id } };
+  },
+})(Playlist);
 
-export default Playlist;
-
-// const playlists = [ //   { //     id: 1, //     title: 'When Ur Sober', //     artwork: 'https://i1.sndcdn.com/artworks-7xbVEf5nJf1s-0-t500x500.jpg', //     price: 5.99, //     permalink: 'when-ur-sober', //     tracks: [ //       { id: 1, position: 1, name: "Dreamin'", price: 0.79, duration: 190 }, //       { id: 2, position: 2, name: 'Cold Love', price: 0.79, duration: 231 }, //       { //         id: 3, //         position: 3, //         name: 'When Ur Sober', //         price: 0.79, //         duration: 224, //       }, //       { //         id: 4, //         position: 4, //         name: 'Night After Night', //         price: 0.79, //         duration: 287, //       }, //     ], //     supporters: [ //       { //         id: 1, //         avatar: //           'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/16996405_10154356162762895_1493811469734824672_n.jpg?oh=a3be628e8c9b5f2d25fb92d9a9829ac3&oe=5AB97316', //       }, //       { //         id: 2, //         avatar: //           'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/21740414_10159322113150427_6477255442795043231_n.jpg?oh=3bd907166d28d0217feda45a5c1dde83&oe=5AB8F817', //       }, //       { //         id: 3, //         avatar: //           'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/16105616_10210380459341549_8574739943940922093_n.jpg?oh=278eb3751023aea174493e8342e4aaa3&oe=5AD749D0', //       }, //     ], //     artist: { //       id: 1, //       name: 'Taya', //       username: 'taya', //       avatar: //         'https://i1.sndcdn.com/avatars-000332530388-c4w465-t500x500.jpg', //     }, //   }, //   { //     id: 2, //     title: 'Redlight', //     artwork: //       'https://i1.sndcdn.com/artworks-b2350727-2418-480b-87c0-47178c030ea2-0-t500x500.jpg', //     price: 5.99, //     permalink: 'redlight', //     tracks: [ //       { id: 1, position: 1, name: "Dreamin'", price: 0.79, duration: 190 }, //       { id: 2, position: 2, name: 'Cold Love', price: 0.79, duration: 231 }, //       { //         id: 3, //         position: 3, //         name: 'Red', //         price: 0.79, //         duration: 224, //       }, //       { //         id: 4, //         position: 4, //         name: 'Night After Night', //         price: 0.79, //         duration: 287, //       }, //     ], //     supporters: [ //       { //         id: 1, //         avatar: //           'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/16996405_10154356162762895_1493811469734824672_n.jpg?oh=a3be628e8c9b5f2d25fb92d9a9829ac3&oe=5AB97316', //       }, //       { //         id: 2, //         avatar: //           'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/21740414_10159322113150427_6477255442795043231_n.jpg?oh=3bd907166d28d0217feda45a5c1dde83&oe=5AB8F817', //       }, //       { //         id: 3, //         avatar: //           'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/16105616_10210380459341549_8574739943940922093_n.jpg?oh=278eb3751023aea174493e8342e4aaa3&oe=5AD749D0', //       }, //     ], //     artist: { //       id: 1, //       name: 'Taya', //       username: 'taya', //       avatar: //         'https://i1.sndcdn.com/avatars-000332530388-c4w465-t500x500.jpg', //     }, //   }, //   { //     id: 3, //     title: 'Deeper', //     artwork: 'https://i1.sndcdn.com/artworks-S5enoBO1t7ca-0-t500x500.jpg', //     price: 5.99, //     permalink: 'deeper', //     tracks: [ //       { id: 1, position: 1, name: "Dreamin'", price: 0.79, duration: 190 }, //       { id: 2, position: 2, name: 'Cold Love', price: 0.79, duration: 231 }, //       { //         id: 3, //         position: 3, //         name: 'When Ur Sober', //         price: 0.79, //         duration: 224, //       }, //       { //         id: 4, //         position: 4, //         name: 'Night After Night', //         price: 0.79, //         duration: 287, //       }, //     ], //     supporters: [ //       { //         id: 1, //         avatar: //           'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/16996405_10154356162762895_1493811469734824672_n.jpg?oh=a3be628e8c9b5f2d25fb92d9a9829ac3&oe=5AB97316', //       }, //       { //         id: 2, //         avatar: //           'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/21740414_10159322113150427_6477255442795043231_n.jpg?oh=3bd907166d28d0217feda45a5c1dde83&oe=5AB8F817', //       }, //       { //         id: 3, //         avatar: //           'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-1/p50x50/16105616_10210380459341549_8574739943940922093_n.jpg?oh=278eb3751023aea174493e8342e4aaa3&oe=5AD749D0', //       }, //     ], //     artist: { //       id: 1, //       name: 'Taya', //       username: 'taya', //       avatar: //         'https://i1.sndcdn.com/avatars-000332530388-c4w465-t500x500.jpg', //     }, //   }, // ];
+export default withData(graphqlPlaylist);
