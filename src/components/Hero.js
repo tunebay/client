@@ -7,14 +7,16 @@ import theme from '../lib/theme';
 import { media } from '../lib/styleUtils';
 import { Button, NavLink, Logo } from '../components/common';
 
+import ProfileLink from './ProfileLink';
+
 export default () => (
   <Hero>
     <Nav>
       <Logo size={36} />
       <NavLinks>
-        <Link href="#">
+        <ProfileLink username="taya">
           <NavLink color={theme.white}>Log in</NavLink>
-        </Link>
+        </ProfileLink>
         <Link href="#">
           <NavLink color={theme.primaryRed}>Create account</NavLink>
         </Link>

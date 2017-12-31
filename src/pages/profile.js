@@ -36,16 +36,17 @@ class Profile extends Component<Props, void> {
 
     return (
       <Layout ogMeta={this.ogMeta(user)} title={user.name}>
-        <Cover>
-          <CoverPhoto src={user.cover} />
+        <Cover image={user.cover}>
           <Overlay />
         </Cover>
+        <Nav />
 
         <Main>
           <Grid>
             <User>
               <ProfilePicture photo={user.photo} />
               <Name>{user.name}</Name>
+              <Username>@{user.username}</Username>
               <Bio>{user.bio}</Bio>
               <FollowButton>Follow</FollowButton>
             </User>
@@ -72,6 +73,12 @@ class Profile extends Component<Props, void> {
   }
 }
 
+const Nav = styled.nav`
+  box-shadow: ${props => props.theme.boxShadow};
+  height: 6rem;
+  background-color: white;
+`;
+
 const CSSGrid = styled.div`
   display: grid;
   width: 100%;
@@ -96,12 +103,13 @@ const FollowButton = styled.button`
   background-color: ${props => props.theme.primaryRed};
   color: ${props => props.theme.white};
 
-  height: 4.4rem;
+  height: 5rem;
   width: 100%;
   border-radius: 500px;
   font-weight: 400;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   transition: all 75ms ease-out;
+  margin-top: 1.6rem;
 
   letter-spacing: inherit;
   border: none;
@@ -141,20 +149,28 @@ const Artwork = styled.div`
 `;
 
 const User = styled.div`
-  margin-top: -13rem;
-  width: 22%;
+  margin-top: -22rem;
+  width: 21%;
 `;
 
 const Name = styled.h1`
   padding-top: 2rem;
-  font-size: 3rem;
+  font-size: 2.6rem;
   font-weight: 900;
 `;
 
 const Bio = styled.p`
-  font-size: 1.5rem;
-  padding: 1.2rem 0;
+  font-size: 1.4rem;
+  padding: 0;
   line-height: 1.4;
+`;
+
+const Username = styled.h3`
+  color: ${props => props.theme.darkGrey};
+  font-size: 1.4rem;
+  font-weight: 400;
+  padding-bottom: 1.6rem;
+  padding-top: 0.4rem;
 `;
 
 const ProfilePicture = styled.button`
@@ -182,19 +198,16 @@ const Playlists = styled.div`
   height: 50px;
 `;
 
-const Cover = styled.header`
+const Cover = styled.div`
+  background-image: url(${props => props.image});
   position: relative;
+  background-size: cover;
   z-index: -1;
-`;
-
-const CoverPhoto = styled.img`
-  width: 100%;
-
-  height: auto;
+  padding-bottom: 21%;
 `;
 
 const Overlay = styled.div`
-  height: 99%;
+  height: 100%;
   width: 100%;
   top: 0;
   bottom: 0;

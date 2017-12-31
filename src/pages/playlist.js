@@ -1,12 +1,12 @@
 // @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
 import type { PlaylistType, OgMetaType, UserType } from '../types';
 import Layout, { Grid } from '../components/Layout';
+import ProfileLink from '../components/ProfileLink';
 import { aspectRatio } from '../lib/styleUtils';
 import { Chevron } from '../components/svgs';
 import TrackList from '../components/TrackList';
@@ -56,7 +56,7 @@ class Playlist extends Component<Props, void> {
             <LeftContent>
               <Artwork image={artwork} />
               <BuyButton>
-                <BuyMain>Buy now £{price}</BuyMain>
+                <BuyMain>Buy £{price}</BuyMain>
                 <BuyMenu>
                   <Chevron fill="#ffffff" />
                 </BuyMenu>
@@ -65,15 +65,12 @@ class Playlist extends Component<Props, void> {
             </LeftContent>
 
             <RightCotent>
-              <Link
-                as={`/${artist.username}`}
-                href={`/profile?username=${artist.username}`}
-              >
+              <ProfileLink username={artist.username}>
                 <ArtistDetails>
                   <Avatar image={artist.photo /* TODO avatar */} />
                   <ArtistName>{artist.name}</ArtistName>
                 </ArtistDetails>
-              </Link>
+              </ProfileLink>
 
               <PlaylistDetails>
                 <PlaylistTitle>{title}</PlaylistTitle>
@@ -178,7 +175,7 @@ const SectionTitle = styled.h3`
 const BuyButton = styled.div`
   margin-top: 3rem;
   width: 100%;
-  height: 6.4rem;
+  height: 6rem;
 
   display: flex;
 
@@ -192,7 +189,7 @@ const BuyMain = styled.button`
   color: ${props => props.theme.white};
 
   flex: 5;
-  border-radius: 6px 0 0 6px;
+  border-radius: 600px 0 0 600px;
   font-size: 1.8rem;
   font-weight: 600;
   letter-spacing: 0.1px;
@@ -209,7 +206,7 @@ const BuyMenu = styled.button`
   background-color: ${props => props.theme.darkGreen};
 
   flex: 1;
-  border-radius: 0 6px 6px 0;
+  border-radius: 0 600px 600px 0;
 
   display: flex;
   justify-content: center;
@@ -247,7 +244,7 @@ const RightCotent = styled.div`
 `;
 
 const ArtistDetails = styled.div`
-  display: flex;
+  display: inline-flex;
   align-items: center;
 `;
 
@@ -291,11 +288,11 @@ const query = gql`
       price
       permalink
       tracks {
+        duration
         id
         price
         position
         name
-        duration
       }
       # supporters {
       #   id

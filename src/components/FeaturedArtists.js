@@ -1,12 +1,12 @@
 // @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
 
 import { aspectRatio } from '../lib/styleUtils';
 
 import { Grid } from './Layout';
 import { Button } from './common';
+import ProfileLink from './ProfileLink';
 
 type Props = {||};
 
@@ -63,13 +63,9 @@ class FeaturedArtists extends Component<Props, void> {
                   </span>
                 ))}
               </Bio>
-              <Link
-                prefetch
-                as={username}
-                href={`/profile?username=${username}`}
-              >
+              <ProfileLink username={username}>
                 <Button>Go to profile.</Button>
-              </Link>
+              </ProfileLink>
             </CardBack>
           </ArtistCard>
         ))}

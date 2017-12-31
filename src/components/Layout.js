@@ -88,7 +88,6 @@ const StyledLayout = styled.div`
   padding-top: ${props => (props.headerVisible ? '60px' : '0')};
 
   width: 100%;
-  padding-bottom: ${props => props.theme.layoutBottomPadding};
 `;
 
 export default withRouter(Layout);
