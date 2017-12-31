@@ -73,7 +73,7 @@ const SearchInput = styled.input`
   color: ${props => props.theme.black};
   height: 36px;
   border-radius: 5px;
-  font-weight: 400;
+  font-weight: 600;
   width: 55%;
   transition: all 200ms ease;
   padding: 1rem 2rem;
@@ -85,7 +85,7 @@ const SearchInput = styled.input`
   font-family: inherit;
 
   &::-webkit-input-placeholder {
-    font-weight: 400;
+    font-weight: 600;
     color: ${props => props.theme.darkGrey};
   }
 

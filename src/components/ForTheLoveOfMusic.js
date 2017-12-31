@@ -58,13 +58,14 @@ const Left = styled.div`
 
 const SectionTitle = styled.h2`
   padding-bottom: 3rem;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 4.8rem;
 `;
 
 const SectionDescription = styled.p`
   line-height: 1.7;
   font-size: 1.8rem;
+  font-weight: 400;
   ${media.break2`
     display: none;
   `};

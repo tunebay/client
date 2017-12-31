@@ -13,7 +13,9 @@ const NavLink = styled.a`
   padding-left: ${props => (props.spacing ? props.spacing : '3rem')};
 
   font-size: 1.4rem;
-  font-weight: 500;
+  font-weight: 800;
+  line-height: 3rem;
+
   text-transform: uppercase;
   text-align: center;
 

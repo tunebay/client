@@ -6,6 +6,8 @@ import { media, truncate } from '../lib/styleUtils';
 
 import Artwork from './Artwork';
 
+// TODO use server data and add photo to next to name
+
 type Props = {|
   artwork: string,
   title: string,
@@ -56,9 +58,10 @@ const PlayablePlaylist = styled.a`
 `;
 
 const Title = styled.div`
-  padding-top: 12px;
-  font-size: 1.7rem;
+  padding-top: 1rem;
+  font-size: 1.8rem;
   font-weight: 800;
+  line-height: 1.6;
 
   text-transform: capitalize;
 
@@ -68,9 +71,14 @@ const Title = styled.div`
 const Artist = styled.div`
   color: ${props => props.theme.darkGrey};
 
-  font-weight: 400;
+  font-weight: 600;
   font-size: 1.4rem;
-  padding-top: 6px;
+  line-height: 1.6;
 
   ${truncate('100%')};
+
+  &:hover {
+    color: ${props => props.theme.darkestGrey};
+    cursor: pointer;
+  }
 `;

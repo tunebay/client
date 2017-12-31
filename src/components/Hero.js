@@ -99,8 +99,8 @@ const Shoutout = styled.div`
 const Title = styled.h1`
   color: ${props => props.theme.white};
 
-  font-weight: 900;
-  font-size: 6rem;
+  font-weight: 800;
+  font-size: 5.6rem;
   max-width: 50rem;
   padding-bottom: 3rem;
   letter-spacing: 3px;

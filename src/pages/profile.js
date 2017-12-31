@@ -48,7 +48,7 @@ class Profile extends Component<Props, void> {
               <Name>{user.name}</Name>
               <Username>@{user.username}</Username>
               <Bio>{user.bio}</Bio>
-              <FollowButton>Follow</FollowButton>
+              <FollowButton>Subscribe</FollowButton>
             </User>
             <Playlists>
               <CSSGrid>
@@ -89,8 +89,10 @@ const CSSGrid = styled.div`
 const Playlist = styled.div``;
 
 const PlaylistTitle = styled.h2`
-  font-size: 2rem;
-  padding: 1.6rem 0 0 0;
+  font-size: 1.8rem;
+  padding: 1.4rem 0 0 0;
+  font-weight: 800;
+  line-height: 1.6;
 
   ${truncate('100%')};
 
@@ -106,7 +108,7 @@ const FollowButton = styled.button`
   height: 5rem;
   width: 100%;
   border-radius: 500px;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 1.4rem;
   transition: all 75ms ease-out;
   margin-top: 1.6rem;
@@ -155,19 +157,20 @@ const User = styled.div`
 
 const Name = styled.h1`
   padding-top: 2rem;
-  font-size: 2.6rem;
-  font-weight: 900;
+  font-size: 2.8rem;
+  font-weight: 800;
 `;
 
 const Bio = styled.p`
   font-size: 1.4rem;
   padding: 0;
+  font-weight: 400;
   line-height: 1.4;
 `;
 
 const Username = styled.h3`
   color: ${props => props.theme.darkGrey};
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 400;
   padding-bottom: 1.6rem;
   padding-top: 0.4rem;
@@ -203,7 +206,7 @@ const Cover = styled.div`
   position: relative;
   background-size: cover;
   z-index: -1;
-  padding-bottom: 21%;
+  padding-bottom: 21%; /* Dont change this value */
 `;
 
 const Overlay = styled.div`

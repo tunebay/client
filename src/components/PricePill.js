@@ -25,7 +25,7 @@ export default class extends Component<Props, void> {
 
 const PricePill = styled.div`
   width: 7rem;
-  font-weight: 500;
+  font-weight: 600;
   height: 2.5rem;
 
   outline: none;
@@ -41,7 +41,7 @@ const buttonStyles = css`
   align-items: center;
   outline: none;
 
-  font-weight: 500;
+  font-weight: 600;
   transition: all 100ms ease;
 
   &:hover {

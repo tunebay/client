@@ -29,7 +29,7 @@ const CallToActionFooter = styled.div`
 
   clip-path: polygon(0 0, 100% 10%, 100% 100%, 0% 90%);
 
-  height: 60vh;
+  height: 65vh;
   margin: 10rem 3rem 0 3rem;
 
   display: flex;
@@ -43,14 +43,14 @@ const ContentBox = styled.div`
 `;
 
 const Title = styled.h3`
-  font-size: 4.6rem;
-  font-weight: 900;
+  font-size: 4.2rem;
+  font-weight: 800;
   letter-spacing: 1.2px;
   padding-bottom: 1.5rem;
 `;
 
 const Tag = styled.h4`
-  font-size: 2.4rem;
+  font-size: 2rem;
   line-height: 1.4;
   font-weight: 400;
   padding-bottom: 2rem;

@@ -105,7 +105,7 @@ const CardFront = CardSide.extend`
 
   padding: 1rem;
   font-size: 3.6rem;
-  font-weight: 800;
+  font-weight: 900;
   text-shadow: 2px 2px rgba(26, 30, 40, 0.7);
 
   background-size: cover;
@@ -140,14 +140,13 @@ const Name = styled.h3`
   width: 100%;
   font-weight: 800;
   padding-bottom: 2rem;
-
-  text-transform: uppercase;
 `;
 
 const Bio = styled.p`
   font-size: 1.3rem;
   width: 100%;
   line-height: 1.6;
+  font-weight: 400;
   flex: 1;
 
   text-align: left;

@@ -33,8 +33,9 @@ export default (props: Props) => {
 
       <link rel="icon" href="/static/favicon-32x32.png" type="image/x-icon" />
       <link rel="icon" href="/static/favicon-16x16.png" type="image/x-icon" />
+
       <link
-        href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900,900i"
+        href="https://fonts.googleapis.com/css?family=Muli:400,600,700,800,900"
         rel="stylesheet"
       />
     </Head>
@@ -47,6 +48,7 @@ injectGlobal`
   *::after {
     padding: 0;
     margin: 0;
+    vertical-align: middle;
 
     box-sizing: inherit;
   }
@@ -64,11 +66,10 @@ injectGlobal`
   body {
     color: ${props => props.theme.black};
 
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Muli', sans-serif;
 
     font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 1.1;
+    font-weight: 600;
     letter-spacing: 0.4px;
 
     box-sizing: border-box;

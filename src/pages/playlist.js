@@ -167,7 +167,7 @@ const SectionTitle = styled.h3`
   margin: 0 auto;
   padding-bottom: 2rem;
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 800;
 
   text-transform: uppercase;
 `;
@@ -251,10 +251,9 @@ const ArtistDetails = styled.div`
 const ArtistName = styled.h2`
   color: ${props => props.theme.primaryRed};
 
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   padding-left: 1.5rem;
-
-  text-transform: uppercase;
+  font-weight: 700;
 
   &:hover {
     cursor: pointer;
@@ -263,12 +262,11 @@ const ArtistName = styled.h2`
 
 const PlaylistDetails = styled.div`
   width: 100%;
-  height: 50rem;
 `;
 
 const PlaylistTitle = styled.h1`
-  font-size: 4rem;
-  font-weight: 800;
+  font-size: 3.8rem;
+  font-weight: 900;
   padding: 1.5rem 0;
 `;
 

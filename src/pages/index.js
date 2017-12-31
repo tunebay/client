@@ -54,7 +54,7 @@ const Title = styled.h3`
   margin: 0 auto;
   padding-bottom: 6rem;
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 800;
 
   text-transform: uppercase;
 `;

@@ -11,10 +11,11 @@ export default styled.button`
   border-radius: 6px;
   border: none;
   font-size: 1.4rem;
-  height: 60px;
-  letter-spacing: 1.2px;
+  height: 6rem;
+  font-weight: 600;
+  letter-spacing: 0.6px;
   outline: none;
-  padding: 0.25rem 1rem;
+  padding: 0;
   width: 180px;
   transition: all 75ms ease-out;
 

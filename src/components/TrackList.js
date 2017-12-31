@@ -50,7 +50,7 @@ const Row = styled.li`
   font-size: 1.4rem;
   transition: all 100ms ease-out;
   padding: 0 2rem;
-  font-weight: 500;
+  font-weight: 600;
 
   display: flex;
   align-items: center;
