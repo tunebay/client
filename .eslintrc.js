@@ -1,7 +1,7 @@
 module.exports = {
-  extends: 'airbnb',
+  extends: ['airbnb', 'plugin:react/recommended', 'prettier'],
   parser: 'babel-eslint',
-  plugins: ['import', 'react', 'jsx-a11y'],
+  plugins: ['import', 'react', 'jsx-a11y', 'prettier'],
   rules: {
     'flowtype/generic-spacing': 'off',
     'import/order': [
@@ -41,5 +41,15 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
+    'prettier/prettier': [
+      'error',
+      {
+        tabWidth: 2,
+        useTabs: false,
+        singleQuote: true,
+        bracketSpacing: true,
+        trailingComma: 'es5',
+      },
+    ],
   },
 };
