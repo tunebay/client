@@ -21,6 +21,8 @@ export default {
   darkestGrey: '#666',
   black: '#111111',
 
+  facebook: '#3b5998',
+
   deepBlueGradient:
     'linear-gradient(to right bottom, rgba(44, 53, 71, 0.7), rgba(26, 30, 40, 1))',
 

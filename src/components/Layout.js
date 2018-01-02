@@ -10,6 +10,7 @@ import type { OgMetaType } from '../types';
 
 import Meta from './Meta';
 import Header from './Header';
+import Modal from './Modal';
 
 type Props = {|
   children: React.Node,
@@ -26,6 +27,7 @@ class Layout extends React.Component<Props, void> {
     return (
       <ThemeProvider theme={theme}>
         <StyledLayout headerVisible={headerVisible}>
+          <Modal visible />
           <Meta og={ogMeta} title={title} />
           <Header visible={headerVisible} />
           {children}

@@ -49,8 +49,9 @@ injectGlobal`
     padding: 0;
     margin: 0;
     vertical-align: middle;
-
+    font-family: inherit;
     box-sizing: inherit;
+    font-weight: inherit;
   }
 
   ul {
@@ -73,5 +74,10 @@ injectGlobal`
     letter-spacing: 0.4px;
 
     box-sizing: border-box;
+  }
+
+  /* Prevent page scroll when modal is open */
+  .ReactModal__Body--open {
+    overflow: hidden;
   }
 `;
