@@ -13,7 +13,7 @@ function getComponentDisplayName(Component) {
 export default ComposedComponent =>
   class WithData extends React.Component {
     static displayName = `WithData(${getComponentDisplayName(
-      ComposedComponent,
+      ComposedComponent
     )})`;
     static propTypes = {
       serverState: PropTypes.object.isRequired,
@@ -50,7 +50,7 @@ export default ComposedComponent =>
                 pathname: ctx.pathname,
                 query: ctx.query,
               },
-            },
+            }
           );
         } catch (error) {
           // Prevent Apollo Client GraphQL errors from crashing SSR.

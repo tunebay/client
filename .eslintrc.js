@@ -40,6 +40,7 @@ module.exports = {
     'react/prefer-stateless-function': 'off',
     'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/display-name': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'prettier/prettier': [
       'error',
