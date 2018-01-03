@@ -2,6 +2,7 @@ module.exports = {
   extends: ['airbnb', 'plugin:react/recommended', 'prettier'],
   parser: 'babel-eslint',
   plugins: ['import', 'react', 'jsx-a11y', 'prettier'],
+  env: { es6: true, browser: true },
   rules: {
     'flowtype/generic-spacing': 'off',
     'import/order': [
