@@ -3,19 +3,31 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Modal from 'react-modal';
 
+import { Google } from './svgs';
+
 type Props = {|
   visible: boolean,
+  onRequestClose: () => any,
 |};
 
 export default class extends Component<Props, void> {
   render() {
-    const { visible } = this.props;
+    const { visible, onRequestClose } = this.props;
     return (
-      <Modal isOpen={visible}>
-        <Close>X</Close>
+      /* TODO https://github.com/reactjs/react-modal/issues/576 */
+      <Modal
+        contentLabel="loginModal"
+        shouldCloseOnOverlayClick
+        onRequestClose={onRequestClose}
+        ariaHideApp={false}
+        isOpen={visible}
+      >
+        <Close onClick={onRequestClose}>X</Close>
         <Content>
           <FacebookButton>Continue with Facebook</FacebookButton>
-          <GoogleButton>Continue with Google</GoogleButton>
+          <GoogleButton>
+            <Google />Continue with Google
+          </GoogleButton>
           <Or>or</Or>
           <EmailButton>Create account with Email</EmailButton>
           <Hr />
@@ -30,6 +42,7 @@ export default class extends Component<Props, void> {
 
 const Close = styled.button`
   color: ${props => props.theme.darkGrey};
+  background-color: ${props => props.theme.white};
   float: right;
   height: 2rem;
   width: 2rem;
@@ -49,6 +62,7 @@ const Button = styled.button`
   height: 6.8rem;
   margin-top: 2rem;
   border-radius: 6px;
+  border: none;
   outline: none;
   font-size: 1.6rem;
   font-weight: 600;
@@ -77,12 +91,13 @@ const Span = styled.span`
 `;
 
 const FacebookButton = Button.extend`
-  border: none;
   background-color: ${props => props.theme.facebook};
 `;
 
 const GoogleButton = Button.extend`
   color: ${props => props.theme.black};
+  background-color: ${props => props.theme.white};
+  border: 1px solid ${props => props.theme.grey};
 `;
 
 const EmailButton = Button.extend`
@@ -93,7 +108,7 @@ const EmailButton = Button.extend`
 
 const Or = styled.div`
   font-size: 1.4rem;
-  color: ${props => props.theme.darkGrey};
+  color: ${props => props.theme.darkestGrey};
   text-align: center;
   width: 100%;
   font-size: 1.5rem;

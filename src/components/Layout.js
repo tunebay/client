@@ -19,15 +19,28 @@ type Props = {|
   ogMeta: OgMetaType,
 |};
 
-class Layout extends React.Component<Props, void> {
+type State = {|
+  modalVisible: boolean,
+|};
+
+class Layout extends React.Component<Props, State> {
+  constructor(props) {
+    super(props);
+    this.state = { modalVisible: false };
+  }
+
   render() {
     const { children, router, title, ogMeta } = this.props;
+    const { modalVisible } = this.state;
     const headerVisible = router.pathname !== '/';
 
     return (
       <ThemeProvider theme={theme}>
         <StyledLayout headerVisible={headerVisible}>
-          <Modal visible />
+          <Modal
+            visible={modalVisible}
+            onRequestClose={() => this.setState({ modalVisible: false })}
+          />
           <Meta og={ogMeta} title={title} />
           <Header visible={headerVisible} />
           {children}
