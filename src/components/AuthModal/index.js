@@ -2,17 +2,23 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Modal from 'react-modal';
+import { connect } from 'react-redux';
 
-import { Google } from './svgs';
+import { Google } from '../svgs';
 
-type Props = {|
+import { actions } from './state';
+
+type Props = OwnProps & typeof actions;
+
+type OwnProps = {|
   visible: boolean,
   onRequestClose: () => any,
 |};
 
-export default class extends Component<Props, void> {
+class AuthModal extends Component<Props, void> {
   render() {
     const { visible, onRequestClose } = this.props;
+    console.log('Props', this.props);
     return (
       /* TODO https://github.com/reactjs/react-modal/issues/576 */
       <Modal
@@ -140,3 +146,5 @@ Modal.defaultStyles = {
     padding: '6rem 6rem 3rem 6rem',
   },
 };
+
+export default AuthModal;

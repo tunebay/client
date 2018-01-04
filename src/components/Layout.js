@@ -10,7 +10,7 @@ import type { OgMetaType } from '../types';
 
 import Meta from './Meta';
 import Header from './Header';
-import Modal from './Modal';
+import AuthModal from './AuthModal';
 
 type Props = {|
   children: React.Node,
@@ -19,27 +19,17 @@ type Props = {|
   ogMeta: OgMetaType,
 |};
 
-type State = {|
-  modalVisible: boolean,
-|};
-
-class Layout extends React.Component<Props, State> {
-  constructor(props) {
-    super(props);
-    this.state = { modalVisible: false };
-  }
-
+class Layout extends React.Component<Props, void> {
   render() {
     const { children, router, title, ogMeta } = this.props;
-    const { modalVisible } = this.state;
     const headerVisible = router.pathname !== '/';
 
     return (
       <ThemeProvider theme={theme}>
         <StyledLayout headerVisible={headerVisible}>
-          <Modal
-            visible={modalVisible}
-            onRequestClose={() => this.setState({ modalVisible: false })}
+          <AuthModal
+            visible
+            onRequestClose={() => console.log('close modal')}
           />
           <Meta og={ogMeta} title={title} />
           <Header visible={headerVisible} />
