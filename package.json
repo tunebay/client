@@ -7,7 +7,8 @@
     "dev": "node server.js",
     "build": "next build src",
     "start": "NODE_ENV=production node server.js",
-    "create-component": "./scripts/create-component.sh"
+    "create-component": "./scripts/create-component.sh",
+    "create-stateful-component": "./scripts/create-stateful-component.sh"
   },
   "dependencies": {
     "apollo-cache-inmemory": "^1.1.4",
