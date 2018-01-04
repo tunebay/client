@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
+import { connect } from 'react-redux';
 
 import Layout, { Grid } from '../components/Layout';
 import type { UserType, OgMetaType } from '../types';
@@ -253,4 +254,4 @@ const graphqlProfile = graphql(query, {
   },
 })(Profile);
 
-export default withData(graphqlProfile);
+export default withData(connect(null)(graphqlProfile));

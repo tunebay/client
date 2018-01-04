@@ -28,9 +28,9 @@ export default function reducer(
 ): AuthModalState {
   switch (action.type) {
     case 'AuthModal/show':
-      return { visible: true };
+      return { ...state, visible: true };
     case 'AuthModal/hide':
-      return { visible: false };
+      return { ...state, visible: false };
     default:
       return state;
   }

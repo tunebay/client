@@ -1,2 +1,3 @@
-export { default as authModal } from '../components/AuthModal/state';
+// @flow
+export const reducer1 = () => null;
 export const reducer2 = () => null;
