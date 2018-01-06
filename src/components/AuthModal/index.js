@@ -2,13 +2,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Modal from 'react-modal';
-import { connect } from 'react-redux';
-
-import withData from '../../lib/withData';
 
 import { Google } from '../svgs';
-
-import { actions } from './state';
 
 type Props = OwnProps;
 

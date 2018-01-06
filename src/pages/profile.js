@@ -4,7 +4,11 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
+
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+
+import { actions } from '../components/AuthModal/state';
 
 import Layout, { Grid } from '../components/Layout';
 import type { UserType, OgMetaType } from '../types';
@@ -19,7 +23,12 @@ type Props = {|
 |};
 
 class Profile extends Component<Props, void> {
-  static getInitialProps: any => any;
+  static async getInitialProps(ctx) {
+    return {
+      serverRendered: !!ctx.req,
+      query: ctx.query,
+    };
+  }
 
   ogMeta = (user: UserType): OgMetaType => ({
     title: user.name, // og title not page title
@@ -242,16 +251,16 @@ const query = gql`
   }
 `;
 
-Profile.getInitialProps = context => ({
-  serverRendered: !!context.req,
-  query: context.query,
-});
+// Profile.getInitialProps = context => ({
+//   serverRendered: !!context.req,
+//   query: context.query,
+// });
 
-const graphqlProfile = graphql(query, {
+const gqlWrapper = graphql(query, {
   options: props => {
     const { username } = props.query;
     return { variables: { username } };
   },
-})(Profile);
+});
 
-export default withData(connect(null)(graphqlProfile));
+export default withData(gqlWrapper(Profile));

@@ -2,33 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ApolloProvider, getDataFromTree } from 'react-apollo';
 import Head from 'next/head';
-
 import initApollo from './initApollo';
-import initRedux from './initRedux';
 
 // Gets the display name of a JSX component for dev tools
 function getComponentDisplayName(Component) {
   return Component.displayName || Component.name || 'Unknown';
 }
 
-export default ComposedComponent =>
-  class WithData extends React.Component {
+export default ComposedComponent => {
+  return class WithData extends React.Component {
     static displayName = `WithData(${getComponentDisplayName(
       ComposedComponent
     )})`;
     static propTypes = {
-      stateApollo: PropTypes.object.isRequired,
+      serverState: PropTypes.object.isRequired,
     };
 
     static async getInitialProps(ctx) {
-      // Initial stateApollo with apollo (empty)
-      let stateApollo = {
+      // Initial serverState with apollo (empty)
+      let serverState = {
         apollo: {
           data: {},
         },
       };
-      // Initial stateRedux with apollo (empty)
-      let stateRedux = {};
 
       // Evaluate the composed component's getInitialProps()
       let composedInitialProps = {};
@@ -40,7 +36,6 @@ export default ComposedComponent =>
       // and extract the resulting data
       if (!process.browser) {
         const apollo = initApollo();
-        const redux = initRedux();
 
         try {
           // Run all GraphQL queries
@@ -65,11 +60,8 @@ export default ComposedComponent =>
         // head side effect therefore need to be cleared manually
         Head.rewind();
 
-        // Extract query data from the Redux store
-        stateRedux = redux.getState();
-
         // Extract query data from the Apollo store
-        stateApollo = {
+        serverState = {
           apollo: {
             data: apollo.cache.extract(),
           },
@@ -77,16 +69,14 @@ export default ComposedComponent =>
       }
 
       return {
-        stateApollo,
-        stateRedux,
+        serverState,
         ...composedInitialProps,
       };
     }
 
     constructor(props) {
       super(props);
-      this.apollo = initApollo(props.stateApollo.apollo.data);
-      this.redux = initRedux(props.stateRedux);
+      this.apollo = initApollo(this.props.serverState.apollo.data);
     }
 
     render() {
@@ -97,3 +87,4 @@ export default ComposedComponent =>
       );
     }
   };
+};

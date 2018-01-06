@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import { connect } from 'react-redux';
 
 import { media } from '../lib/styleUtils';
 
@@ -12,7 +13,7 @@ type Props = {|
   visible: boolean,
 |};
 
-export default class extends Component<Props, void> {
+class HeaderContainer extends Component<Props, void> {
   handleSearch = () => {
     console.log('submit form');
   };
@@ -133,3 +134,5 @@ const Right = styled.nav`
   display: flex;
   align-items: center;
 `;
+
+export default HeaderContainer;
