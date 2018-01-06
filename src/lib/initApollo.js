@@ -1,8 +1,11 @@
 import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { ApolloLink } from 'apollo-link';
+import { withClientState } from 'apollo-link-state';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import fetch from 'isomorphic-unfetch';
+
+import { resolvers, defaults } from '../components/AuthModal/state';
 
 let apolloClient = null;
 
@@ -12,14 +15,20 @@ if (!process.browser) {
 }
 
 function create(initialState) {
+  const cache = new InMemoryCache().restore(initialState || {});
+  const stateLink = withClientState({ resolvers, cache, defaults });
+
   return new ApolloClient({
     connectToDevTools: process.browser,
     ssrMode: !process.browser, // Disables forceFetch on the server (so queries are only run once)
-    link: new HttpLink({
-      uri: 'http://localhost:5000/graphql', // Server URL (must be absolute)
-      credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
-    }),
-    cache: new InMemoryCache().restore(initialState || {}),
+    link: ApolloLink.from([
+      stateLink,
+      new HttpLink({
+        uri: 'http://localhost:5000/graphql', // Server URL (must be absolute)
+        credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
+      }),
+    ]),
+    cache,
   });
 }
 

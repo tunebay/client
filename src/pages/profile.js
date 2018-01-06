@@ -5,11 +5,6 @@ import Link from 'next/link';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-
-import { actions } from '../components/AuthModal/state';
-
 import Layout, { Grid } from '../components/Layout';
 import type { UserType, OgMetaType } from '../types';
 import { aspectRatio, truncate } from '../lib/styleUtils';
@@ -40,9 +35,12 @@ class Profile extends Component<Props, void> {
 
   render() {
     const { data, url } = this.props;
+    console.log('props', this.props);
     if (!data || data.loading) return null;
     const { user } = data;
     if (!data.user) return <Error statusCode={404} url={url} />;
+
+    console.log('Profile data', this.props.data);
 
     return (
       <Layout ogMeta={this.ogMeta(user)} title={user.name}>

@@ -27,10 +27,6 @@ class Layout extends React.Component<Props, void> {
     return (
       <ThemeProvider theme={theme}>
         <StyledLayout headerVisible={headerVisible}>
-          <AuthModal
-            visible={false}
-            onRequestClose={() => console.log('close modal')}
-          />
           <Meta og={ogMeta} title={title} />
           <Header visible={headerVisible} />
           {children}

@@ -2,30 +2,26 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Modal from 'react-modal';
+// import { graphql, compose } from 'react-apollo';
+// import gql from 'graphql-tag';
 
 import { Google } from '../svgs';
 
-type Props = OwnProps;
-
-type OwnProps = {|
-  visible: boolean,
-  onRequestClose: () => any,
-|};
+type Props = {||};
 
 class AuthModal extends Component<Props, void> {
   render() {
-    const { visible, onRequestClose } = this.props;
     console.log('Props', this.props);
     return (
       /* TODO https://github.com/reactjs/react-modal/issues/576 */
       <Modal
         contentLabel="loginModal"
         shouldCloseOnOverlayClick
-        onRequestClose={onRequestClose}
+        onRequestClose={() => console.log('close')}
         ariaHideApp={false}
-        isOpen={visible}
+        isOpen={false}
       >
-        <Close onClick={onRequestClose}>X</Close>
+        <Close onClick={() => console.log('close')}>X</Close>
         <Content>
           <FacebookButton>Continue with Facebook</FacebookButton>
           <GoogleButton>

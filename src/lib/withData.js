@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ApolloProvider, getDataFromTree } from 'react-apollo';
 import Head from 'next/head';
+
 import initApollo from './initApollo';
 
 // Gets the display name of a JSX component for dev tools
@@ -9,8 +10,8 @@ function getComponentDisplayName(Component) {
   return Component.displayName || Component.name || 'Unknown';
 }
 
-export default ComposedComponent => {
-  return class WithData extends React.Component {
+export default ComposedComponent =>
+  class WithData extends React.Component {
     static displayName = `WithData(${getComponentDisplayName(
       ComposedComponent
     )})`;
@@ -68,6 +69,8 @@ export default ComposedComponent => {
         };
       }
 
+      console.log('HELLLLOOOOOOOOO', serverState);
+
       return {
         serverState,
         ...composedInitialProps,
@@ -87,4 +90,3 @@ export default ComposedComponent => {
       );
     }
   };
-};

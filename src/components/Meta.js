@@ -12,7 +12,15 @@ type Props = {|
 |};
 
 export default (props: Props) => {
-  const { og, title } = props;
+  const { title, og } = props;
+
+  if (!og)
+    throw new Error(
+      'You must add Open Graph meta for top level page components.'
+    );
+
+  if (!title) throw new Error('You must add a title for the page');
+
   return (
     <Head>
       <title>{title}</title>
