@@ -249,11 +249,6 @@ const query = gql`
   }
 `;
 
-// Profile.getInitialProps = context => ({
-//   serverRendered: !!context.req,
-//   query: context.query,
-// });
-
 const gqlWrapper = graphql(query, {
   options: props => {
     const { username } = props.query;

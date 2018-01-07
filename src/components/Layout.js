@@ -10,7 +10,6 @@ import type { OgMetaType } from '../types';
 
 import Meta from './Meta';
 import Header from './Header';
-import AuthModal from './AuthModal';
 
 type Props = {|
   children: React.Node,

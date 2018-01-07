@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-class Test extends Component {
+import withData from '../lib/withData';
+
+class TestPage extends Component {
   render() {
     return <div>Test</div>;
   }
 }
 
-export default Test;
+const mapStateToProps = state => state;
+
+export default withData(connect(mapStateToProps)(TestPage));
