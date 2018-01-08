@@ -30,22 +30,24 @@ export default class extends Component<Props, State> {
       <Sidebar collapsed={collapsed}>
         <Content collapsed={collapsed}>
           <Title>
-            <Toggle collapsed={collapsed} onClick={this.handleToggle}>
-              <Chevron fill="#cccccc" size="1.8rem" />
-            </Toggle>
+            <Dashboard collapsed={collapsed}>Dashboard</Dashboard>
           </Title>
           <SideNav>
             <NavItem>
               <Icon />
+              <Text>Upload</Text>
             </NavItem>
             <NavItem>
               <Icon />
+              <Text>My Music</Text>
             </NavItem>
             <NavItem>
               <Icon />
+              <Text>Statistics</Text>
             </NavItem>
             <NavItem>
               <Icon />
+              <Text>Promote</Text>
             </NavItem>
           </SideNav>
         </Content>
@@ -67,6 +69,13 @@ const Sidebar = styled.nav`
   transition: all 200ms ease-out;
 `;
 
+const Text = styled.h3`
+  margin-left: 2rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+`;
+
 const SideNav = styled.ul`
   margin-top: 2rem;
   width: 100%;
@@ -76,25 +85,9 @@ const Content = styled.div`
   width: ${({ collapsed }) => (collapsed ? '4.5%' : '18%')};
   min-width: ${({ collapsed }) => (collapsed ? '7rem' : '21rem')};
   transition: all 200ms ease-out;
-  position: fixed;
-`;
-
-const Toggle = styled.button`
   background-color: ${props => props.theme.deepBlue};
-  transform: ${({ collapsed }) =>
-    collapsed ? 'rotate(270deg)' : 'rotate(90deg)'};
-
-  height: 2rem;
-  width: 2rem;
-
-  transition: all 200ms ease-out;
-
-  border: none;
-  outline: none;
-
-  &:hover {
-    cursor: pointer;
-  }
+  position: fixed;
+  height: calc(100vh - ${props => props.theme.headerHeight});
 `;
 
 const Icon = styled.div`
@@ -125,10 +118,22 @@ const NavItem = styled.li`
 `;
 
 const Title = styled.div`
+  justify-content: space-between;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  border-bottom: 1px solid rgba(153, 153, 153, 0.2);
   padding: 0 2rem;
+  width: 100%;
+  position: relative;
 
-  height: 6rem;
+  height: 7rem;
+`;
+
+const Dashboard = styled.h2`
+  opacity: ${props => (props.collapsed ? '0' : '1')};
+  transform: ${props => (props.collapsed ? 'scale(0)' : 'scale(1)')};
+  transform-origin: left;
+  font-weight: 600;
+
+  transition: all 200ms ease-out;
 `;

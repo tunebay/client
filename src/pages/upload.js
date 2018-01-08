@@ -40,6 +40,7 @@ const Main = styled.main`
   border-radius: 6px;
 
   background-color: white;
+  height: 80rem;
 `;
 
 const Dashboard = styled.div`
