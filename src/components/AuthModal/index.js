@@ -11,7 +11,6 @@ type Props = {||};
 
 class AuthModal extends Component<Props, void> {
   render() {
-    console.log('Props', this.props);
     return (
       /* TODO https://github.com/reactjs/react-modal/issues/576 */
       <Modal

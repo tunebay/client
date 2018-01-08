@@ -12,6 +12,7 @@ app
     const server = express();
 
     server.get('/test', (req, res) => handle(req, res));
+    server.get('/upload', (req, res) => handle(req, res));
 
     server.get('/:username', (req, res) => {
       const actualPage = '/profile';

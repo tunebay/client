@@ -17,7 +17,7 @@ export default () => (
         <ProfileLink username="taya">
           <NavLink color={theme.white}>Log in</NavLink>
         </ProfileLink>
-        <Link href="#">
+        <Link href="/upload">
           <NavLink color={theme.primaryRed}>Create account</NavLink>
         </Link>
       </NavLinks>

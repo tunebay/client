@@ -44,7 +44,9 @@ class HeaderContainer extends Component<Props, void> {
           <Link as="/hello" href="/profile?username=hello">
             <NavLink color="#111111">Login</NavLink>
           </Link>
-          <NavLink color="#E43D3C">Create account</NavLink>
+          <Link href="/upload">
+            <NavLink color="#E43D3C">Create account</NavLink>
+          </Link>
         </Right>
       </Header>
     );
@@ -107,10 +109,10 @@ const Header = styled.header`
   background-color: ${props => props.theme.white};
   /* Look into different shadow for header */
   box-shadow: ${props => props.theme.boxShadowFlat};
+  height: ${props => props.theme.headerHeight};
 
   width: 100%;
   padding: 0 6rem;
-  height: 6rem;
   top: 0;
   z-index: 1;
 
