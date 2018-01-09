@@ -85,9 +85,17 @@ const DownloadApp = styled.div`
 `;
 
 const StyledLayout = styled.div`
-  padding-top: ${props => (props.headerVisible ? '60px' : '0')};
+  padding-top: ${props =>
+    props.headerVisible ? props.theme.headerHeight : '0'};
 
   width: 100%;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
 `;
 
 export default withRouter(Layout);

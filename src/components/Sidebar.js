@@ -2,8 +2,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { Chevron } from '../components/svgs';
-
 type Props = {||};
 
 type State = {|
@@ -87,7 +85,7 @@ const Content = styled.div`
   transition: all 200ms ease-out;
   background-color: ${props => props.theme.deepBlue};
   position: fixed;
-  height: calc(100vh - ${props => props.theme.headerHeight});
+  height: calc(100vh);
 `;
 
 const Icon = styled.div`
@@ -126,7 +124,7 @@ const Title = styled.div`
   width: 100%;
   position: relative;
 
-  height: 7rem;
+  height: 8rem;
 `;
 
 const Dashboard = styled.h2`
