@@ -48,6 +48,13 @@ export default class extends Component<Props, State> {
               <Text>Promote</Text>
             </NavItem>
           </SideNav>
+          <Upgrade>
+            <CurrentPlan>
+              <Name>Rising Star</Name>
+              <Price>Free £0/month</Price>
+            </CurrentPlan>
+            <UpgradeCta>Upgrade</UpgradeCta>
+          </Upgrade>
         </Content>
       </Sidebar>
     );
@@ -64,7 +71,40 @@ const Sidebar = styled.nav`
   color: white;
   position: relative;
 
+  justify-content: space-between;
+
   transition: all 200ms ease-out;
+`;
+
+const CurrentPlan = styled.div`
+  color: ${props => props.theme.grey};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`;
+
+const Name = styled.span`
+  font-size: 1.3rem;
+
+  padding-bottom: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+`;
+
+const Price = styled.span`
+  font-size: 1.2rem;
+  font-weight: 400;
+`;
+
+const UpgradeCta = styled.div`
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Text = styled.h3`
@@ -85,7 +125,7 @@ const Content = styled.div`
   transition: all 200ms ease-out;
   background-color: ${props => props.theme.deepBlue};
   position: fixed;
-  height: calc(100vh);
+  height: calc(100vh - ${props => props.theme.headerHeight});
 `;
 
 const Icon = styled.div`
@@ -112,6 +152,18 @@ const NavItem = styled.li`
     color: ${props => props.theme.white};
 
     cursor: pointer;
+  }
+`;
+
+const Upgrade = NavItem.extend`
+  background-color: ${props => props.theme.blackOpacity(0.5)};
+  position: absolute;
+  bottom: 5rem;
+  display: flex;
+  justify-content: space-between;
+
+  &:hover {
+    cursor: default;
   }
 `;
 
