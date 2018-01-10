@@ -25,7 +25,12 @@ class Upload extends Component {
       <Layout ogMeta={this.ogMeta()} title="Upload">
         <Dashboard>
           <Sidebar />
-          <Main>Main</Main>
+          <Main>
+            <Header>
+              <Title>Upload</Title>
+            </Header>
+            <Content />
+          </Main>
         </Dashboard>
       </Layout>
     );
@@ -36,14 +41,37 @@ const Main = styled.main`
   box-shadow: ${props => props.theme.boxShadow};
 
   flex: 5;
-  margin: 3rem;
   border-radius: 6px;
-
-  background-color: white;
 `;
 
 const Dashboard = styled.div`
   display: flex;
+`;
+
+const Header = styled.div`
+  width: 100%;
+  height: 8rem;
+  border-bottom: 1px solid rgba(153, 153, 153, 0.2);
+  background-color: white;
+  padding: 0 6rem;
+
+  position: fixed;
+  display: flex;
+  align-items: center;
+`;
+
+const Title = styled.h1`
+  font-size: 2.4rem;
+  font-weight: 700;
+`;
+
+const Content = styled.div`
+  box-shadow: ${props => props.theme.boxShadow};
+
+  width: 100%;
+  margin: 14rem 6rem 6rem 6rem;
+
+  height: 300rem;
 `;
 
 export default Upload;
