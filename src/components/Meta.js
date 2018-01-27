@@ -7,17 +7,33 @@ import { media } from '../lib/styleUtils';
 import type { OgMetaType } from '../types';
 
 type Props = {|
-  og: OgMetaType,
+  ogMeta?: OgMetaType,
   title: string,
 |};
 
 export default (props: Props) => {
-  const { title, og } = props;
+  const { title, ogMeta } = props;
+  let og: OgMetaType;
 
-  if (!og)
-    throw new Error(
-      'You must add Open Graph meta for top level page components.'
-    );
+  const defaultOg: OgMetaType = {
+    title: 'Tunebay - For The Love Of Music', // og title not page title
+    type: 'website',
+    url: 'https://tunebay.com',
+    image: {
+      url: 'https://s3.eu-west-2.amazonaws.com/tunebay/ogimage.png',
+      height: '630',
+      width: '1200',
+    },
+    description:
+      'Directly support the music and artist you love on Tunebay. Discover new music from around the world or upload and sell your own.',
+  };
+
+  if (!ogMeta) {
+    console.warn('No og meta specified for page, using default values');
+    og = defaultOg;
+  } else {
+    og = ogMeta;
+  }
 
   if (!title) throw new Error('You must add a title for the page');
 
@@ -27,13 +43,22 @@ export default (props: Props) => {
 
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
-      <meta property="og:type" content={og.type} />
-      <meta property="og:url" content={og.url} />
-      <meta property="og:title" content={og.title} />
-      <meta property="og:image" content={og.image} />
-      <meta property="og:image:width" content={og.image.width} />
-      <meta property="og:image:height" content={og.image.height} />
-      <meta property="og:description" content={og.description} />
+      <meta property="og:type" content={og.type || defaultOg.type} />
+      <meta property="og:url" content={og.url || defaultOg.url} />
+      <meta property="og:title" content={og.title || defaultOg.title} />
+      <meta property="og:image" content={og.image.url || defaultOg.image.url} />
+      <meta
+        property="og:image:width"
+        content={og.image.width || defaultOg.image.width}
+      />
+      <meta
+        property="og:image:height"
+        content={og.image.height || defaultOg.image.height}
+      />
+      <meta
+        property="og:description"
+        content={og.description || defaultOg.description}
+      />
 
       <meta property="og:locality" content="London" />
       <meta property="og:country-name" content="United Kingdom" />

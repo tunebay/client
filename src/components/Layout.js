@@ -15,7 +15,7 @@ type Props = {|
   children: React.Node,
   router: any,
   title: string,
-  ogMeta: OgMetaType,
+  ogMeta?: OgMetaType,
 |};
 
 class Layout extends React.Component<Props, void> {
@@ -26,7 +26,7 @@ class Layout extends React.Component<Props, void> {
     return (
       <ThemeProvider theme={theme}>
         <StyledLayout headerVisible={headerVisible}>
-          <Meta og={ogMeta} title={title} />
+          <Meta ogMeta={ogMeta} title={title} />
           <Header visible={headerVisible} />
           {children}
           <DownloadApp>

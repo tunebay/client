@@ -31,13 +31,11 @@ export type UserType = {
 };
 
 export type OgMetaType = {|
-  // required
   +description: string,
   +image: OgImageType,
   +title: string,
   +type: string,
   +url: string,
-  // not required
   +audio?: string,
 |};
 
