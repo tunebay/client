@@ -36,6 +36,8 @@ const Search = styled.button`
   height: 16px;
   width: 16px;
 
+  font-size: 1px;
+
   background-color: transparent;
   outline: none;
   border: none;

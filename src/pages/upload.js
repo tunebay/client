@@ -9,7 +9,7 @@ type Props = {||};
 class Upload extends Component<Props> {
   render() {
     return (
-      <Layout subNavigation title="Upload">
+      <Layout subNavigation title="Tunebay | Upload">
         <Main>
           <Dropzone>
             <Title>Upload your muisc.</Title>
@@ -32,7 +32,7 @@ const Main = styled.main`
 const Dropzone = styled.div`
   margin-top: 7rem;
   width: 104rem;
-  height: 46rem;
+  height: 48rem;
   border-color: #ccc;
   border-width: 1px;
   border-style: dashed;
@@ -57,12 +57,19 @@ const Description = styled.p`
 
 const Button = styled.button`
   background-color: ${props => props.theme.primaryRed};
+
   color: white;
   height: 5.4rem;
   width: 28rem;
+  border-radius: 500px;
+  transition: 75ms all ease;
+
   border: none;
 
-  border-radius: 500px;
+  &:hover {
+    cursor: pointer;
+    background-color: ${props => props.theme.darkRed};
+  }
 `;
 
 export default Upload;
