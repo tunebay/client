@@ -1,14 +1,22 @@
+// @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import withData from '../lib/withData';
 
-class TestPage extends Component {
+type Props = {|
+  authModal: {
+    visble: boolean,
+  },
+|};
+
+class TestPage extends Component<Props> {
   render() {
-    return <div>Test</div>;
+    console.log(this.props);
+    return <h1>{this.props.visble ? 'visble' : 'hidden'}</h1>;
   }
 }
 
-const mapStateToProps = state => state;
+const mapStateToProps = ({ authModal }: Props) => ({ authModal });
 
 export default withData(connect(mapStateToProps)(TestPage));

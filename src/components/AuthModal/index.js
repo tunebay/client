@@ -2,6 +2,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Modal from 'react-modal';
+import { connect } from 'react-redux';
+
+import withData from '../../lib/withData';
 // import { graphql, compose } from 'react-apollo';
 // import gql from 'graphql-tag';
 
@@ -140,4 +143,6 @@ Modal.defaultStyles = {
   },
 };
 
-export default AuthModal;
+const mapStateToProps = ({ authModal }) => ({ visible: authModal.visble });
+
+export default withData(connect(mapStateToProps)(AuthModal));

@@ -1,13 +1,8 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, combineReducers, compose } from 'redux';
 
 import reducers from './reducers';
 
 let reduxStore = null;
-
-// ////////////////
-// TODO current isue with redux intergration
-// https://github.com/zeit/next.js/issues/3463
-// ////////////////
 
 // Get the Redux DevTools extension and fallback to a no-op function
 let devtools = f => f;

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ApolloProvider, getDataFromTree } from 'react-apollo';
 import Head from 'next/head';
+import { Provider } from 'react-redux';
 
 import initApollo from './initApollo';
 import initRedux from './initRedux';
@@ -92,7 +93,9 @@ export default ComposedComponent =>
     render() {
       return (
         <ApolloProvider client={this.apollo}>
-          <ComposedComponent {...this.props} />
+          <Provider store={this.redux}>
+            <ComposedComponent {...this.props} />
+          </Provider>
         </ApolloProvider>
       );
     }
