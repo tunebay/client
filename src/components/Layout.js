@@ -10,17 +10,19 @@ import type { OgMetaType } from '../types';
 
 import Meta from './Meta';
 import Header from './Header';
+import SubNavigation from './SubNavigation';
 
 type Props = {|
   children: React.Node,
   router: any,
   title: string,
+  subNavigation?: boolean,
   ogMeta?: OgMetaType,
 |};
 
 class Layout extends React.Component<Props> {
   render() {
-    const { children, router, title, ogMeta } = this.props;
+    const { children, router, title, ogMeta, subNavigation } = this.props;
     const headerVisible = router.pathname !== '/';
 
     return (
@@ -28,6 +30,9 @@ class Layout extends React.Component<Props> {
         <StyledLayout headerVisible={headerVisible}>
           <Meta ogMeta={ogMeta} title={title} />
           <Header visible={headerVisible} />
+          {subNavigation ? (
+            <SubNavigation activePath={router.pathname} />
+          ) : null}
           {children}
           <DownloadApp>
             Download the Tunebay app for the best on-the-go experience.

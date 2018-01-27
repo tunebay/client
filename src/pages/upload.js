@@ -7,7 +7,7 @@ type Props = {||};
 
 class Upload extends Component<Props> {
   render() {
-    return <Layout title="Upload" />;
+    return <Layout subNavigation title="Upload" />;
   }
 }
 
