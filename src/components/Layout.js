@@ -18,7 +18,7 @@ type Props = {|
   ogMeta?: OgMetaType,
 |};
 
-class Layout extends React.Component<Props, void> {
+class Layout extends React.Component<Props> {
   render() {
     const { children, router, title, ogMeta } = this.props;
     const headerVisible = router.pathname !== '/';

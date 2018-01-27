@@ -41,7 +41,7 @@ type Props = {|
   playlists: Array<PlaylistType>,
 |};
 
-class HotRightNow extends Component<Props, void> {
+class HotRightNow extends Component<Props> {
   static getInitialProps: () => any;
 
   static defaultProps: { playlists: Array<PlaylistType> };

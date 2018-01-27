@@ -9,7 +9,7 @@ type Props = {|
   size?: number,
 |};
 
-export default class extends Component<Props, void> {
+export default class extends Component<Props> {
   render() {
     const { onClick, size } = this.props;
 

@@ -1,5 +1,5 @@
-// flow-typed signature: fbc4f74b6e30dd9dbb8f4f351fb7ca3e
-// flow-typed version: cd48908401/express_v4.16.x/flow_>=v0.32.x
+// flow-typed signature: aa48ae8a8a07518719f65b02f29c794b
+// flow-typed version: 2846c4ef49/express_v4.16.x/flow_>=v0.32.x
 
 import type { Server } from "http";
 import type { Socket } from "net";
@@ -204,6 +204,14 @@ declare class express$Router extends express$Route {
   ) => void;
 }
 
+/*
+With flow-bin ^0.59, express app.listen() is deemed to return any and fails flow type coverage.
+Which is ironic because https://github.com/facebook/flow/blob/master/Changelog.md#misc-2 (release notes for 0.59)
+says "Improves typings for Node.js HTTP server listen() function."  See that?  IMPROVES!
+To work around this issue, we changed Server to ?Server here, so that our invocations of express.listen() will
+not be deemed to lack type coverage.
+*/
+
 declare class express$Application extends express$Router mixins events$EventEmitter {
   constructor(): void;
   locals: { [name: string]: mixed };
@@ -213,15 +221,15 @@ declare class express$Application extends express$Router mixins events$EventEmit
     hostname?: string,
     backlog?: number,
     callback?: (err?: ?Error) => mixed
-  ): Server;
+  ): ?Server;
   listen(
     port: number,
     hostname?: string,
     callback?: (err?: ?Error) => mixed
-  ): Server;
-  listen(port: number, callback?: (err?: ?Error) => mixed): Server;
-  listen(path: string, callback?: (err?: ?Error) => mixed): Server;
-  listen(handle: Object, callback?: (err?: ?Error) => mixed): Server;
+  ): ?Server;
+  listen(port: number, callback?: (err?: ?Error) => mixed): ?Server;
+  listen(path: string, callback?: (err?: ?Error) => mixed): ?Server;
+  listen(handle: Object, callback?: (err?: ?Error) => mixed): ?Server;
   disable(name: string): void;
   disabled(name: string): boolean;
   enable(name: string): express$Application;

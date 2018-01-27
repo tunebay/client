@@ -8,7 +8,7 @@ type Props = {|
   prefetch?: boolean,
 |};
 
-export default class extends Component<Props, void> {
+export default class extends Component<Props> {
   render() {
     const { username, children, prefetch } = this.props;
     return (

@@ -10,7 +10,7 @@ type Props = {
   url: any,
 };
 
-export default class Error extends Component<Props, void> {
+export default class Error extends Component<Props> {
   ogMeta = (): OgMetaType => ({
     title: 'Tunebay | For the love of music', // og title not page title
     type: 'website',

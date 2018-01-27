@@ -45,7 +45,7 @@ const featuredArtists = [
   },
 ];
 
-class FeaturedArtists extends Component<Props, void> {
+class FeaturedArtists extends Component<Props> {
   render() {
     return (
       <Grid width={1320}>

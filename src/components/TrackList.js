@@ -10,7 +10,7 @@ type Props = {|
   tracks: Array<TrackType>,
 |};
 
-export default class extends Component<Props, void> {
+export default class extends Component<Props> {
   render() {
     const { tracks } = this.props;
 

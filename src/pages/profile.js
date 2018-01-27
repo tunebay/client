@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import gql from 'graphql-tag';
@@ -17,7 +17,8 @@ type Props = {|
   data: { user: UserType },
 |};
 
-class Profile extends Component<Props, void> {
+class Profile extends React.Component<Props> {
+  static defaultProps: Props;
   static async getInitialProps(ctx) {
     return {
       serverRendered: !!ctx.req,

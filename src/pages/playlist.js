@@ -19,7 +19,8 @@ type Props = {|
   url: any,
 |};
 
-class Playlist extends Component<Props, void> {
+class Playlist extends Component<Props> {
+  static defaultProps: Props;
   static getInitialProps: any => any;
 
   ogMeta = (playlist: PlaylistType): OgMetaType => ({

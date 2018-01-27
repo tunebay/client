@@ -9,7 +9,7 @@ type Props = {|
   onClick: () => any,
 |};
 
-export default class extends Component<Props, void> {
+export default class extends Component<Props> {
   render() {
     const { price, onClick } = this.props;
     return (

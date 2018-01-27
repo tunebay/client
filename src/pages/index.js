@@ -12,7 +12,7 @@ import type { OgMetaType } from '../types';
 
 type Props = {||};
 
-class Index extends Component<Props, void> {
+class Index extends Component<Props> {
   ogMeta = (): OgMetaType => ({
     title: 'Tunebay | For the love of music', // og title not page title
     type: 'website',

@@ -12,7 +12,7 @@ type Props = {|
   visible: boolean,
 |};
 
-class HeaderContainer extends Component<Props, void> {
+class HeaderContainer extends Component<Props> {
   handleSearch = () => {
     console.log('submit form');
   };

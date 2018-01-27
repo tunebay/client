@@ -6,7 +6,8 @@ type Props = {|
   size: number,
 |};
 
-export default class extends Component<Props, void> {
+export default class extends Component<Props> {
+  static defaultProps: Props;
   render() {
     const { size } = this.props;
     return (

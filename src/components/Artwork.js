@@ -10,7 +10,7 @@ type Props = {|
   image: string,
 |};
 
-export default class extends Component<Props, void> {
+export default class extends Component<Props> {
   render() {
     const { image } = this.props;
 

@@ -14,7 +14,7 @@ type Props = {|
   artist: string,
 |};
 
-export default class extends Component<Props, void> {
+export default class extends Component<Props> {
   render() {
     const { artwork, title, artist } = this.props;
     return (

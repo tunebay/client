@@ -6,7 +6,7 @@ import { Button } from './common';
 
 type Props = {||};
 
-export default class extends Component<Props, void> {
+export default class extends Component<Props> {
   render() {
     return (
       <CallToActionFooter>

@@ -9,7 +9,8 @@ import { Google } from '../svgs';
 
 type Props = {||};
 
-class AuthModal extends Component<Props, void> {
+class AuthModal extends Component<Props> {
+  static defaultProps: Props;
   render() {
     return (
       /* TODO https://github.com/reactjs/react-modal/issues/576 */
