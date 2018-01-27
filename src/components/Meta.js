@@ -97,6 +97,11 @@ injectGlobal`
     ${media.phone`font-size: 50%`};
   }
 
+  button {
+    font-family: 'Muli', sans-serif;
+    font-size: 1.6rem;
+  }
+
   body {
     color: ${props => props.theme.black};
 
