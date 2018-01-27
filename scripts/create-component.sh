@@ -12,12 +12,12 @@ ProjectRoot="`cd $RelativeProjectRoot; pwd`"
 
 cat << EOF > "$ProjectRoot/src/components/$ComponentName.js"
 // @flow
-import React, { Component } from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 
 type Props = {||};
 
-export default class extends Component<Props, void> {
+export default class extends React.Component<Props> {
   render() {
     return <$ComponentName>$ComponentName</$ComponentName>;
   }

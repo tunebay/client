@@ -1,10 +1,13 @@
+// @flow
 import React, { Component } from 'react';
 
 import Layout from '../components/Layout';
 
-class Upload extends Component {
+type Props = {||};
+
+class Upload extends Component<Props> {
   render() {
-    return <Layout title="Upload">Im the layout</Layout>;
+    return <Layout title="Upload" />;
   }
 }
 
