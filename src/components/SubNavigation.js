@@ -75,6 +75,7 @@ const Links = styled.ul`
 `;
 
 const Title = styled.h1`
+  color: ${props => props.theme.deepBlue};
   font-size: 2rem;
   font-weight: 700;
 `;
@@ -87,8 +88,8 @@ const LinkItem = styled.div`
   height: 100%;
   align-items: center;
   display: flex;
-  padding: 0 0.3rem;
-  margin: 0 1.6rem;
+  padding: 0 0.4rem;
+  margin-right: 3rem;
   padding-top: 4px;
   font-weight: 500;
 
@@ -98,12 +99,13 @@ const LinkItem = styled.div`
     border-bottom: ${props =>
       props.active
         ? `2px solid ${props.theme.primaryRed}`
-        : `2px solid ${props.theme.black}`};
+        : `2px solid ${props.theme.deepBlue}`};
 
     cursor: pointer;
   }
 `;
 
 const Upgrade = styled.h2`
+  color: ${props => props.theme.primaryRed};
   font-size: 1.4rem;
 `;
