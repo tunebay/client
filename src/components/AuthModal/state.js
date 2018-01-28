@@ -1,5 +1,4 @@
 // @flow
-
 export type AuthModalAction = ShowAction | HideAction;
 type ShowAction = { type: 'AuthModal/show' };
 type HideAction = { type: 'AuthModal/hide' };

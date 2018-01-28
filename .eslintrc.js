@@ -1,7 +1,7 @@
 module.exports = {
   extends: ['airbnb', 'plugin:react/recommended', 'prettier'],
   parser: 'babel-eslint',
-  plugins: ['import', 'react', 'jsx-a11y', 'prettier'],
+  plugins: ['import', 'react', 'jsx-a11y', 'prettier', 'flowtype'],
   env: { es6: true, browser: true },
   rules: {
     'arrow-parens': 'off',
@@ -25,6 +25,7 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'react/prefer-stateless-function': 'off',
     'react/prop-types': 'off',
+    'react/no-unused-prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/require-default-props': 'off',
     'space-before-function-paren': 'off',

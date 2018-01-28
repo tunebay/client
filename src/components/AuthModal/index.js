@@ -4,11 +4,13 @@ import styled from 'styled-components';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
 
-import withData from '../../lib/withData';
+import { Google } from '../svgs';
+
+import { type AuthModalState } from './state';
+
+// import withData from '../../lib/withData';
 // import { graphql, compose } from 'react-apollo';
 // import gql from 'graphql-tag';
-
-import { Google } from '../svgs';
 
 type Props = {||};
 
@@ -143,6 +145,8 @@ Modal.defaultStyles = {
   },
 };
 
-const mapStateToProps = ({ authModal }) => ({ visible: authModal.visble });
+const mapStateToProps = ({ authModal }): AuthModalState => ({
+  visible: authModal.visble,
+});
 
-export default withData(connect(mapStateToProps)(AuthModal));
+export default connect(mapStateToProps)(AuthModal);
