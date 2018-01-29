@@ -6,25 +6,21 @@ import { connect } from 'react-redux';
 
 import { Google } from '../svgs';
 
-import { type AuthModalState } from './state';
+import { actions, type AuthModalState } from './state';
 
-// import withData from '../../lib/withData';
-// import { graphql, compose } from 'react-apollo';
-// import gql from 'graphql-tag';
-
-type Props = {||};
+type Props = AuthModalState & typeof actions;
 
 class AuthModal extends Component<Props> {
-  static defaultProps: Props;
   render() {
+    console.log('IS OPEN', this.props.visible);
     return (
       /* TODO https://github.com/reactjs/react-modal/issues/576 */
       <Modal
         contentLabel="loginModal"
         shouldCloseOnOverlayClick
-        onRequestClose={() => console.log('close')}
+        onRequestClose={this.props.hide}
         ariaHideApp={false}
-        isOpen={false}
+        isOpen={this.props.visible}
       >
         <Close onClick={() => console.log('close')}>X</Close>
         <Content>
@@ -132,6 +128,7 @@ Modal.defaultStyles = {
     alignItems: 'center',
     bottom: 0,
     backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    zIndex: 1,
   },
   content: {
     position: 'relative',
@@ -146,7 +143,7 @@ Modal.defaultStyles = {
 };
 
 const mapStateToProps = ({ authModal }): AuthModalState => ({
-  visible: authModal.visble,
+  visible: authModal.visible,
 });
 
-export default connect(mapStateToProps)(AuthModal);
+export default connect(mapStateToProps, actions)(AuthModal);

@@ -2,15 +2,21 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import { connect } from 'react-redux';
 
 import { media } from '../lib/styleUtils';
 
 import { Logo, NavLink } from './common';
 import { Search } from './svgs';
+import { actions } from './AuthModal/state';
 
-type Props = {|
+type Props = OwnProps & ActionProps;
+
+type OwnProps = {|
   visible: boolean,
 |};
+
+type ActionProps = typeof actions;
 
 class HeaderContainer extends Component<Props> {
   handleSearch = () => {
@@ -18,7 +24,7 @@ class HeaderContainer extends Component<Props> {
   };
 
   render() {
-    const { visible } = this.props;
+    const { visible, show } = this.props;
 
     if (!visible) return null;
 
@@ -41,9 +47,10 @@ class HeaderContainer extends Component<Props> {
           <SearchBar onSubmit={this.handleSearch} />
         </Middle>
         <Right>
-          <Link as="/hello" href="/profile?username=hello">
+          {/* <Link as="/hello" href="/profile?username=hello">
             <NavLink color="#111111">Login</NavLink>
-          </Link>
+          </Link> */}
+          <LoginButton onClick={show}>Login</LoginButton>
           <Link href="/upload">
             <NavLink color="#E43D3C">Create account</NavLink>
           </Link>
@@ -62,6 +69,19 @@ const SearchBar = (props: { onSubmit: () => any }) => {
     </SearchForm>
   );
 };
+
+const LoginButton = styled.button`
+  border: none;
+  background-color: transparent;
+  text-transform: uppercase;
+
+  font-weight: 700;
+  font-size: 1.3rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 const SearchForm = styled.form`
   padding-left: 5rem;
@@ -136,4 +156,4 @@ const Right = styled.nav`
   align-items: center;
 `;
 
-export default HeaderContainer;
+export default connect(null, actions)(HeaderContainer);

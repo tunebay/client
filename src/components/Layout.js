@@ -10,6 +10,7 @@ import type { OgMetaType } from '../types';
 
 import Meta from './Meta';
 import Header from './Header';
+import AuthModal from './AuthModal';
 import SubNavigation from './SubNavigation';
 
 type Props = {|
@@ -29,6 +30,7 @@ class Layout extends React.Component<Props> {
       <ThemeProvider theme={theme}>
         <StyledLayout headerVisible={headerVisible}>
           <Meta ogMeta={ogMeta} title={title} />
+          <AuthModal />
           <Header visible={headerVisible} />
           {subNavigation ? (
             <SubNavigation activePath={router.pathname} />

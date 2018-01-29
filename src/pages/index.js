@@ -8,6 +8,7 @@ import HotRightNow from '../components/HotRightNow';
 import ForTheLoveOfMusic from '../components/ForTheLoveOfMusic';
 import FeaturedArtists from '../components/FeaturedArtists';
 import CallToActionFooter from '../components/CallToActionFooter';
+import withData from '../lib/withData';
 import type { OgMetaType } from '../types';
 
 type Props = {||};
@@ -59,4 +60,4 @@ const Title = styled.h3`
   text-transform: uppercase;
 `;
 
-export default Index;
+export default withData(Index);

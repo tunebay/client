@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import Layout from '../components/Layout';
+import withData from '../lib/withData';
 
 type Props = {||};
 
@@ -72,4 +73,4 @@ const Button = styled.button`
   }
 `;
 
-export default Upload;
+export default withData(Upload);
