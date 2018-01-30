@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import withData from '../lib/withData';
+import withData from '../withData';
 import { actions, type AuthModalState } from '../components/AuthModal/state';
 
 type ActionProps = typeof actions;

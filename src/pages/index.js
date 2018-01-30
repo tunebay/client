@@ -8,7 +8,7 @@ import HotRightNow from '../components/HotRightNow';
 import ForTheLoveOfMusic from '../components/ForTheLoveOfMusic';
 import FeaturedArtists from '../components/FeaturedArtists';
 import CallToActionFooter from '../components/CallToActionFooter';
-import withData from '../lib/withData';
+import withData from '../withData';
 import type { OgMetaType } from '../types';
 
 type Props = {||};

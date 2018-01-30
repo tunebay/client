@@ -8,7 +8,7 @@ import { graphql } from 'react-apollo';
 import Layout, { Grid } from '../components/Layout';
 import type { UserType, OgMetaType } from '../types';
 import { aspectRatio, truncate } from '../lib/styleUtils';
-import withData from '../lib/withData';
+import withData from '../withData';
 
 import Error from './_error';
 

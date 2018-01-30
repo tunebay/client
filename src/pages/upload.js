@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import Layout from '../components/Layout';
-import withData from '../lib/withData';
+import withData from '../withData';
 
 type Props = {||};
 
@@ -34,7 +34,7 @@ const Dropzone = styled.div`
   margin-top: 7rem;
   width: 104rem;
   height: 48rem;
-  border-color: #ccc;
+  border-color: #999;
   border-width: 1px;
   border-style: dashed;
 

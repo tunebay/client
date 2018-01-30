@@ -10,7 +10,7 @@ import ProfileLink from '../components/ProfileLink';
 import { aspectRatio } from '../lib/styleUtils';
 import { Chevron } from '../components/svgs';
 import TrackList from '../components/TrackList';
-import withData from '../lib/withData';
+import withData from '../withData';
 
 import Error from './_error';
 

@@ -1,7 +1,7 @@
 // @flow
 import { createStore, combineReducers, compose } from 'redux';
 
-import reducers from './reducers';
+import reducers from '../reducers';
 
 let reduxStore = null;
 

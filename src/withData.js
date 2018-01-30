@@ -4,8 +4,8 @@ import { ApolloProvider, getDataFromTree } from 'react-apollo';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
 
-import initApollo from './initApollo';
-import initRedux from './initRedux';
+import initApollo from './lib/initApollo';
+import initRedux from './lib/initRedux';
 
 // Gets the display name of a JSX component for dev tools
 function getComponentDisplayName(Component) {
