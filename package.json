@@ -11,8 +11,8 @@
     "create-stateful-component": "./scripts/create-stateful-component.sh"
   },
   "dependencies": {
-    "apollo-cache-inmemory": "^1.1.4",
-    "apollo-client": "^2.0.4",
+    "apollo-cache-inmemory": "1.1.7",
+    "apollo-client": "2.2.2",
     "apollo-link": "^1.0.7",
     "apollo-link-http": "^1.3.2",
     "axios": "^0.17.1",
