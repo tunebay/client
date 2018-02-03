@@ -5,11 +5,9 @@ type HideAction = { type: 'AuthModal/hide' };
 
 export const actions = {
   show(): ShowAction {
-    console.log('show loginModal');
     return { type: 'AuthModal/show' };
   },
   hide(): HideAction {
-    console.log('hide modal');
     return { type: 'AuthModal/hide' };
   },
 };
@@ -26,7 +24,6 @@ export default function reducer(
   state: AuthModalState = initialState,
   action: AuthModalAction
 ): AuthModalState {
-  console.log(state);
   switch (action.type) {
     case 'AuthModal/show':
       return { ...state, visible: true };

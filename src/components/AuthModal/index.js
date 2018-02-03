@@ -12,7 +12,6 @@ type Props = AuthModalState & typeof actions;
 
 class AuthModal extends Component<Props> {
   render() {
-    console.log('IS OPEN', this.props.visible);
     return (
       /* TODO https://github.com/reactjs/react-modal/issues/576 */
       <Modal

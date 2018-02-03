@@ -36,12 +36,9 @@ class Profile extends React.Component<Props> {
 
   render() {
     const { data, url } = this.props;
-    console.log('props', this.props);
     if (!data || data.loading) return null;
     const { user } = data;
     if (!data.user) return <Error statusCode={404} url={url} />;
-
-    console.log('Profile data', this.props.data);
 
     return (
       <Layout ogMeta={this.ogMeta(user)} title={user.name}>
