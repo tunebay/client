@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
 
-import { Google } from '../svgs';
+import { Google, Close as CloseSVG } from '../svgs';
 
 import { actions, type AuthModalState } from './state';
 
@@ -17,11 +17,13 @@ class AuthModal extends Component<Props> {
       <Modal
         contentLabel="loginModal"
         shouldCloseOnOverlayClick
-        onRequestClose={this.props.hide}
+        onRequestClose={this.props.close}
         ariaHideApp={false}
         isOpen={this.props.visible}
       >
-        <Close onClick={() => console.log('close')}>X</Close>
+        <Close onClick={this.props.close}>
+          <CloseSVG />
+        </Close>
         <Content>
           <FacebookButton>Continue with Facebook</FacebookButton>
           <GoogleButton>

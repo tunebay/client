@@ -1,14 +1,14 @@
 // @flow
 export type AuthModalAction = ShowAction | HideAction;
 type ShowAction = { type: 'AuthModal/show' };
-type HideAction = { type: 'AuthModal/hide' };
+type HideAction = { type: 'AuthModal/close' };
 
 export const actions = {
   show(): ShowAction {
     return { type: 'AuthModal/show' };
   },
-  hide(): HideAction {
-    return { type: 'AuthModal/hide' };
+  close(): HideAction {
+    return { type: 'AuthModal/close' };
   },
 };
 
@@ -27,7 +27,7 @@ export default function reducer(
   switch (action.type) {
     case 'AuthModal/show':
       return { ...state, visible: true };
-    case 'AuthModal/hide':
+    case 'AuthModal/close':
       return { ...state, visible: false };
     default:
       return state;
