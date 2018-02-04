@@ -13,7 +13,7 @@ class Upload extends Component<Props> {
       <Layout subNavigation title="Tunebay | Upload">
         <Main>
           <Dropzone>
-            <Title>Upload your muisc.</Title>
+            <Title>Upload your music.</Title>
             <Description>
               Drag & Drop audio files here or choose them from your computer
             </Description>
