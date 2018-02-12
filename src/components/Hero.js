@@ -29,7 +29,7 @@ export default () => (
           console.log('CLICKED');
         }}
       >
-        Learn more.
+        Discover.
       </Button>
     </Shoutout>
     {/* media: phone only */}
