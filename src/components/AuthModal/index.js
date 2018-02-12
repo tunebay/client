@@ -33,7 +33,7 @@ class AuthModal extends Component<Props> {
           <EmailButton>Create account with Email</EmailButton>
           <Hr />
           <Login>
-            Already have an account? <Span>Log in</Span>
+            Already have an account? &#0000; <Span>Log in</Span>
           </Login>
         </Content>
       </Modal>
@@ -47,8 +47,8 @@ const Close = styled.button`
   float: right;
   height: 2rem;
   width: 2rem;
-  margin-top: -3rem;
-  margin-right: -3rem;
+  margin-top: -3.5rem;
+  margin-right: -3.5rem;
   border: none;
   font-size: 2rem;
 
@@ -89,6 +89,10 @@ const Span = styled.span`
   color: ${props => props.theme.primaryRed};
   font-weight: 600;
   display: inline;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const FacebookButton = Button.extend`

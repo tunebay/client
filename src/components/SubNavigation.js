@@ -16,6 +16,7 @@ export default class extends React.Component<Props> {
   render() {
     const { activePath } = this.props;
 
+    // TODO revise this, look into right way to do subnavigation with next
     const title = {
       '/upload': 'Upload',
       '/you/music': 'Your Music',
@@ -107,5 +108,9 @@ const LinkItem = styled.div`
 
 const Upgrade = styled.h2`
   color: ${props => props.theme.primaryRed};
-  font-size: 1.4rem;
+
+  font-size: 1.3rem;
+  font-weight: 600;
+
+  text-transform: uppercase;
 `;

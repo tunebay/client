@@ -59,6 +59,7 @@ const Main = styled.button`
 
   border-radius: 500px 0 0 500px;
   flex: 3;
+  font-size: 1.2rem;
   padding-left: 3px;
 
   border-right: none;
