@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 
-import { Chevron } from './svgs';
+import { Chevron } from './icons';
 
 type Props = {|
   price: number,

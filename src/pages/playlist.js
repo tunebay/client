@@ -8,7 +8,7 @@ import type { PlaylistType, OgMetaType, UserType } from '../types';
 import Layout, { Grid } from '../components/Layout';
 import ProfileLink from '../components/ProfileLink';
 import { aspectRatio } from '../lib/styleUtils';
-import { Chevron } from '../components/svgs';
+import { Chevron } from '../components/icons';
 import TrackList from '../components/TrackList';
 import withData from '../withData';
 

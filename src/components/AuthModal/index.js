@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
 
-import { Google, Close as CloseSVG } from '../svgs';
+import { GoogleLogo, CloseIcon, FacebookLogo, EmailIcon } from '../icons';
 
 import { actions, type AuthModalState } from './state';
 
@@ -22,16 +22,25 @@ class AuthModal extends Component<Props> {
         isOpen={this.props.visible}
       >
         <Close onClick={this.props.close}>
-          <CloseSVG />
+          <CloseIcon />
         </Close>
         <Content>
-          <FacebookButton>Continue with Facebook</FacebookButton>
+          <FacebookButton>
+            <FacebookLogo />
+            <Text>Continue with Facebook</Text>
+          </FacebookButton>
           <GoogleButton>
-            <Google />Continue with Google
+            <GoogleLogo />
+            <Text>Continue with Google</Text>
           </GoogleButton>
-          <Or>or</Or>
-          <EmailButton>Create account with Email</EmailButton>
-          <Hr />
+          <Or>
+            <Hr width="45%" />or<Hr width="45%" />
+          </Or>
+          <EmailButton>
+            <EmailIcon />
+            <Text>Create account with Email</Text>
+          </EmailButton>
+          <Hr width="100%" margin="2.5rem 0" />
           <Login>
             Already have an account? &#0000; <Span>Log in</Span>
           </Login>
@@ -40,6 +49,10 @@ class AuthModal extends Component<Props> {
     );
   }
 }
+
+const Text = styled.span`
+  padding-left: 1.6rem;
+`;
 
 const Close = styled.button`
   color: ${props => props.theme.darkGrey};
@@ -75,14 +88,17 @@ const Button = styled.button`
 `;
 
 const Login = styled.div`
+  font-size: 1.4rem;
+  font-weight: 400;
+
   display: flex;
   justify-content: center;
-  font-weight: 400;
 `;
 
 const Hr = styled.hr`
-  margin: 3rem 0;
-  border: 0.5px solid ${props => props.theme.lightGrey};
+  width: ${props => props.width};
+  margin: ${props => props.margin || '0'};
+  border: 0.5px solid ${props => props.theme.lighterGrey};
 `;
 
 const Span = styled.span`
@@ -97,27 +113,44 @@ const Span = styled.span`
 
 const FacebookButton = Button.extend`
   background-color: ${props => props.theme.facebook};
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const GoogleButton = Button.extend`
   color: ${props => props.theme.black};
   background-color: ${props => props.theme.white};
   border: 1px solid ${props => props.theme.grey};
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const EmailButton = Button.extend`
-  border: none;
-  margin-top: 0;
   background-color: ${props => props.theme.primaryRed};
+
+  margin-top: 0;
+
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Or = styled.div`
-  font-size: 1.4rem;
   color: ${props => props.theme.darkestGrey};
-  text-align: center;
+
+  font-size: 1.4rem;
   width: 100%;
   font-size: 1.5rem;
   margin: 2rem auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const Content = styled.div``;

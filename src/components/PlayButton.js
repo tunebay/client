@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { Play } from './svgs';
+import { Play } from './icons';
 
 type Props = {|
   onClick: () => any,

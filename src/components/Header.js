@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { media } from '../lib/styleUtils';
 
 import { Logo, NavLink } from './common';
-import { Search } from './svgs';
+import { Search } from './icons';
 import { actions } from './AuthModal/state';
 
 type Props = OwnProps & ActionProps;
