@@ -3938,9 +3938,9 @@ react-hot-loader@4.0.0-beta.18:
     hoist-non-react-statics "^2.3.1"
     react-stand-in "^4.0.0-beta.18"
 
-react-modal@3.1.11:
-  version "3.1.11"
-  resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-3.1.11.tgz#95c8223fcee7013258ad2d149c38c9f870c89958"
+react-modal@3.1.13:
+  version "3.1.13"
+  resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-3.1.13.tgz#9b27e7774e6ecdc255f489487f518eb4361716ab"
   dependencies:
     exenv "^1.2.0"
     prop-types "^15.5.10"
@@ -4477,9 +4477,9 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-styled-components@3.1.5:
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-3.1.5.tgz#7aaf0a97f8c5cd49791e924887f9d8f428fb010c"
+styled-components@3.1.6:
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-3.1.6.tgz#9c443146fa82c6659a9f64dd493bf2202480342e"
   dependencies:
     buffer "^5.0.3"
     css-to-react-native "^2.0.3"
