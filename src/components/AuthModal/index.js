@@ -13,12 +13,10 @@ type Props = AuthModalState & typeof actions;
 class AuthModal extends Component<Props> {
   render() {
     return (
-      /* TODO https://github.com/reactjs/react-modal/issues/576 */
       <Modal
         contentLabel="loginModal"
         shouldCloseOnOverlayClick
         onRequestClose={this.props.close}
-        ariaHideApp={false}
         isOpen={this.props.visible}
       >
         <Close onClick={this.props.close}>
@@ -183,5 +181,9 @@ Modal.defaultStyles = {
 const mapStateToProps = ({ authModal }): AuthModalState => ({
   visible: authModal.visible,
 });
+
+// https://github.com/reactjs/react-modal/issues/576 use ariaHideApp={false} to hide
+// used to hide main app element for screen readers and only show modal content
+Modal.setAppElement('#__next');
 
 export default connect(mapStateToProps, actions)(AuthModal);
