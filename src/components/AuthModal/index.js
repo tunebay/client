@@ -184,6 +184,9 @@ const mapStateToProps = ({ authModal }): AuthModalState => ({
 
 // https://github.com/reactjs/react-modal/issues/576 use ariaHideApp={false} to hide
 // used to hide main app element for screen readers and only show modal content
-Modal.setAppElement('#__next');
+if (typeof window !== 'undefined') {
+  // only set app element if in browser
+  Modal.setAppElement('#__next');
+}
 
 export default connect(mapStateToProps, actions)(AuthModal);
