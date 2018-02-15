@@ -4,7 +4,6 @@ import { withRouter } from 'next/router';
 import styled, { ThemeProvider } from 'styled-components';
 
 import theme from '../lib/theme';
-import { media } from '../lib/styleUtils';
 
 import type { OgMetaType } from '../types';
 

@@ -46,7 +46,7 @@ class Profile extends React.Component<Props> {
         <Cover image={user.cover}>
           <Overlay />
         </Cover>
-        <SubNavigation routes={[]} />
+        <SubNavigation routes={[]} type="profile" activePath="" />
 
         <Main>
           <Grid>
@@ -79,12 +79,6 @@ class Profile extends React.Component<Props> {
     );
   }
 }
-
-const Nav = styled.nav`
-  background-color: ${props => props.theme.lightestGrey};
-
-  height: 6rem;
-`;
 
 const CSSGrid = styled.div`
   width: 100%;
