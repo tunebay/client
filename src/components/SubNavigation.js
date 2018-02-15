@@ -55,6 +55,8 @@ const SubNavLink = ({ children, href, active }) => (
 );
 
 const SubNavigation = styled.nav`
+  background-color: ${props => props.theme.lightestGrey};
+
   width: 100%;
   height: 6rem;
   padding: 0 6rem;
@@ -63,8 +65,6 @@ const SubNavigation = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  background-color: #fafafa;
 `;
 
 const Links = styled.ul`

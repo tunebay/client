@@ -80,16 +80,18 @@ class Profile extends React.Component<Props> {
 }
 
 const Nav = styled.nav`
-  box-shadow: ${props => props.theme.boxShadow};
+  background-color: ${props => props.theme.lightestGrey};
+
   height: 6rem;
-  background-color: white;
 `;
 
 const CSSGrid = styled.div`
-  display: grid;
   width: 100%;
-  grid-template-columns: repeat(3, 31%);
   grid-gap: 5%;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 31%);
 `;
 
 const Playlist = styled.div``;
