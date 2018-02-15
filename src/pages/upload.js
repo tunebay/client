@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import Layout from '../components/Layout';
+import SubNavigation from '../components/SubNavigation';
 import withData from '../withData';
 
 type Props = {||};
@@ -10,7 +11,17 @@ type Props = {||};
 class Upload extends Component<Props> {
   render() {
     return (
-      <Layout subNavigation title="Tunebay | Upload">
+      <Layout title="Tunebay | Upload">
+        <SubNavigation
+          type="upload"
+          routes={[
+            { name: 'Upload', path: '/upload' },
+            { name: 'Your Music', path: '/you/music' },
+            { name: 'Stats', path: '/you/stats' },
+            { name: 'Sales', path: '/you/sales' },
+          ]}
+          activePath="/upload" // TODO make this state in nav
+        />
         <Main>
           <Dropzone>
             <Title>Upload your music.</Title>

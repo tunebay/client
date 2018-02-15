@@ -6,6 +6,7 @@ import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
 import Layout, { Grid } from '../components/Layout';
+import SubNavigation from '../components/SubNavigation';
 import type { UserType, OgMetaType } from '../types';
 import { aspectRatio, truncate } from '../lib/styleUtils';
 import withData from '../withData';
@@ -45,7 +46,7 @@ class Profile extends React.Component<Props> {
         <Cover image={user.cover}>
           <Overlay />
         </Cover>
-        <Nav />
+        <SubNavigation routes={[]} />
 
         <Main>
           <Grid>

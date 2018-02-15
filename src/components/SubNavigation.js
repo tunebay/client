@@ -3,46 +3,52 @@ import * as React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
-type Props = {|
-  activePath:
-    | '/upload'
-    | '/you/music'
-    | '/you/sales'
-    | '/you/stats'
-    | '/upgrade',
+// type Props = {|
+//   activePath:
+//     | '/upload'
+//     | '/you/music'
+//     | '/you/sales'
+//     | '/you/stats'
+//     | '/upgrade',
+// |};
+
+type SubNavRouteType = {|
+  name: string,
+  path: string,
 |};
+
+type Props = {
+  type: 'upload' | 'profile',
+  routes: Array<SubNavRouteType>,
+  rightComponent?: React.Node, // settings cog | upgrade
+
+  activePath: string,
+};
 
 export default class extends React.Component<Props> {
   render() {
-    const { activePath } = this.props;
+    const { activePath, routes = [] } = this.props;
 
-    // TODO revise this, look into right way to do subnavigation with next
-    const title = {
-      '/upload': 'Upload',
-      '/you/music': 'Your Music',
-      '/upgrade': 'Upgrade',
-      '/you/stats': 'Stats',
-      '/you/sales': 'Sales',
-    };
+    // TODO revise this component, look into right way to do subnavigation with next
+    // also unify this so it works with profile subnav
+
+    // TODO set these values in theme
+    // profileUserWidth 21%
+    // profilePlaylistWidth 74%
+
+    // TODO connect with redux to control active link?
 
     return (
       <SubNavigation>
-        <Title>{title[activePath]}</Title>
+        {this.props.type === 'upload' ? <Title>Upload</Title> : null}
         <Links>
-          <SubNavLink active={activePath === '/upload'} href="/upload">
-            Upload
-          </SubNavLink>
-          <SubNavLink active={activePath === '/you/music'} href="you/music">
-            Your Music
-          </SubNavLink>
-          <SubNavLink active={activePath === '/you/stats'} href="you/stats">
-            Stats
-          </SubNavLink>
-          <SubNavLink active={activePath === '/you/sales'} href="you/sales">
-            Sales
-          </SubNavLink>
+          {routes.map(({ name, path }) => (
+            <SubNavLink key={name} active={activePath === path} href={path}>
+              {name}
+            </SubNavLink>
+          ))}
         </Links>
-        <Upgrade>Upgrade</Upgrade>
+        {this.props.type === 'upload' ? <Upgrade>Upgrade</Upgrade> : null}
       </SubNavigation>
     );
   }
@@ -95,6 +101,8 @@ const LinkItem = styled.div`
   font-weight: 500;
 
   font-size: 1.3rem;
+
+  text-transform: capitalize;
 
   &:hover {
     border-bottom: ${props =>
