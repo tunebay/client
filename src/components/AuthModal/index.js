@@ -20,7 +20,7 @@ class AuthModal extends Component<Props> {
         isOpen={this.props.visible}
       >
         <Close onClick={this.props.close}>
-          <CloseIcon />
+          <CloseIcon fill="#999" />
         </Close>
         <Content>
           <FacebookButton>
@@ -53,7 +53,6 @@ const Text = styled.span`
 `;
 
 const Close = styled.button`
-  color: ${props => props.theme.darkGrey};
   background-color: ${props => props.theme.white};
   float: right;
   height: 2rem;
