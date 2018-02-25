@@ -3,8 +3,8 @@
 export type TrackType = {
   +duration: number, // seconds
   +id: number,
-  +name: string,
-  +position: number, // position in playlist
+  +title: string,
+  +playlistPosition: number,
   +price: number | null,
 };
 
@@ -22,10 +22,10 @@ export type PlaylistType = {
 export type UserType = {
   +avatar: string,
   +bio: string,
-  +cover: string,
+  +coverPhoto: string,
   +id: number,
   +name: string,
-  +photo: string,
+  +profilePicture: string,
   +playlists: Array<PlaylistType>,
   +username: string,
 };

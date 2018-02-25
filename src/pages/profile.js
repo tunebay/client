@@ -31,7 +31,7 @@ class Profile extends React.Component<Props> {
     title: user.name, // og title not page title
     type: 'music.musician',
     url: `https://tunebay.com/${user.username}`,
-    image: { url: user.photo, width: '500', height: '500' },
+    image: { url: user.profilePicture, width: '500', height: '500' },
     description: `Listen to and directly support ${user.name} on Tunebay`,
   });
 
@@ -43,7 +43,7 @@ class Profile extends React.Component<Props> {
 
     return (
       <Layout ogMeta={this.ogMeta(user)} title={user.name}>
-        <Cover image={user.cover}>
+        <Cover image={user.coverPhoto}>
           <Overlay />
         </Cover>
         <SubNavigation routes={[]} type="profile" activePath="" />
@@ -51,7 +51,7 @@ class Profile extends React.Component<Props> {
         <Main>
           <Grid>
             <User>
-              <ProfilePicture photo={user.photo} />
+              <ProfilePicture photo={user.profilePicture} />
               <Name>{user.name}</Name>
               <Username>@{user.username}</Username>
               <Bio>{user.bio}</Bio>
@@ -231,8 +231,8 @@ const query = gql`
       id
       name
       username
-      cover
-      photo
+      coverPhoto
+      profilePicture
       bio
       playlists {
         id

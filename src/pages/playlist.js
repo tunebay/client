@@ -68,7 +68,7 @@ class Playlist extends Component<Props> {
             <RightCotent>
               <ProfileLink username={artist.username}>
                 <ArtistDetails>
-                  <Avatar image={artist.photo /* TODO avatar */} />
+                  <Avatar image={artist.profilePicture /* TODO avatar */} />
                   <ArtistName>{artist.name}</ArtistName>
                 </ArtistDetails>
               </ProfileLink>
@@ -290,8 +290,8 @@ const query = gql`
         duration
         id
         price
-        position
-        name
+        playlistPosition
+        title
       }
       # supporters {
       #   id
@@ -301,7 +301,7 @@ const query = gql`
         id
         name
         username
-        photo
+        profilePicture
       }
     }
   }

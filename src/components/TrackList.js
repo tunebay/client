@@ -23,12 +23,12 @@ export default class extends Component<Props> {
 }
 
 const Track = props => {
-  const { position, name, price, duration } = props.track;
-  const isEven = position % 2 === 0;
+  const { playlistPosition, title, price, duration } = props.track;
+  const isEven = playlistPosition % 2 === 0;
   return (
     <Row isEven={isEven}>
-      <Position>{position}</Position>
-      <Name>{name}</Name>
+      <Position>{playlistPosition}</Position>
+      <Name>{title}</Name>
       <Duration>{duration}</Duration>
       <Price>
         {price ? (
