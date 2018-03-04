@@ -35,7 +35,11 @@ app
       if (err) {
         throw err;
       }
-      console.log(`> Ready on port:${port}`);
+      if (dev) {
+        console.log(`>Listening on http://localhost:${port}`);
+      } else {
+        console.log('Server running');
+      }
     });
   })
   .catch(ex => {
