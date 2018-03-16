@@ -11,7 +11,7 @@ app
   .then(() => {
     const server = express();
 
-    server.get('/test', (req, res) => handle(req, res));
+    server.get('/discover', (req, res) => handle(req, res));
     server.get('/upload', (req, res) => handle(req, res));
 
     server.get('/:username', (req, res) => {

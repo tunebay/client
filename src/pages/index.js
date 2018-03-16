@@ -42,7 +42,7 @@ class Index extends Component<Props> {
 
         <Section>
           <Title>Featured artists</Title>
-          <FeaturedArtists />
+          <FeaturedArtists count={4} />
         </Section>
 
         <CallToActionFooter />

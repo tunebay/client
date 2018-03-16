@@ -8,7 +8,9 @@ import { Grid } from './Layout';
 import { Button } from './common';
 import ProfileLink from './ProfileLink';
 
-type Props = {||};
+type Props = {|
+  count: number,
+|};
 
 const featuredArtists = [
   {
@@ -16,59 +18,50 @@ const featuredArtists = [
     name: 'Kwabs',
     username: 'kwabs',
     image: 'http://www.mobo.com/sites/default/files/Kwabs-Press1-.jpg',
-    bio:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
   },
   {
     id: 1,
     name: 'Taya',
     username: 'taya',
     image: 'https://s3.eu-west-2.amazonaws.com/tunebay/taya.jpg',
-    bio:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
   },
   {
     id: 3,
     name: 'Super-organism',
     username: 'superorganism',
     image: 'https://s3.eu-west-2.amazonaws.com/tunebay/super.jpg',
-    bio:
-      "Stupidly fun, sample-happy and eight members strong, Superorganism are a force for good.\n \nDebut single 'Something For Your M.I.N.D.' proudly boasts the collective's skill in making saccharine, sense-zapping pop without the cheese.",
   },
   {
     id: 2,
     name: 'Dan Shake',
     username: 'danshake',
     image: 'https://s3.eu-west-2.amazonaws.com/tunebay/Dan-Shake-2.jpg',
-    bio:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+  },
+  {
+    id: 5,
+    name: 'Lion Babe',
+    username: 'lionbabe',
+    image:
+      'https://cdn.shopify.com/s/files/1/1269/9037/products/170226_LB_Shot_03_869_1024x1024.jpg?v=1488920997',
   },
 ];
 
 class FeaturedArtists extends Component<Props> {
   render() {
+    const { count } = this.props;
+    const cardWidth = 100 / count - 1;
     return (
       <Grid width={1320}>
-        {featuredArtists.map(({ image, bio, name, id, username }) => (
-          <ArtistCard key={id}>
-            <CardFront image={image}>{name}</CardFront>
-            <CardBack>
-              <Name>{name}</Name>
-              <Bio>
-                {bio.split('\n').map((item, key) => (
-                  // lol TODO better key solution
-                  <span key={`${`${key}`}-bio}`}>
-                    {item}
-                    <br />
-                  </span>
-                ))}
-              </Bio>
-              <ProfileLink username={username}>
-                <Button>Go to profile.</Button>
-              </ProfileLink>
-            </CardBack>
-          </ArtistCard>
-        ))}
+        {featuredArtists
+          .slice(0, count)
+          .map(({ image, bio, name, id, username }) => (
+            <ProfileLink key={id} username={username}>
+              <ArtistCard key={id} width={cardWidth}>
+                <CardFront image={image} />
+                <Name>{name}</Name>
+              </ArtistCard>
+            </ProfileLink>
+          ))}
       </Grid>
     );
   }
@@ -76,27 +69,46 @@ class FeaturedArtists extends Component<Props> {
 
 const ArtistCard = styled.div`
   perspective: 150rem;
-  width: 23.7%;
+  width: ${props => props.width}%;
   position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 6px;
+  transition: all 800ms ease;
 
   ${aspectRatio('150%')};
 `;
 
 const CardSide = styled.div`
   box-shadow: ${props => props.theme.boxShadow};
-
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 6px;
-  transition: all 500ms ease;
+  transition: all 800ms ease-out;
 
   overflow: hidden;
-  backface-visibility: hidden;
   position: absolute;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+`;
+
+const Name = styled.h4`
+  position: absolute;
+
+  background-color: transparent;
+
+  color: white;
+  font-size: 2.8rem;
+  font-weight: 900;
+  text-shadow: 2px 2px rgba(26, 30, 40, 0.7);
 `;
 
 const CardFront = CardSide.extend`
@@ -104,52 +116,21 @@ const CardFront = CardSide.extend`
   color: ${props => props.theme.white};
 
   padding: 1rem;
-  font-size: 3.6rem;
-  font-weight: 900;
-  text-shadow: 2px 2px rgba(26, 30, 40, 0.7);
 
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 
+  &:hover {
+    cursor: pointer;
+  }
+  /*
   ${ArtistCard}:hover & {
     transform: rotateY(180deg);
   }
-`;
-
-const CardBack = CardSide.extend`
-  background-color: ${props => props.theme.deepBlue};
-  color: ${props => props.theme.white};
-
-  padding: 3rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  transform: rotateY(-180deg);
-
-  ${ArtistCard}:hover & {
-    transform: rotateY(0);
-  }
-`;
-
-const Name = styled.h3`
-  font-size: 3.2rem;
-  width: 100%;
-  font-weight: 800;
-  padding-bottom: 2rem;
-`;
-
-const Bio = styled.p`
-  font-size: 1.3rem;
-  width: 100%;
-  line-height: 1.6;
-  font-weight: 400;
-  flex: 1;
-
-  text-align: left;
+  */
 `;
 
 export default FeaturedArtists;

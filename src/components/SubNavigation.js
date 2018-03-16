@@ -18,7 +18,7 @@ type SubNavRouteType = {|
 |};
 
 type Props = {
-  type: 'upload' | 'profile',
+  type: 'upload' | 'profile' | 'discover',
   routes: Array<SubNavRouteType>,
   rightComponent?: React.Node, // settings cog | upgrade
 

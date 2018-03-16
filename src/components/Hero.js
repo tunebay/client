@@ -24,13 +24,9 @@ export default () => (
     </Nav>
     <Shoutout>
       <Title>Directly support the music and artists you love.</Title>
-      <Button
-        onClick={() => {
-          console.log('CLICKED');
-        }}
-      >
-        Discover.
-      </Button>
+      <Link prefetch href="discover">
+        <Button>Discover.</Button>
+      </Link>
     </Shoutout>
     {/* media: phone only */}
     <MenuButton />
