@@ -37,7 +37,7 @@ class HeaderContainer extends Component<Props> {
               Home
             </NavLink>
           </Link>
-          <Link as="/mabel" href="/profile?username=mabel">
+          <Link href="/discover">
             <NavLink color="#111111" spacing="5rem">
               Discover
             </NavLink>
@@ -47,9 +47,6 @@ class HeaderContainer extends Component<Props> {
           <SearchBar onSubmit={this.handleSearch} />
         </Middle>
         <Right>
-          {/* <Link as="/hello" href="/profile?username=hello">
-            <NavLink color="#111111">Login</NavLink>
-          </Link> */}
           <LoginButton onClick={show}>Login</LoginButton>
           <Link href="/upload">
             <NavLink color="#E43D3C">Create account</NavLink>

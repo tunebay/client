@@ -13,7 +13,7 @@ class Discover extends Component<Props> {
   render() {
     return (
       <Layout title="Tunebay | Upload">
-        {/* <SubNavigation
+        <SubNavigation
           type="discover"
           routes={[
             { name: 'Upload', path: '/upload' },
@@ -22,17 +22,17 @@ class Discover extends Component<Props> {
             { name: 'Sales', path: '/you/sales' },
           ]}
           activePath="/upload" // TODO make this state in nav
-        /> */}
+        />
         <Main>
-          <Section grey>
+          <Section>
             <SectionTitle>Rock</SectionTitle>
             <FeaturedArtists count={5} />
           </Section>
-          <Section>
+          <Section grey>
             <SectionTitle>Pop</SectionTitle>
             <FeaturedArtists count={5} />
           </Section>
-          <Section grey>
+          <Section>
             <SectionTitle>Soul</SectionTitle>
             <FeaturedArtists count={5} />
           </Section>

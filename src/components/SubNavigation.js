@@ -27,7 +27,7 @@ type Props = {
 
 export default class extends React.Component<Props> {
   render() {
-    const { activePath, routes = [] } = this.props;
+    const { activePath, routes = [], type } = this.props;
 
     // TODO revise this component, look into right way to do subnavigation with next
     // also unify this so it works with profile subnav
@@ -39,8 +39,8 @@ export default class extends React.Component<Props> {
     // TODO connect with redux to control active link?
 
     return (
-      <SubNavigation>
-        {this.props.type === 'upload' ? <Title>Upload</Title> : null}
+      <SubNavigation type={type}>
+        {type === 'upload' ? <Title>Upload</Title> : null}
         <Links>
           {routes.map(({ name, path }) => (
             <SubNavLink key={name} active={activePath === path} href={path}>
@@ -48,7 +48,7 @@ export default class extends React.Component<Props> {
             </SubNavLink>
           ))}
         </Links>
-        {this.props.type === 'upload' ? <Upgrade>Upgrade</Upgrade> : null}
+        {type === 'upload' ? <Upgrade>Upgrade</Upgrade> : null}
       </SubNavigation>
     );
   }
@@ -61,7 +61,10 @@ const SubNavLink = ({ children, href, active }) => (
 );
 
 const SubNavigation = styled.nav`
-  background-color: ${props => props.theme.lightestGrey};
+  background-color: ${props =>
+    props.type === 'discover'
+      ? props.theme.deepBlue
+      : props.theme.lightestGrey};
 
   width: 100%;
   height: 6rem;
@@ -82,7 +85,10 @@ const Links = styled.ul`
 `;
 
 const Title = styled.h1`
-  color: ${props => props.theme.deepBlue};
+  background-color: ${props =>
+    props.type === 'discover'
+      ? props.theme.lightestGrey
+      : props.theme.deepBlue};
   font-size: 2rem;
   font-weight: 700;
 `;
