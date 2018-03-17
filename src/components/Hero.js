@@ -97,7 +97,7 @@ const Title = styled.h1`
 
   font-weight: 800;
   font-size: 5.6rem;
-  max-width: 50rem;
+  max-width: 60rem;
   padding-bottom: 3rem;
   letter-spacing: 3px;
 
