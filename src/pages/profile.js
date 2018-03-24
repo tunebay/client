@@ -55,7 +55,7 @@ class Profile extends React.Component<Props> {
               <Name>{user.name}</Name>
               <Username>@{user.username}</Username>
               <Bio>{user.bio}</Bio>
-              <FollowButton>Subscribe</FollowButton>
+              <FollowButton>Follow</FollowButton>
             </User>
             <Playlists>
               <CSSGrid>
@@ -108,8 +108,8 @@ const FollowButton = styled.button`
   background-color: ${props => props.theme.primaryRed};
   color: ${props => props.theme.white};
 
-  height: 5rem;
-  width: 100%;
+  height: 4rem;
+  width: 20rem;
   border-radius: 500px;
   font-weight: 700;
   font-size: 1.4rem;
@@ -172,9 +172,9 @@ const Bio = styled.p`
 `;
 
 const Username = styled.h3`
-  color: ${props => props.theme.darkGrey};
-  font-size: 1.6rem;
-  font-weight: 400;
+  color: ${props => props.theme.darkestGrey};
+  font-size: 1.5rem;
+  font-weight: 600;
   padding-bottom: 1.6rem;
   padding-top: 0.4rem;
 `;
