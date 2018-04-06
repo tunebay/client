@@ -21,7 +21,7 @@
     "graphql": "^0.13.1",
     "graphql-tag": "^2.6.1",
     "isomorphic-unfetch": "^2.0.0",
-    "next": "^5.0.0",
+    "next": "^5.1.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-apollo": "2.0.4",
@@ -29,7 +29,8 @@
     "react-modal": "3.2.1",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
-    "styled-components": "3.1.6"
+    "styled-components": "^3.2.5",
+    "tslint-config-prettier": "^1.10.0"
   },
   "devDependencies": {
     "@types/express": "^4.11.1",
@@ -40,10 +41,8 @@
     "@types/react-modal": "^3.1.2",
     "@types/react-redux": "^5.0.15",
     "@zeit/next-typescript": "^0.1.1",
-    "babel-eslint": "8.2.1",
-    "babel-plugin-styled-components": "1.5.0",
-    "babel-preset-flow": "^6.23.0",
-    "prettier": "1.10.2",
+    "prettier": "^1.11.1",
+    "tslint": "^5.9.1",
     "tslint-react": "^3.5.1",
     "typescript": "^2.8.1"
   }

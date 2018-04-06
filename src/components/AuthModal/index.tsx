@@ -1,4 +1,3 @@
-// @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Modal from 'react-modal';
@@ -15,7 +14,7 @@ class AuthModal extends Component<Props> {
     return (
       <Modal
         contentLabel="loginModal"
-        shouldCloseOnOverlayClick
+        shouldCloseOnOverlayClick={true}
         onRequestClose={this.props.close}
         isOpen={this.props.visible}
       >

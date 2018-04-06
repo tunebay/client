@@ -1,20 +1,27 @@
-// @flow
 export type AuthModalAction = ShowAction | HideAction;
-type ShowAction = { type: 'AuthModal/show' };
-type HideAction = { type: 'AuthModal/close' };
+
+interface ShowAction {
+  type: 'AuthModal/show';
+}
+
+interface HideAction {
+  type: 'AuthModal/close';
+}
 
 export const actions = {
+  /** Show the modals */
   show(): ShowAction {
     return { type: 'AuthModal/show' };
   },
+  /** Hide the modals @boolean */
   close(): HideAction {
     return { type: 'AuthModal/close' };
   },
 };
 
-export type AuthModalState = {
+export interface AuthModalState {
   visible: boolean;
-};
+}
 
 const initialState: AuthModalState = {
   visible: false,

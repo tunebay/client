@@ -1,13 +1,12 @@
-// @flow
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-type Props = {|
-  fill: string,
-  size?: string, // '1.4rem'
+interface Props {
+  fill: string;
+  size?: string; // '1.4rem'
   // TODO
   // rotation: 'up' | 'down' | 'left' | 'right'
-|};
+}
 
 export default (props: Props) => {
   const { fill, size } = props;

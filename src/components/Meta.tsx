@@ -4,12 +4,12 @@ import Head from 'next/head';
 import { injectGlobal } from 'styled-components';
 
 import { media } from '../lib/styleUtils';
-import type { OgMetaType } from '../types';
+import { OgMetaType } from '../types';
 
-type Props = {|
-  ogMeta?: OgMetaType,
-  title: string,
-|};
+interface Props {
+  ogMeta?: OgMetaType;
+  title: string;
+}
 
 export default (props: Props) => {
   const { title, ogMeta } = props;
@@ -47,18 +47,12 @@ export default (props: Props) => {
       <meta property="og:url" content={og.url || defaultOg.url} />
       <meta property="og:title" content={og.title || defaultOg.title} />
       <meta property="og:image" content={og.image.url || defaultOg.image.url} />
-      <meta
-        property="og:image:width"
-        content={og.image.width || defaultOg.image.width}
-      />
+      <meta property="og:image:width" content={og.image.width || defaultOg.image.width} />
       <meta
         property="og:image:height"
         content={og.image.height || defaultOg.image.height}
       />
-      <meta
-        property="og:description"
-        content={og.description || defaultOg.description}
-      />
+      <meta property="og:description" content={og.description || defaultOg.description} />
 
       <meta property="og:locality" content="London" />
       <meta property="og:country-name" content="United Kingdom" />

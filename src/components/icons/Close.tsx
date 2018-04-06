@@ -1,6 +1,4 @@
-// import styled from 'styled-components';
-
-export default ({ fill }) => (
+export default ({ fill }: { fill: string }) => (
   <svg
     width="18px"
     height="18px"
@@ -35,5 +33,3 @@ export default ({ fill }) => (
     </g>
   </svg>
 );
-
-// const Close = styled.s``;

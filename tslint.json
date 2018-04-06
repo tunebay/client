@@ -1,7 +1,42 @@
 {
   "defaultSeverity": "error",
-  "extends": ["tslint-airbnb-config"],
+  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
   "jsRules": {},
-  "rules": {},
+  "rules": {
+    "member-ordering": true,
+    "import-spacing": true,
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "no-console": [true, "debug", "info", "time", "timeEnd", "trace"],
+    "interface-name": false,
+    "curly": false,
+    "member-access": false,
+    "no-var-requires": false,
+    "space-before-function-paren": false,
+    "prefer-object-spread": true,
+    "no-unused-expression": true,
+    "no-unused-variable": true,
+    "prefer-const": true,
+    "prefer-for-of": true,
+    "prefer-method-signature": true,
+    "strict-type-predicates": true,
+    "deprecation": true,
+    "await-promise": true,
+    "arrow-parens": false,
+    "no-shadowed-variable": [
+      true,
+      {
+        "class": true,
+        "enum": true,
+        "function": true,
+        "interface": false,
+        "namespace": true,
+        "typeAlias": false,
+        "typeParameter": false
+      }
+    ],
+    "comment-format": [true, "check-space"],
+    "semicolon": true
+  },
   "rulesDirectory": []
 }

@@ -1,5 +1,13 @@
-// @flow
-/* eslint key-spacing: 0 */
+import * as styledComponents from 'styled-components';
+
+const {
+  default: styled,
+  css,
+  injectGlobal,
+  keyframes,
+  ThemeProvider,
+} = styledComponents as styledComponents.ThemedStyledComponentsModule<IThemeInterface>;
+
 export default {
   // colors
   primaryRed: '#ee5150',
