@@ -1,5 +1,5 @@
-const express = require('express');
-const next = require('next');
+import express, { Errback } from 'express';
+import next from 'next';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dir: './src', dev });
@@ -31,7 +31,7 @@ app
 
     server.get('*', (req, res) => handle(req, res));
 
-    server.listen(port, err => {
+    server.listen(port, (err: any) => {
       if (err) {
         throw err;
       }

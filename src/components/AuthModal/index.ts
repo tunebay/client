@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import { GoogleLogo, CloseIcon, FacebookLogo, EmailIcon } from '../icons';
 
-import { actions, type AuthModalState } from './state';
+import { actions, AuthModalState } from './state';
 
 type Props = AuthModalState & typeof actions;
 

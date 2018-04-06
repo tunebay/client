@@ -13,7 +13,7 @@ export const actions = {
 };
 
 export type AuthModalState = {
-  visible: boolean,
+  visible: boolean;
 };
 
 const initialState: AuthModalState = {
