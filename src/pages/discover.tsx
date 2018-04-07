@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 
+import styled from '../lib/theme';
 import Layout from '../components/Layout';
 import SubNavigation from '../components/SubNavigation';
 import FeaturedArtists from '../components/FeaturedArtists';

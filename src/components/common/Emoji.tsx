@@ -1,7 +1,7 @@
 import * as React from 'react';
-
-import styled from 'styled-components';
 import { ReactNode } from 'react-redux';
+
+import styled from '../../lib/theme';
 
 interface Props {
   children: ReactNode;

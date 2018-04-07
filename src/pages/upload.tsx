@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import Layout from '../components/Layout';
 import SubNavigation from '../components/SubNavigation';
 import withData from '../withData';
-
 import styled from '../lib/theme';
 
 class Upload extends Component {

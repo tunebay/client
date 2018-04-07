@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 
+import styled from '../lib/theme';
 import Layout, { Section } from '../components/Layout';
 import Hero from '../components/Hero';
 import HotRightNow from '../components/HotRightNow';

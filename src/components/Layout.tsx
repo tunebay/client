@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react';
 import { withRouter } from 'next/router';
-import styled, { ThemeProvider } from 'styled-components';
 
-import theme from '../lib/theme';
+import styled, { ThemeProvider, theme } from '../lib/theme';
 
 // import type { OgMetaType } from '../types';
 

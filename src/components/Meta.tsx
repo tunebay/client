@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
-import { injectGlobal } from 'styled-components';
 
+import { injectGlobal } from '../lib/theme';
 import { media } from '../lib/styleUtils';
 // import { OgMetaType } from '../types';
 
@@ -12,7 +12,7 @@ import { media } from '../lib/styleUtils';
 
 export default (props: any) => {
   const { title, ogMeta } = props;
-  // let og: OgMetaType;
+  let og;
 
   const defaultOg = {
     title: 'Tunebay - For The Love Of Music', // og title not page title

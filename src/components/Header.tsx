@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import Link from 'next/link';
 import { connect } from 'react-redux';
 
+import styled from '../lib/theme';
 import { media } from '../lib/styleUtils';
 
 import { Logo, NavLink } from './common';

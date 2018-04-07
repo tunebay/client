@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '../../lib/theme';
 
 export default () => (
   <Facebook>

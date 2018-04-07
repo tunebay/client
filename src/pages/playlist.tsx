@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
 // import type { PlaylistType, OgMetaType, UserType } from '../types';
+import styled from '../lib/theme';
 import Layout, { Grid } from '../components/Layout';
 import ProfileLink from '../components/ProfileLink';
 import { aspectRatio } from '../lib/styleUtils';
@@ -19,17 +19,13 @@ import Error from './_error';
 // |};
 
 class Playlist extends Component {
-  // ogMeta = (playlist: PlaylistType): OgMetaType => ({
-  //   title: `${playlist.title} by ${playlist.artist.name}`, // og title not page title
-  //   type: 'music.musician',
-  //   url: `https://tunebay.com/${playlist.artist.username}/${
-  //     playlist.permalink
-  //   }`,
-  //   image: { url: playlist.artwork, width: '500', height: '500' },
-  //   description: `Listen to and ${playlist.title} by ${
-  //     playlist.artist.name
-  //   } on Tunebay`,
-  // });
+  ogMeta = (playlist: any) => ({
+    title: `${playlist.title} by ${playlist.artist.name}`, // og title not page title
+    type: 'music.musician',
+    url: `https://tunebay.com/${playlist.artist.username}/${playlist.permalink}`,
+    image: { url: playlist.artwork, width: '500', height: '500' },
+    description: `Listen to and ${playlist.title} by ${playlist.artist.name} on Tunebay`,
+  });
 
   render() {
     const { data, url } = this.props;

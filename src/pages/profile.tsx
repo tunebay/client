@@ -27,13 +27,13 @@ class Profile extends React.Component<Props> {
     };
   }
 
-  // ogMeta = (user: UserType): OgMetaType => ({
-  //   title: user.name, // og title not page title
-  //   type: 'music.musician',
-  //   url: `https://tunebay.com/${user.username}`,
-  //   image: { url: user.profilePicture, width: '500', height: '500' },
-  //   description: `Listen to and directly support ${user.name} on Tunebay`,
-  // });
+  ogMeta = (user: any) => ({
+    title: user.name, // og title not page title
+    type: 'music.musician',
+    url: `https://tunebay.com/${user.username}`,
+    image: { url: user.profilePicture, width: '500', height: '500' },
+    description: `Listen to and directly support ${user.name} on Tunebay`,
+  });
 
   render() {
     const { data, url } = this.props;
@@ -165,9 +165,9 @@ const Name = styled.h1`
 `;
 
 const Bio = styled.p`
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   padding: 0;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.4;
 `;
 

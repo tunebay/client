@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+
+import styled from '../lib/theme';
 
 import Layout from '../components/Layout';
 // import type { OgMetaType } from '../types';
@@ -29,20 +30,21 @@ export default class Error extends Component {
       <Layout title="Page not found 👀">
         <Main>
           <Heading>Sorry that page does not exist!</Heading>
-          <P>Try searching for a result instead</P>
+          <Paragraph>Try searching for a result instead</Paragraph>
           <Input defaultValue={url.query.username} />
-          <P>{statusCode}</P>
+          <Paragraph>{statusCode}</Paragraph>
         </Main>
       </Layout>
     );
   }
 }
+
 const Main = styled.main`
   text-align: center;
   padding-top: 7rem;
 `;
 
-const P = styled.p`
+const Paragraph = styled.p`
   line-height: 1.4;
   padding: 3rem 0;
 `;

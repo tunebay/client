@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 
+import styled from '../lib/theme';
 import { media, truncate } from '../lib/styleUtils';
 
 import Artwork from './Artwork';

@@ -1,4 +1,4 @@
-import { css, keyframes } from 'styled-components';
+import { css, keyframes } from './theme';
 
 export const truncate = (width: string) => `
   width: ${width};

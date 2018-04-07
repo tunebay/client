@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
 import Link from 'next/link';
+
+import styled from '../lib/theme';
 
 // type Props = {|
 //   activePath:

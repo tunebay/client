@@ -1,8 +1,7 @@
-import * as React from 'react';
-import styled from 'styled-components';
+import React from 'react';
 import Link from 'next/link';
 
-import theme from '../lib/theme';
+import styled, { theme } from '../lib/theme';
 import { media } from '../lib/styleUtils';
 import { Button, NavLink, Logo } from '../components/common';
 
