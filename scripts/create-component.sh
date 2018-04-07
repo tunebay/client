@@ -10,8 +10,7 @@ ComponentName=$1
 RelativeProjectRoot="`dirname $0`/.."
 ProjectRoot="`cd $RelativeProjectRoot; pwd`"
 
-cat << EOF > "$ProjectRoot/src/components/$ComponentName.js"
-// @flow
+cat << EOF > "$ProjectRoot/src/components/$ComponentName.js" 
 import * as React from 'react';
 import styled from 'styled-components';
 

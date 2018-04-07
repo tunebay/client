@@ -1,4 +1,3 @@
-// @flow
 import styled from '../../lib/theme';
 
 import { media } from '../../lib/styleUtils';
