@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import PlayablePlaylist from './PlayablePlaylist';
 import { Grid } from './Layout';
+import { PlaylistType } from '../types';
 
 const dummyPlaylists = [
   {
@@ -34,11 +35,11 @@ const dummyPlaylists = [
   },
 ];
 
-// type Props = {|
-//   playlists: Array<PlaylistType>,
-// |};
+interface Props {
+  playlists: PlaylistType[];
+}
 
-class HotRightNow extends Component {
+class HotRightNow extends Component<Props> {
   static getInitialProps: () => any;
 
   render() {
@@ -59,7 +60,6 @@ class HotRightNow extends Component {
   }
 }
 
-// $FlowFixMe
 HotRightNow.defaultProps = { playlists: dummyPlaylists };
 
 export default HotRightNow;

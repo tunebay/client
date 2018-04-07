@@ -19,6 +19,8 @@
     "no-unused-variable": true,
     "prefer-const": true,
     "prefer-for-of": true,
+    "jsx-no-lambda": false,
+    "jsx-boolean-value": false,
     "prefer-method-signature": true,
     "strict-type-predicates": true,
     "deprecation": true,

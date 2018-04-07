@@ -7,6 +7,7 @@ import { GoogleLogo, CloseIcon, FacebookLogo, EmailIcon } from '../icons';
 import { actions, AuthModalState } from './state';
 
 import styled from '../../lib/theme';
+import { RootState } from '../../types';
 
 type Props = AuthModalState & typeof actions;
 
@@ -177,7 +178,7 @@ Modal.defaultStyles = {
   },
 };
 
-const mapStateToProps = ({ authModal }): AuthModalState => ({
+const mapStateToProps = ({ authModal }: RootState): AuthModalState => ({
   visible: authModal.visible,
 });
 
