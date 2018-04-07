@@ -3,17 +3,15 @@ import styled from 'styled-components';
 
 import { Button } from './common';
 
-type Props = {||};
-
-export default class extends Component<Props> {
+export default class extends Component {
   render() {
     return (
       <CallToActionFooter>
         <ContentBox>
           <Title>Start being heard today.</Title>
           <Tag>
-            A line targeted towards creators that make them want to click the
-            call to action button.
+            A line targeted towards creators that make them want to click the call to
+            action button.
           </Tag>
           <Button>Create account.</Button>
         </ContentBox>

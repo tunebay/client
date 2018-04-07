@@ -11,9 +11,9 @@ import { actions } from './AuthModal/state';
 
 type Props = OwnProps & ActionProps;
 
-type OwnProps = {|
-  visible: boolean,
-|};
+interface OwnProps {
+  visible: boolean;
+}
 
 type ActionProps = typeof actions;
 
@@ -56,7 +56,7 @@ class HeaderContainer extends Component<Props> {
   }
 }
 
-const SearchBar = (props: { onSubmit: () => any }) => {
+const SearchBar = (props: { onSubmit(): any }) => {
   const { onSubmit } = props;
   return (
     <SearchForm onSubmit={onSubmit}>
@@ -118,6 +118,7 @@ const SearchInput = styled.input`
     width: 100%;
     &:focus {
       width: 100%;
+    }
   `};
 `;
 

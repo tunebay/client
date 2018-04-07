@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 import { Play } from './icons';
 
-type Props = {|
-  onClick: () => any,
-  size?: number,
-|};
+interface Props {
+  onClick(): any;
+  size?: number;
+}
 
 export default class extends Component<Props> {
   render() {

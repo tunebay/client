@@ -3,10 +3,10 @@ import styled, { css } from 'styled-components';
 
 import { Chevron } from './icons';
 
-type Props = {|
-  price: number,
-  onClick: () => any,
-|};
+interface Props {
+  price: number;
+  onClick(): any;
+}
 
 export default class extends Component<Props> {
   render() {

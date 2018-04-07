@@ -1,21 +1,21 @@
-import * as React from 'react';
+import React, { ReactNode } from 'react';
 import { withRouter } from 'next/router';
 import styled, { ThemeProvider } from 'styled-components';
 
 import theme from '../lib/theme';
 
-import type { OgMetaType } from '../types';
+// import type { OgMetaType } from '../types';
 
 import Meta from './Meta';
 import Header from './Header';
 import AuthModal from './AuthModal';
 
-type Props = {|
-  children: React.Node,
-  router: any,
-  title: string,
-  ogMeta?: OgMetaType,
-|};
+interface Props {
+  children: ReactNode;
+  router: any;
+  title: string;
+  // ogMeta?: OgMetaType;
+}
 
 class Layout extends React.Component<Props> {
   render() {
@@ -59,8 +59,7 @@ export const Section = styled.section`
 // private
 
 const StyledLayout = styled.div`
-  padding-top: ${props =>
-    props.headerVisible ? props.theme.headerHeight : '0'};
+  padding-top: ${props => (props.headerVisible ? props.theme.headerHeight : '0')};
 
   width: 100%;
 

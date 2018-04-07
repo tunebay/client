@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
@@ -11,18 +11,18 @@ import Link from 'next/link';
 //     | '/upgrade',
 // |};
 
-type SubNavRouteType = {|
-  name: string,
-  path: string,
-|};
+interface SubNavRouteType {
+  name: string;
+  path: string;
+}
 
-type Props = {
-  type: 'upload' | 'profile' | 'discover',
-  routes: Array<SubNavRouteType>,
-  rightComponent?: React.Node, // settings cog | upgrade
+interface Props {
+  type: 'upload' | 'profile' | 'discover';
+  routes: SubNavRouteType[];
+  rightComponent?: ReactNode; // settings cog | upgrade
 
-  activePath: string,
-};
+  activePath: string;
+}
 
 export default class extends React.Component<Props> {
   render() {
@@ -61,9 +61,7 @@ const SubNavLink = ({ children, href, active }) => (
 
 const SubNavigation = styled.nav`
   background-color: ${props =>
-    props.type === 'discover'
-      ? props.theme.deepBlue
-      : props.theme.lightestGrey};
+    props.type === 'discover' ? props.theme.deepBlue : props.theme.lightestGrey};
 
   width: 100%;
   height: 6rem;
@@ -85,18 +83,14 @@ const Links = styled.ul`
 
 const Title = styled.h1`
   background-color: ${props =>
-    props.type === 'discover'
-      ? props.theme.lightestGrey
-      : props.theme.deepBlue};
+    props.type === 'discover' ? props.theme.lightestGrey : props.theme.deepBlue};
   font-size: 2rem;
   font-weight: 700;
 `;
 
 const LinkItem = styled.div`
   border-bottom: ${props =>
-    props.active
-      ? `2px solid ${props.theme.primaryRed}`
-      : '2px solid transparent'};
+    props.active ? `2px solid ${props.theme.primaryRed}` : '2px solid transparent'};
   height: 100%;
   align-items: center;
   display: flex;

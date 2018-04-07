@@ -4,12 +4,11 @@ import styled from 'styled-components';
 import { aspectRatio } from '../lib/styleUtils';
 
 import { Grid } from './Layout';
-import { Button } from './common';
 import ProfileLink from './ProfileLink';
 
-type Props = {|
-  count: number,
-|};
+interface Props {
+  count: number;
+}
 
 const featuredArtists = [
   {
@@ -51,16 +50,14 @@ class FeaturedArtists extends Component<Props> {
     const cardWidth = 100 / count - 1;
     return (
       <Grid width={1320}>
-        {featuredArtists
-          .slice(0, count)
-          .map(({ image, bio, name, id, username }) => (
-            <ProfileLink key={id} username={username}>
-              <ArtistCard key={id} width={cardWidth}>
-                <CardFront image={image} />
-                <Name>{name}</Name>
-              </ArtistCard>
-            </ProfileLink>
-          ))}
+        {featuredArtists.slice(0, count).map(({ image, bio, name, id, username }) => (
+          <ProfileLink key={id} username={username}>
+            <ArtistCard key={id} width={cardWidth}>
+              <CardFront image={image} />
+              <Name>{name}</Name>
+            </ArtistCard>
+          </ProfileLink>
+        ))}
       </Grid>
     );
   }

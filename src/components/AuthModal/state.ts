@@ -9,11 +9,11 @@ interface HideAction {
 }
 
 export const actions = {
-  /** Show the modals */
+  /** Show the auth modals */
   show(): ShowAction {
     return { type: 'AuthModal/show' };
   },
-  /** Hide the modals @boolean */
+  /** Hide the auth modal */
   close(): HideAction {
     return { type: 'AuthModal/close' };
   },

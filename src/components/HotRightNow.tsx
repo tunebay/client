@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import type { PlaylistType } from '../types';
-
 import PlayablePlaylist from './PlayablePlaylist';
 import { Grid } from './Layout';
 
@@ -36,14 +34,12 @@ const dummyPlaylists = [
   },
 ];
 
-type Props = {|
-  playlists: Array<PlaylistType>,
-|};
+// type Props = {|
+//   playlists: Array<PlaylistType>,
+// |};
 
-class HotRightNow extends Component<Props> {
+class HotRightNow extends Component {
   static getInitialProps: () => any;
-
-  static defaultProps: { playlists: Array<PlaylistType> };
 
   render() {
     const { playlists } = this.props;

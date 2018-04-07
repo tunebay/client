@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import type { TrackType } from '../types';
-
 import PricePill from './PricePill';
 
-type Props = {|
-  tracks: Array<TrackType>,
-|};
+// interface Props {
+//   tracks: TrackType>;
+// };
 
-export default class extends Component<Props> {
+export default class extends Component {
   render() {
     const { tracks } = this.props;
 
     return (
-      <TrackList>
-        {tracks.map(track => <Track key={track.id} track={track} />)}
-      </TrackList>
+      <TrackList>{tracks.map(track => <Track key={track.id} track={track} />)}</TrackList>
     );
   }
 }
@@ -41,8 +37,7 @@ const Track = props => {
 };
 
 const Row = styled.li`
-  background-color: ${({ isEven, theme }) =>
-    isEven ? theme.white : theme.lightestGrey};
+  background-color: ${({ isEven, theme }) => (isEven ? theme.white : theme.lightestGrey)};
 
   width: 100%;
   height: 5rem;

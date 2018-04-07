@@ -7,11 +7,11 @@ import Artwork from './Artwork';
 
 // TODO use server data and add photo to next to name
 
-type Props = {|
-  artwork: string,
-  title: string,
-  artist: string,
-|};
+interface Props {
+  artwork: string;
+  title: string;
+  artist: string;
+}
 
 export default class extends Component<Props> {
   render() {

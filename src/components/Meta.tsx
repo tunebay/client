@@ -3,18 +3,18 @@ import Head from 'next/head';
 import { injectGlobal } from 'styled-components';
 
 import { media } from '../lib/styleUtils';
-import { OgMetaType } from '../types';
+// import { OgMetaType } from '../types';
 
-interface Props {
-  ogMeta?: OgMetaType;
-  title: string;
-}
+// interface Props {
+//   ogMeta?: OgMetaType;
+//   title: string;
+// }
 
-export default (props: Props) => {
+export default (props: any) => {
   const { title, ogMeta } = props;
-  let og: OgMetaType;
+  // let og: OgMetaType;
 
-  const defaultOg: OgMetaType = {
+  const defaultOg = {
     title: 'Tunebay - For The Love Of Music', // og title not page title
     type: 'website',
     url: 'https://tunebay.com',
