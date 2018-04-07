@@ -1,22 +1,22 @@
-// @flow
 import * as React from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import Link from 'next/link';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
 import Layout, { Grid } from '../components/Layout';
 import SubNavigation from '../components/SubNavigation';
-import type { UserType, OgMetaType } from '../types';
+// import type { UserType, OgMetaType } from '../types';
 import { aspectRatio, truncate } from '../lib/styleUtils';
+import styled from '../lib/theme';
 import withData from '../withData';
 
 import Error from './_error';
 
-type Props = {|
-  url: any,
-  data: { user: UserType },
-|};
+interface Props {
+  url: any;
+  data: any; // { user: UserType };
+}
 
 class Profile extends React.Component<Props> {
   static defaultProps: Props;
@@ -27,13 +27,13 @@ class Profile extends React.Component<Props> {
     };
   }
 
-  ogMeta = (user: UserType): OgMetaType => ({
-    title: user.name, // og title not page title
-    type: 'music.musician',
-    url: `https://tunebay.com/${user.username}`,
-    image: { url: user.profilePicture, width: '500', height: '500' },
-    description: `Listen to and directly support ${user.name} on Tunebay`,
-  });
+  // ogMeta = (user: UserType): OgMetaType => ({
+  //   title: user.name, // og title not page title
+  //   type: 'music.musician',
+  //   url: `https://tunebay.com/${user.username}`,
+  //   image: { url: user.profilePicture, width: '500', height: '500' },
+  //   description: `Listen to and directly support ${user.name} on Tunebay`,
+  // });
 
   render() {
     const { data, url } = this.props;
@@ -42,7 +42,7 @@ class Profile extends React.Component<Props> {
     if (!data.user) return <Error statusCode={404} url={url} />;
 
     return (
-      <Layout ogMeta={this.ogMeta(user)} title={user.name}>
+      <Layout title={user.name}>
         <Cover image={user.coverPhoto}>
           <Overlay />
         </Cover>

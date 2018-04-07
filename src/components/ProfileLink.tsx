@@ -1,14 +1,13 @@
-// @flow
 import React, { Component } from 'react';
 import Link from 'next/link';
 
-type Props = {|
-  username: string,
-  children: any,
-  prefetch?: boolean,
-|};
+interface Props {
+  username: string;
+  children: any;
+  prefetch?: boolean;
+}
 
-export default class extends Component<Props> {
+export default class extends Component<Props, {}> {
   render() {
     const { username, children, prefetch } = this.props;
     return (

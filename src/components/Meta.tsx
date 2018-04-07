@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react';
 import Head from 'next/head';
 import { injectGlobal } from 'styled-components';

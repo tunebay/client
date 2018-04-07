@@ -2,9 +2,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-type Props = {|
-  size: number,
-|};
+interface Props {
+  size: number;
+}
 
 export default class extends Component<Props> {
   static defaultProps: Props;

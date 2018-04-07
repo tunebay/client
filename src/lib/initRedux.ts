@@ -1,4 +1,3 @@
-// @flow
 import { createStore, combineReducers, compose } from 'redux';
 
 import reducers from '../reducers';

@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react';
 import { withRouter } from 'next/router';
 import styled, { ThemeProvider } from 'styled-components';

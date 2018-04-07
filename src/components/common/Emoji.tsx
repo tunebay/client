@@ -1,12 +1,13 @@
-// @flow
 import * as React from 'react';
-import styled from 'styled-components';
 
-type Props = {|
-  children: React.Node,
-  size: number,
-  name: string,
-|};
+import styled from 'styled-components';
+import { ReactNode } from 'react-redux';
+
+interface Props {
+  children: ReactNode;
+  size: number;
+  name: string;
+}
 
 export default ({ children, size, name }: Props) => (
   <Span aria-label={name} role="img" size={size}>

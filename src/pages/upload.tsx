@@ -1,14 +1,12 @@
-// @flow
 import React, { Component } from 'react';
-import styled from 'styled-components';
 
 import Layout from '../components/Layout';
 import SubNavigation from '../components/SubNavigation';
 import withData from '../withData';
 
-type Props = {||};
+import styled from '../lib/theme';
 
-class Upload extends Component<Props> {
+class Upload extends Component {
   render() {
     return (
       <Layout title="Tunebay | Upload">

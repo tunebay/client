@@ -1,4 +1,3 @@
-// @flow
 import { css, keyframes } from 'styled-components';
 
 export const truncate = (width: string) => `

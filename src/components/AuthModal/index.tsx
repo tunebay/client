@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
 
 import { GoogleLogo, CloseIcon, FacebookLogo, EmailIcon } from '../icons';
 
 import { actions, AuthModalState } from './state';
+
+import styled from '../../lib/theme';
 
 type Props = AuthModalState & typeof actions;
 

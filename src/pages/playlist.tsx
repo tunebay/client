@@ -1,39 +1,35 @@
-// @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
-import type { PlaylistType, OgMetaType, UserType } from '../types';
+// import type { PlaylistType, OgMetaType, UserType } from '../types';
 import Layout, { Grid } from '../components/Layout';
 import ProfileLink from '../components/ProfileLink';
 import { aspectRatio } from '../lib/styleUtils';
-import { Chevron } from '../components/icons';
+import { Chevron } from '../components/icons/index';
 import TrackList from '../components/TrackList';
 import withData from '../withData';
 
 import Error from './_error';
 
-type Props = {|
-  data: { playlist: PlaylistType, loading: boolean },
-  url: any,
-|};
+// type Props = {|
+//   data: { playlist: PlaylistType, loading: boolean },
+//   url: any,
+// |};
 
-class Playlist extends Component<Props> {
-  static defaultProps: Props;
-  static getInitialProps: any => any;
-
-  ogMeta = (playlist: PlaylistType): OgMetaType => ({
-    title: `${playlist.title} by ${playlist.artist.name}`, // og title not page title
-    type: 'music.musician',
-    url: `https://tunebay.com/${playlist.artist.username}/${
-      playlist.permalink
-    }`,
-    image: { url: playlist.artwork, width: '500', height: '500' },
-    description: `Listen to and ${playlist.title} by ${
-      playlist.artist.name
-    } on Tunebay`,
-  });
+class Playlist extends Component {
+  // ogMeta = (playlist: PlaylistType): OgMetaType => ({
+  //   title: `${playlist.title} by ${playlist.artist.name}`, // og title not page title
+  //   type: 'music.musician',
+  //   url: `https://tunebay.com/${playlist.artist.username}/${
+  //     playlist.permalink
+  //   }`,
+  //   image: { url: playlist.artwork, width: '500', height: '500' },
+  //   description: `Listen to and ${playlist.title} by ${
+  //     playlist.artist.name
+  //   } on Tunebay`,
+  // });
 
   render() {
     const { data, url } = this.props;
@@ -48,10 +44,7 @@ class Playlist extends Component<Props> {
     const supporters = [];
 
     return (
-      <Layout
-        ogMeta={this.ogMeta(playlist)}
-        title={`${title} by ${artist.name}`}
-      >
+      <Layout ogMeta={this.ogMeta(playlist)} title={`${title} by ${artist.name}`}>
         <Main>
           <Grid>
             <LeftContent>
@@ -76,9 +69,7 @@ class Playlist extends Component<Props> {
               <PlaylistDetails>
                 <PlaylistTitle>{title}</PlaylistTitle>
                 {/* TODO decide if to count and sum on client or server. */}
-                <PlaylistMeta>
-                  6 Songs, 25 min &#8226; 20th Dec 2017
-                </PlaylistMeta>
+                <PlaylistMeta>6 Songs, 25 min &#8226; 20th Dec 2017</PlaylistMeta>
                 <TrackList tracks={tracks} />
               </PlaylistDetails>
             </RightCotent>

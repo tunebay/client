@@ -1,4 +1,3 @@
-// @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
@@ -6,9 +5,9 @@ import { aspectRatio } from '../lib/styleUtils';
 
 import PlayButton from './PlayButton';
 
-type Props = {|
-  image: string,
-|};
+interface Props {
+  image: string;
+}
 
 export default class extends Component<Props> {
   render() {

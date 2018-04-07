@@ -8,6 +8,7 @@
     "ordered-imports": false,
     "object-literal-sort-keys": false,
     "no-console": [true, "debug", "info", "time", "timeEnd", "trace"],
+    "no-submodule-imports": [true, "next"],
     "interface-name": false,
     "curly": false,
     "member-access": false,

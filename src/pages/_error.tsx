@@ -1,33 +1,32 @@
-// @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import Layout from '../components/Layout';
-import type { OgMetaType } from '../types';
+// import type { OgMetaType } from '../types';
 
-type Props = {
-  statusCode: 404 | 500,
-  url: any,
-};
+// type Props = {
+//   statusCode: 404 | 500;
+//   url: any;
+// };
 
-export default class Error extends Component<Props> {
-  ogMeta = (): OgMetaType => ({
-    title: 'Tunebay | For the love of music', // og title not page title
-    type: 'website',
-    url: 'https://tunebay.com',
-    image: {
-      url: 'https://s3.eu-west-2.amazonaws.com/tunebay/ogimage.png',
-      width: '1200',
-      height: '630',
-    },
-    description:
-      'Directly support the music and artist you love on Tunebay. Discover new music from around the world or upload and sell your own.',
-  });
+export default class Error extends Component {
+  // ogMeta = (): OgMetaType => ({
+  //   title: 'Tunebay | For the love of music', // og title not page title
+  //   type: 'website',
+  //   url: 'https://tunebay.com',
+  //   image: {
+  //     url: 'https://s3.eu-west-2.amazonaws.com/tunebay/ogimage.png',
+  //     width: '1200',
+  //     height: '630',
+  //   },
+  //   description:
+  //     'Directly support the music and artist you love on Tunebay. Discover new music from around the world or upload and sell your own.',
+  // });
 
   render() {
     const { statusCode, url } = this.props;
     return (
-      <Layout ogMeta={this.ogMeta()} title="Page not found 👀">
+      <Layout title="Page not found 👀">
         <Main>
           <Heading>Sorry that page does not exist!</Heading>
           <P>Try searching for a result instead</P>

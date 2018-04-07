@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "nodemon server.ts",
     "build": "next build src",
     "start": "NODE_ENV=production node server.js",
     "create-component": "./scripts/create-component.sh",
@@ -42,6 +42,7 @@
     "@types/react-redux": "^5.0.15",
     "@zeit/next-typescript": "^0.1.1",
     "prettier": "^1.11.1",
+    "ts-node": "^5.0.1",
     "tslint": "^5.9.1",
     "tslint-react": "^3.5.1",
     "typescript": "^2.8.1"

@@ -1,4 +1,3 @@
-// @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
@@ -7,9 +6,7 @@ import SubNavigation from '../components/SubNavigation';
 import FeaturedArtists from '../components/FeaturedArtists';
 import withData from '../withData';
 
-type Props = {||};
-
-class Discover extends Component<Props> {
+class Discover extends Component<{}, {}> {
   render() {
     return (
       <Layout title="Tunebay | Upload">
@@ -28,7 +25,7 @@ class Discover extends Component<Props> {
             <SectionTitle>Rock</SectionTitle>
             <FeaturedArtists count={5} />
           </Section>
-          <Section grey>
+          <Section grey={true}>
             <SectionTitle>Pop</SectionTitle>
             <FeaturedArtists count={5} />
           </Section>
@@ -44,8 +41,7 @@ class Discover extends Component<Props> {
 
 const Section = styled.section`
   padding: 3rem;
-  background-color: ${props =>
-    props.grey ? props.theme.lightestGrey : 'white'};
+  background-color: ${props => (props.grey ? props.theme.lightestGrey : 'white')};
 `;
 
 const SectionTitle = styled.h2`

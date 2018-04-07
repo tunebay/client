@@ -1,12 +1,12 @@
 // @flow
-import * as React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
-type Props = {|
-  children: React.Node,
-  color: string,
-  spacing?: string,
-|};
+interface Props {
+  children: ReactNode;
+  color: string;
+  spacing?: string;
+}
 
 const NavLink = styled.a`
   color: ${props => (props.color ? props.color : props.theme.black)};

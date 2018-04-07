@@ -11,11 +11,10 @@ export default () => (
       <Left>
         <SectionTitle>For the love of music.</SectionTitle>
         <SectionDescription>
-          Imagine a great paragraph that points out how Tunebay is all about
-          putting the artist first. How anyone that uploads their music controls
-          all their rights and royalties. How you get to set the price of albums
-          and how we understand that for many artists music is much more than
-          just an art form, its their livelihood.
+          Imagine a great paragraph that points out how Tunebay is all about putting the
+          artist first. How anyone that uploads their music controls all their rights and
+          royalties. How you get to set the price of albums and how we understand that for
+          many artists music is much more than just an art form, its their livelihood.
         </SectionDescription>
       </Left>
       <Right>
