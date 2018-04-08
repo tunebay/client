@@ -7,7 +7,7 @@ import { GoogleLogo, CloseIcon, FacebookLogo, EmailIcon } from '../icons';
 import { actions, AuthModalState } from './state';
 
 import styled, { withProps } from '../../lib/theme';
-import { RootState } from '../../types';
+import { RootState } from '../../@types';
 
 type Props = AuthModalState & typeof actions;
 

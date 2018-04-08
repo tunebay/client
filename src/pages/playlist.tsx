@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
-import { PlaylistType, UserType, OgMetaType } from '../types';
+import { PlaylistType, UserType, OgMetaType } from '../@types';
 import styled, { withProps } from '../lib/theme';
 import Layout, { Grid } from '../components/Layout';
 import ProfileLink from '../components/ProfileLink';

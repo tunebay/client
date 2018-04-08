@@ -8,9 +8,7 @@ import ForTheLoveOfMusic from '../components/ForTheLoveOfMusic';
 import FeaturedArtists from '../components/FeaturedArtists';
 import CallToActionFooter from '../components/CallToActionFooter';
 import withData from '../withData';
-import { OgMetaType } from '../types';
-
-// type Props = {||};
+import { OgMetaType } from '../@types';
 
 class Index extends Component {
   static ogMeta: OgMetaType = {
