@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import styled from '../lib/theme';
 
 import Layout from '../components/Layout';
-import { OgMetaType } from '../types';
+import { OgMetaType } from '../@types';
 
 interface Props {
   statusCode: 404 | 500;

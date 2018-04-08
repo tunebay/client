@@ -5,8 +5,8 @@ import styled, { withProps } from '../lib/theme';
 import { Play } from './icons';
 
 interface Props {
-  onClick(): any;
   size?: number;
+  onClick(): any;
 }
 
 export default class extends Component<Props> {

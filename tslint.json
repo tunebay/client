@@ -3,7 +3,6 @@
   "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
   "jsRules": {},
   "rules": {
-    "member-ordering": true,
     "import-spacing": true,
     "ordered-imports": false,
     "object-literal-sort-keys": false,
