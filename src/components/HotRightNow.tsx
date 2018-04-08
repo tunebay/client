@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import PlayablePlaylist from './PlayablePlaylist';
 import { Grid } from './Layout';
-import { PlaylistType } from '../types';
+import { PlaylistType } from '../@types';
 
 const dummyPlaylists = [
   {

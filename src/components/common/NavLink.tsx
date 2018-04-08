@@ -1,14 +1,11 @@
-import React, { ReactNode } from 'react';
-
 import styled, { withProps } from '../../lib/theme';
 
 interface Props {
-  children: ReactNode;
   color: string;
   spacing?: string;
 }
 
-const NavLink = withProps<Props>()(styled.a)`
+export default withProps<Props>()(styled.a)`
   color: ${props => (props.color ? props.color : props.theme.black)};
   padding-left: ${props => (props.spacing ? props.spacing : '3rem')};
 
@@ -23,5 +20,3 @@ const NavLink = withProps<Props>()(styled.a)`
     cursor: pointer;
   }
 `;
-
-export default (props: Props) => <NavLink {...props} />;

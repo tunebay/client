@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import { injectGlobal } from '../lib/theme';
 import { media } from '../lib/styleUtils';
-import { OgMetaType } from '../types';
+import { OgMetaType } from '../@types';
 
 interface Props {
   ogMeta?: OgMetaType;

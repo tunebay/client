@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import styled, { withProps } from '../lib/theme';
-import { TrackType } from '../types';
+import { TrackType } from '../@types';
 
 import PricePill from './PricePill';
 

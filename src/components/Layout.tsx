@@ -3,7 +3,7 @@ import { withRouter, SingletonRouter } from 'next/router';
 
 import styled, { ThemeProvider, theme, withProps } from '../lib/theme';
 
-import { OgMetaType } from '../types';
+import { OgMetaType } from '../@types';
 
 import Meta from './Meta';
 import Header from './Header';

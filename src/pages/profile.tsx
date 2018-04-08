@@ -1,18 +1,16 @@
 import * as React from 'react';
-// import styled from 'styled-components';
 import Link from 'next/link';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
 import Layout, { Grid } from '../components/Layout';
 import SubNavigation from '../components/SubNavigation';
-// import type { UserType, OgMetaType } from '../types';
 import { aspectRatio, truncate } from '../lib/styleUtils';
 import styled, { withProps } from '../lib/theme';
 import withData from '../withData';
 
 import Error from './_error';
-import { UserType } from '../types';
+import { UserType, OgMetaType } from '../@types';
 
 interface Props {
   url: any;
@@ -28,7 +26,7 @@ class Profile extends React.Component<Props> {
     };
   }
 
-  static ogMeta(user: UserType) {
+  static ogMeta(user: UserType): OgMetaType {
     return {
       title: user.name, // og title not page title
       type: 'music.musician',

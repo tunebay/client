@@ -23,7 +23,7 @@ export default class extends Component<Props> {
   }
 }
 
-const Artwork = withProps<Props>()(styled.button)`
+const Artwork = withProps<Props>()(styled.div)`
   background-image: url(${props => props.image});
   box-shadow: ${props => props.theme.boxShadow};
 
@@ -57,6 +57,4 @@ const Overlay = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-
-  background-image: linear-gradient(to bottom, rgba(255,255,255,0) 80%,rgba(0,0,0,0.3) 100%); );
 `;
