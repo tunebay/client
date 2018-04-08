@@ -6,7 +6,7 @@ import { GoogleLogo, CloseIcon, FacebookLogo, EmailIcon } from '../icons';
 
 import { actions, AuthModalState } from './state';
 
-import styled from '../../lib/theme';
+import styled, { withProps } from '../../lib/theme';
 import { RootState } from '../../types';
 
 type Props = AuthModalState & typeof actions;
@@ -93,7 +93,7 @@ const Login = styled.div`
   justify-content: center;
 `;
 
-const Hr = styled.hr`
+const Hr = withProps<{ width: string; margin?: string }>()(styled.hr)`
   width: ${props => props.width};
   margin: ${props => props.margin || '0'};
   border: 0.5px solid ${props => props.theme.lighterGrey};

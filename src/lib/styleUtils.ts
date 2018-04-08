@@ -7,7 +7,7 @@ export const truncate = (width: string) => `
   text-overflow: ellipsis;
 `;
 
-const sizes = {
+const sizes: Sizes = {
   giant: 1800,
   desktop: 1300,
   medium: 1130,
@@ -20,11 +20,25 @@ const sizes = {
   break4: 600,
 };
 
-export const media = Object.keys(sizes).reduce((accumulator, label) => {
+interface Sizes {
+  giant: number;
+  desktop: number;
+  medium: number;
+  tablet: number;
+  phone: number;
+
+  break1: number;
+  break2: number;
+  break3: number;
+  break4: number;
+  [key: string]: number;
+}
+
+export const media = Object.keys(sizes).reduce((accumulator: any, label) => {
   const emSize = sizes[label] / 16;
-  accumulator[label] = (...args: Array<any>) => css`
+  accumulator[label] = (...args: any[]) => css`
     @media (max-width: ${emSize}em) {
-      ${css(...args)};
+      ${(css as any)(...args)};
     }
   `;
   return accumulator;

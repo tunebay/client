@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import styled from '../../lib/theme';
+import styled, { withProps } from '../../lib/theme';
 
 interface Props {
   children: ReactNode;
@@ -8,7 +8,7 @@ interface Props {
   spacing?: string;
 }
 
-const NavLink = styled.a`
+const NavLink = withProps<Props>()(styled.a)`
   color: ${props => (props.color ? props.color : props.theme.black)};
   padding-left: ${props => (props.spacing ? props.spacing : '3rem')};
 

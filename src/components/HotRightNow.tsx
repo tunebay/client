@@ -43,11 +43,11 @@ class HotRightNow extends Component<Props> {
   static getInitialProps: () => any;
 
   render() {
-    const { playlists } = this.props;
+    // const { playlists } = this.props;
 
     return (
       <Grid>
-        {playlists.map(playlist => (
+        {dummyPlaylists.map(playlist => (
           <PlayablePlaylist
             key={playlist.id}
             artwork={playlist.artwork}
@@ -59,7 +59,5 @@ class HotRightNow extends Component<Props> {
     );
   }
 }
-
-HotRightNow.defaultProps = { playlists: dummyPlaylists };
 
 export default HotRightNow;

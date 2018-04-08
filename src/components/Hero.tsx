@@ -119,8 +119,8 @@ const MenuButton = styled.button`
   display: none;
 
   ${media.phone`
-    box-shadow: ${props => props.theme.boxShadow};
-    background-color: ${props => props.theme.white};
+    box-shadow: ${(props: any) => props.theme.boxShadow};
+    background-color: ${(props: any) => props.theme.white};
     display: block;
     top: 3rem;
     right: 3rem;

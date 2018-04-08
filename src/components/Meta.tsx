@@ -3,14 +3,14 @@ import Head from 'next/head';
 
 import { injectGlobal } from '../lib/theme';
 import { media } from '../lib/styleUtils';
-// import { OgMetaType } from '../types';
+import { OgMetaType } from '../types';
 
-// interface Props {
-//   ogMeta?: OgMetaType;
-//   title: string;
-// }
+interface Props {
+  ogMeta?: OgMetaType;
+  title: string;
+}
 
-export default (props: any) => {
+export default (props: Props) => {
   const { title, ogMeta } = props;
   let og;
 
@@ -55,7 +55,6 @@ export default (props: any) => {
 
       <meta property="og:locality" content="London" />
       <meta property="og:country-name" content="United Kingdom" />
-      <meta property="og:audio" content={og.audio} />
 
       <link rel="icon" href="/static/favicon-32x32.png" type="image/x-icon" />
       <link rel="icon" href="/static/favicon-16x16.png" type="image/x-icon" />
@@ -68,6 +67,7 @@ export default (props: any) => {
   );
 };
 
+/* tslint:disable:no-unused-expression */
 injectGlobal`
   *,
   *::before,
@@ -96,7 +96,7 @@ injectGlobal`
   }
 
   body {
-    color: ${props => props.theme.black};
+    color: #111111;
 
     font-family: 'Muli', sans-serif;
 
@@ -112,3 +112,4 @@ injectGlobal`
     overflow: hidden;
   }
 `;
+/* tslint:enable:no-unused-expression */

@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 
-import styled from '../lib/theme';
+import styled, { withProps } from '../lib/theme';
+import { TrackType } from '../types';
 
 import PricePill from './PricePill';
 
-// interface Props {
-//   tracks: TrackType>;
-// };
+interface Props {
+  tracks: TrackType[];
+}
 
-export default class extends Component {
+export default class extends Component<Props> {
   render() {
     const { tracks } = this.props;
 
@@ -18,7 +19,7 @@ export default class extends Component {
   }
 }
 
-const Track = props => {
+const Track = (props: { track: TrackType }) => {
   const { playlistPosition, title, price, duration } = props.track;
   const isEven = playlistPosition % 2 === 0;
   return (
@@ -37,7 +38,7 @@ const Track = props => {
   );
 };
 
-const Row = styled.li`
+const Row = withProps<{ isEven: boolean }>()(styled.h1)`
   background-color: ${({ isEven, theme }) => (isEven ? theme.white : theme.lightestGrey)};
 
   width: 100%;

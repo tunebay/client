@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
-// import type { PlaylistType, OgMetaType, UserType } from '../types';
-import styled from '../lib/theme';
+import { PlaylistType, UserType, OgMetaType } from '../types';
+import styled, { withProps } from '../lib/theme';
 import Layout, { Grid } from '../components/Layout';
 import ProfileLink from '../components/ProfileLink';
 import { aspectRatio } from '../lib/styleUtils';
@@ -13,19 +13,35 @@ import withData from '../withData';
 
 import Error from './_error';
 
-// type Props = {|
-//   data: { playlist: PlaylistType, loading: boolean },
-//   url: any,
-// |};
+type Props = {
+  data: { playlist: PlaylistType; loading: boolean };
+  url: any;
+} & InitialProps;
 
-class Playlist extends Component {
-  ogMeta = (playlist: any) => ({
-    title: `${playlist.title} by ${playlist.artist.name}`, // og title not page title
-    type: 'music.musician',
-    url: `https://tunebay.com/${playlist.artist.username}/${playlist.permalink}`,
-    image: { url: playlist.artwork, width: '500', height: '500' },
-    description: `Listen to and ${playlist.title} by ${playlist.artist.name} on Tunebay`,
-  });
+interface InitialProps {
+  serverRendered: boolean;
+  query: any;
+}
+
+class Playlist extends Component<Props> {
+  static async getInitialProps(ctx: any): Promise<InitialProps> {
+    return {
+      serverRendered: !!ctx.req,
+      query: ctx.query,
+    };
+  }
+
+  static ogMeta(playlist: PlaylistType): OgMetaType {
+    return {
+      title: `${playlist.title} by ${playlist.artist.name}`, // og title not page title
+      type: 'music.musician',
+      url: `https://tunebay.com/${playlist.artist.username}/${playlist.permalink}`,
+      image: { url: playlist.artwork, width: '500', height: '500' },
+      description: `Listen to and ${playlist.title} by ${
+        playlist.artist.name
+      } on Tunebay`,
+    };
+  }
 
   render() {
     const { data, url } = this.props;
@@ -37,10 +53,10 @@ class Playlist extends Component {
     const { artwork, price, artist, title, tracks } = playlist;
 
     // TODO still need to come from server
-    const supporters = [];
+    const supporters: UserType[] = [];
 
     return (
-      <Layout ogMeta={this.ogMeta(playlist)} title={`${title} by ${artist.name}`}>
+      <Layout ogMeta={Playlist.ogMeta(playlist)} title={`${title} by ${artist.name}`}>
         <Main>
           <Grid>
             <LeftContent>
@@ -78,7 +94,7 @@ class Playlist extends Component {
 
 // LEFT SECTION
 
-const Supporters = (props: { supporters: Array<UserType> }) => {
+const Supporters = (props: { supporters: UserType[] }) => {
   const { supporters } = props;
   return (
     <Section>
@@ -128,7 +144,7 @@ const Avatar = styled.div`
 `;
 
 // TODO break out - same as one on playlist page
-const Artwork = styled.div`
+const Artwork = withProps<{ image: string }>()(styled.div)`
   background-image: url(${props => props.image});
   box-shadow: ${props => props.theme.boxShadow};
 
@@ -294,13 +310,8 @@ const query = gql`
   }
 `;
 
-Playlist.getInitialProps = context => ({
-  serverRendered: !!context.req,
-  query: context.query,
-});
-
-const graphqlPlaylist = graphql(query, {
-  options: props => {
+const graphqlPlaylist = graphql<any, any, any, any>(query, {
+  options: (props: Props) => {
     const { id, permalink, username } = props.query;
     return props.serverRendered
       ? { variables: { permalink, username, id: null } }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import styled from '../lib/theme';
+import styled, { withProps } from '../lib/theme';
 import { aspectRatio } from '../lib/styleUtils';
 
 import { Grid } from './Layout';
@@ -50,7 +50,7 @@ class FeaturedArtists extends Component<Props> {
     const cardWidth = 100 / count - 1;
     return (
       <Grid width={1320}>
-        {featuredArtists.slice(0, count).map(({ image, bio, name, id, username }) => (
+        {featuredArtists.slice(0, count).map(({ image, name, id, username }) => (
           <ProfileLink key={id} username={username}>
             <ArtistCard key={id} width={cardWidth}>
               <CardFront image={image} />
@@ -63,7 +63,7 @@ class FeaturedArtists extends Component<Props> {
   }
 }
 
-const ArtistCard = styled.div`
+const ArtistCard = withProps<{ width: number }>()(styled.div)`
   perspective: 150rem;
   width: ${props => props.width}%;
   position: relative;
@@ -107,7 +107,7 @@ const Name = styled.h4`
   text-shadow: 2px 2px rgba(26, 30, 40, 0.7);
 `;
 
-const CardFront = CardSide.extend`
+const CardFront = withProps<{ image: string }>()(CardSide.extend)`
   background-image: url(${props => props.image});
   color: ${props => props.theme.white};
 

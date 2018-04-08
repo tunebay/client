@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import styled from '../lib/theme';
+import styled, { withProps } from '../lib/theme';
 import { aspectRatio } from '../lib/styleUtils';
 
 import PlayButton from './PlayButton';
@@ -23,7 +23,7 @@ export default class extends Component<Props> {
   }
 }
 
-const Artwork = styled.div`
+const Artwork = withProps<Props>()(styled.button)`
   background-image: url(${props => props.image});
   box-shadow: ${props => props.theme.boxShadow};
 

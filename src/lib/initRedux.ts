@@ -2,15 +2,16 @@ import { createStore, combineReducers, compose } from 'redux';
 
 import reducers from '../reducers';
 
-let reduxStore = null;
+let reduxStore: any = null;
+const isBrowser: boolean = typeof window !== 'undefined';
 
 // Get the Redux DevTools extension and fallback to a no-op function
-let devtools = f => f;
-if (process.browser && window.__REDUX_DEVTOOLS_EXTENSION__) {
-  devtools = window.__REDUX_DEVTOOLS_EXTENSION__();
+let devtools = (f: any) => f;
+if (isBrowser && (window as any).__REDUX_DEVTOOLS_EXTENSION__) {
+  devtools = (window as any).__REDUX_DEVTOOLS_EXTENSION__();
 }
 
-function create(apollo, initialState = {}) {
+function create(apollo: any, initialState = {}) {
   return createStore(
     combineReducers({
       // Setup reducers
@@ -24,10 +25,10 @@ function create(apollo, initialState = {}) {
   );
 }
 
-export default function initRedux(initialState: *) {
+export default function initRedux(initialState: any) {
   // Make sure to create a new store for every server-side request so that data
   // isn't shared between connections (which would be bad)
-  if (!process.browser) {
+  if (!isBrowser) {
     return create(initialState);
   }
 

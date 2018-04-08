@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ReactNode } from 'react-redux';
 
-import styled from '../../lib/theme';
+import styled, { withProps } from '../../lib/theme';
 
 interface Props {
   children: ReactNode;
@@ -15,6 +15,6 @@ export default ({ children, size, name }: Props) => (
   </Span>
 );
 
-const Span = styled.span`
+const Span = withProps<{ size: number }>()(styled.span)`
   font-size: ${props => props.size}rem;
 `;

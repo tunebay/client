@@ -1,30 +1,29 @@
 import React, { ReactNode } from 'react';
-import { withRouter } from 'next/router';
+import { withRouter, SingletonRouter } from 'next/router';
 
-import styled, { ThemeProvider, theme } from '../lib/theme';
+import styled, { ThemeProvider, theme, withProps } from '../lib/theme';
 
-// import type { OgMetaType } from '../types';
+import { OgMetaType } from '../types';
 
 import Meta from './Meta';
 import Header from './Header';
 import AuthModal from './AuthModal';
 
-interface Props {
+type Props = {
   children: ReactNode;
-  router: any;
   title: string;
-  // ogMeta?: OgMetaType;
-}
+  ogMeta?: OgMetaType;
+} & { router: SingletonRouter };
 
 class Layout extends React.Component<Props> {
   render() {
-    const { children, router, title, ogMeta } = this.props;
+    const { children, router, title } = this.props;
     const headerVisible = router.pathname !== '/';
 
     return (
       <ThemeProvider theme={theme}>
         <StyledLayout headerVisible={headerVisible}>
-          <Meta ogMeta={ogMeta} title={title} />
+          <Meta title={title} />
           <AuthModal />
           <Header visible={headerVisible} />
           {children}
@@ -36,7 +35,7 @@ class Layout extends React.Component<Props> {
 
 // exports
 
-export const Grid = styled.div`
+export const Grid = withProps<{ width?: number }>()(styled.div)`
   max-width: ${props => (props.width ? `${props.width / 10}rem` : '123rem')};
 
   width: 100%;
@@ -57,7 +56,7 @@ export const Section = styled.section`
 
 // private
 
-const StyledLayout = styled.div`
+const StyledLayout = withProps<{ headerVisible: boolean }>()(styled.div)`
   padding-top: ${props => (props.headerVisible ? props.theme.headerHeight : '0')};
 
   width: 100%;

@@ -30,7 +30,16 @@ export interface IThemeInterface {
   layoutBottomPadding: string;
   headerHeight: string;
 
+  /**
+   * Primary red color with given opacity
+   * @param opacity `number` 0 to 1
+   */
   primaryRedOpacity(opacity: number): string;
+
+  /**
+   * Black color with given opacity
+   * @param opacity `number` 0 to 1
+   */
   blackOpacity(opacity: number): string;
 }
 
@@ -60,6 +69,18 @@ export const theme = {
   primaryRedOpacity: (opacity: number) => `rgba(238, 81, 80, ${opacity})`,
   blackOpacity: (opacity: number) => `rgba(17, 17, 17, ${opacity})`,
 };
+
+/* 
+  There's currently no way in TypeScript to pass a generic type to a tagged template literal
+  https://github.com/Microsoft/TypeScript/issues/11947
+
+  workaround: Create a withProps helper that wraps the component with defined props 
+  however this means we lose css syntax highlighting and autocomplete for these components 😢
+  https://github.com/styled-components/styled-components/issues/630#issuecomment-317277803
+*/
+export const withProps = <U>() => <P, T, O>(
+  fn: styledComponents.ThemedStyledFunction<P, T, O>
+) => fn as styledComponents.ThemedStyledFunction<P & U, T, O & U>;
 
 export default styled;
 export { css, injectGlobal, keyframes, ThemeProvider };

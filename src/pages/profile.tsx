@@ -8,32 +8,35 @@ import Layout, { Grid } from '../components/Layout';
 import SubNavigation from '../components/SubNavigation';
 // import type { UserType, OgMetaType } from '../types';
 import { aspectRatio, truncate } from '../lib/styleUtils';
-import styled from '../lib/theme';
+import styled, { withProps } from '../lib/theme';
 import withData from '../withData';
 
 import Error from './_error';
+import { UserType } from '../types';
 
 interface Props {
   url: any;
-  data: any; // { user: UserType };
+  data: { user: UserType; loading: boolean };
 }
 
 class Profile extends React.Component<Props> {
   static defaultProps: Props;
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx: any) {
     return {
       serverRendered: !!ctx.req,
       query: ctx.query,
     };
   }
 
-  ogMeta = (user: any) => ({
-    title: user.name, // og title not page title
-    type: 'music.musician',
-    url: `https://tunebay.com/${user.username}`,
-    image: { url: user.profilePicture, width: '500', height: '500' },
-    description: `Listen to and directly support ${user.name} on Tunebay`,
-  });
+  static ogMeta(user: UserType) {
+    return {
+      title: user.name, // og title not page title
+      type: 'music.musician',
+      url: `https://tunebay.com/${user.username}`,
+      image: { url: user.profilePicture, width: '500', height: '500' },
+      description: `Listen to and directly support ${user.name} on Tunebay`,
+    };
+  }
 
   render() {
     const { data, url } = this.props;
@@ -42,7 +45,7 @@ class Profile extends React.Component<Props> {
     if (!data.user) return <Error statusCode={404} url={url} />;
 
     return (
-      <Layout title={user.name}>
+      <Layout ogMeta={Profile.ogMeta(user)} title={user.name}>
         <Cover image={user.coverPhoto}>
           <Overlay />
         </Cover>
@@ -137,7 +140,7 @@ export const Main = styled.main`
 `;
 
 // TODO break out - same as one on playlist page
-const Artwork = styled.div`
+const Artwork = withProps<{ image: string }>()(styled.div)`
   background-image: url(${props => props.image});
   box-shadow: ${props => props.theme.boxShadow};
 
@@ -179,7 +182,7 @@ const Username = styled.h3`
   padding-top: 0.4rem;
 `;
 
-const ProfilePicture = styled.button`
+const ProfilePicture = withProps<{ photo: string }>()(styled.button)`
   background-image: url(${props => props.photo});
   box-shadow: ${props => props.theme.boxShadow};
 
@@ -204,7 +207,7 @@ const Playlists = styled.div`
   height: 50px;
 `;
 
-const Cover = styled.div`
+const Cover = withProps<{ image: string }>()(styled.div)`
   background-image: url(${props => props.image});
   position: relative;
   background-size: cover;
@@ -244,7 +247,7 @@ const query = gql`
   }
 `;
 
-const gqlWrapper = graphql(query, {
+const gqlWrapper = graphql<any, any>(query, {
   options: props => {
     const { username } = props.query;
     return { variables: { username } };

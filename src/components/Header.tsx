@@ -18,10 +18,6 @@ interface OwnProps {
 type ActionProps = typeof actions;
 
 class HeaderContainer extends Component<Props> {
-  handleSearch = () => {
-    console.log('submit form');
-  };
-
   render() {
     const { visible, show } = this.props;
 
@@ -43,7 +39,7 @@ class HeaderContainer extends Component<Props> {
           </Link>
         </Left>
         <Middle>
-          <SearchBar onSubmit={this.handleSearch} />
+          <SearchBar onSubmit={() => console.log('submitted')} />
         </Middle>
         <Right>
           <LoginButton onClick={show}>Login</LoginButton>

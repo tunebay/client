@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styled from '../../lib/theme';
+import styled, { withProps } from '../../lib/theme';
 
 interface Props {
   fill: string;
@@ -36,7 +36,7 @@ export default (props: Props) => {
   );
 };
 
-const Chevron = styled.span`
+const Chevron = withProps<{ size?: string }>()(styled.span)`
   height: ${props => (props.size ? props.size : '1.4rem')};
   width: ${props => (props.size ? props.size : '1.4rem')};
 

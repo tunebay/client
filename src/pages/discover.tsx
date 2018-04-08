@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import styled from '../lib/theme';
+import styled, { withProps } from '../lib/theme';
 import Layout from '../components/Layout';
 import SubNavigation from '../components/SubNavigation';
 import FeaturedArtists from '../components/FeaturedArtists';
@@ -39,7 +39,7 @@ class Discover extends Component<{}, {}> {
   }
 }
 
-const Section = styled.section`
+const Section = withProps<{ grey?: boolean }>()(styled.section)`
   padding: 3rem;
   background-color: ${props => (props.grey ? props.theme.lightestGrey : 'white')};
 `;

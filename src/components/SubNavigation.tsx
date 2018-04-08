@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
 
-import styled from '../lib/theme';
+import styled, { withProps } from '../lib/theme';
 
 // type Props = {|
 //   activePath:
@@ -54,13 +54,21 @@ export default class extends React.Component<Props> {
   }
 }
 
-const SubNavLink = ({ children, href, active }) => (
+const SubNavLink = ({
+  children,
+  href,
+  active,
+}: {
+  href: string;
+  active: boolean;
+  children: ReactNode;
+}) => (
   <Link href={href}>
     <LinkItem active={active}>{children}</LinkItem>
   </Link>
 );
 
-const SubNavigation = styled.nav`
+const SubNavigation = withProps<{ type: string }>()(styled.nav)`
   background-color: ${props =>
     props.type === 'discover' ? props.theme.deepBlue : props.theme.lightestGrey};
 
@@ -83,13 +91,12 @@ const Links = styled.ul`
 `;
 
 const Title = styled.h1`
-  background-color: ${props =>
-    props.type === 'discover' ? props.theme.lightestGrey : props.theme.deepBlue};
+  background-color: transparent;
   font-size: 2rem;
   font-weight: 700;
 `;
 
-const LinkItem = styled.div`
+const LinkItem = withProps<{ active: boolean }>()(styled.div)`
   border-bottom: ${props =>
     props.active ? `2px solid ${props.theme.primaryRed}` : '2px solid transparent'};
   height: 100%;

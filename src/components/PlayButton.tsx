@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import styled from '../lib/theme';
+import styled, { withProps } from '../lib/theme';
 
 import { Play } from './icons';
 
@@ -21,7 +21,7 @@ export default class extends Component<Props> {
   }
 }
 
-const PlayButton = styled.button`
+const PlayButton = withProps<Props>()(styled.button)`
   background-color: ${props => props.theme.primaryRedOpacity(0.98)};
   height: ${props => (props.size ? `${props.size / 10}rem` : '6rem')};
   width: ${props => (props.size ? `${props.size / 10}rem` : '6rem')};
