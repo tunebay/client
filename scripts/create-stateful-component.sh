@@ -16,7 +16,6 @@ pushd $ComponentRoot
 
 
 cat << EOF > index.js
-// @flow
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
@@ -39,8 +38,6 @@ export default connect(mapStateToProps, actions)($ComponentName)
 EOF
 
 cat <<EOF > state.js
-// @flow
-
 export type $(echo $ComponentName)Action = TodoAction
 type TodoAction = { type: '$ComponentName/todo' }
 

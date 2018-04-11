@@ -14,9 +14,7 @@ function getComponentDisplayName(Component) {
 
 export default ComposedComponent =>
   class WithData extends React.Component {
-    static displayName = `WithData(${getComponentDisplayName(
-      ComposedComponent
-    )})`;
+    static displayName = `WithData(${getComponentDisplayName(ComposedComponent)})`;
     static propTypes = {
       stateApollo: PropTypes.object.isRequired,
     };

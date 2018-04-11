@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "nodemon server.ts",
     "build": "next build src",
     "start": "NODE_ENV=production node server.js",
     "create-component": "./scripts/create-component.sh",
@@ -21,7 +21,7 @@
     "graphql": "^0.13.1",
     "graphql-tag": "^2.6.1",
     "isomorphic-unfetch": "^2.0.0",
-    "next": "^5.0.0",
+    "next": "^5.1.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-apollo": "2.0.4",
@@ -29,22 +29,22 @@
     "react-modal": "3.2.1",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
-    "styled-components": "3.1.6"
+    "styled-components": "^3.2.5",
+    "tslint-config-prettier": "^1.10.0"
   },
   "devDependencies": {
-    "babel-eslint": "8.2.1",
-    "babel-plugin-styled-components": "1.5.0",
-    "babel-preset-flow": "^6.23.0",
-    "eslint": "4.18.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-flowtype": "^2.42.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-prettier": "2.6.0",
-    "eslint-plugin-react": "7.6.1",
-    "flow-bin": "0.66.0",
-    "prettier": "1.10.2"
+    "@types/express": "^4.11.1",
+    "@types/graphql": "^0.13.0",
+    "@types/next": "^2.4.8",
+    "@types/react": "^16.3.5",
+    "@types/react-dom": "^16.0.4",
+    "@types/react-modal": "^3.1.2",
+    "@types/react-redux": "^5.0.15",
+    "@zeit/next-typescript": "^0.1.1",
+    "prettier": "^1.11.1",
+    "ts-node": "^5.0.1",
+    "tslint": "^5.9.1",
+    "tslint-react": "^3.5.1",
+    "typescript": "^2.8.1"
   }
 }
