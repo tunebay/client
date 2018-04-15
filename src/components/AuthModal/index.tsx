@@ -8,6 +8,7 @@ import { actions, AuthModalState } from './state';
 
 import styled, { withProps } from '../../lib/theme';
 import { RootState } from '../../@types';
+import LoginForm from '../forms/Login';
 
 type Props = AuthModalState & typeof actions;
 
@@ -24,7 +25,7 @@ class AuthModal extends Component<Props> {
           <CloseIcon fill="#999" />
         </Close>
         <Content>
-          <FacebookButton>
+          {/* <FacebookButton>
             <FacebookLogo />
             <Text>Continue with Facebook</Text>
           </FacebookButton>
@@ -42,7 +43,8 @@ class AuthModal extends Component<Props> {
           <Hr width="100%" margin="2.5rem 0" />
           <Login>
             Already have an account? &#0000; <Span>Log in</Span>
-          </Login>
+          </Login> */}
+          <LoginForm />
         </Content>
       </Modal>
     );
