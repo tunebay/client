@@ -9,12 +9,14 @@ const LoginForm = ({ login }: any) => {
       initialValues={{ emailOrUsername: '', password: '' }}
       validationSchema={validationSchema}
       onSubmit={async (values, actions) => {
-        const { data: { login: { ok } } } = await login({ variables: values });
-        if (ok) {
-          // Cookie should be setting here
+        const { data } = await login({ variables: values });
+        console.log('DATA', data);
+        if (data.login.ok) {
           actions.resetForm();
+          window.location.reload();
         } else {
-          throw Error('WAG1 WITH YOUR CODE BRO');
+          console.log(data);
+          // Show errors
         }
       }}
       render={({ errors, touched }) => {
