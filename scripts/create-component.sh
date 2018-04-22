@@ -10,15 +10,13 @@ ComponentName=$1
 RelativeProjectRoot="`dirname $0`/.."
 ProjectRoot="`cd $RelativeProjectRoot; pwd`"
 
-cat << EOF > "$ProjectRoot/src/components/$ComponentName.js" 
+cat << EOF > "$ProjectRoot/src/components/$ComponentName.tsx" 
 import * as React from 'react';
 
-type Props = {||};
+interface Props {}
 
-export default class extends React.Component<Props> {
-  render() {
-    return <$ComponentName>$ComponentName</$ComponentName>;
-  }
+export default (props: Props) => {
+  return <$ComponentName>$ComponentName</$ComponentName>;
 }
 
 const $ComponentName = styled.div``;

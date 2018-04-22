@@ -1,4 +1,4 @@
-import { AuthModalState } from './components/AuthModal/state';
+import reducers from '../reducers';
 
 export interface TrackType {
   duration: number; // seconds
@@ -45,6 +45,4 @@ interface OgImageType {
   width: string;
 }
 
-export interface RootState {
-  authModal: AuthModalState;
-}
+type RootState = typeof reducers;

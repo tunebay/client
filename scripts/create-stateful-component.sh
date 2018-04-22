@@ -15,55 +15,54 @@ mkdir -p $ComponentRoot
 pushd $ComponentRoot
 
 
-cat << EOF > index.js
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+cat << EOF > index.tsx
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { actions, type $(echo $ComponentName)State } from './state'
+import { actions, $(echo $ComponentName)State } from './state';
 
-type Props = $(echo $ComponentName)State & typeof actions
+import { RootState } from '../../@types';
 
-class $ComponentName extends Component<Props, void> {
+type Props = $(echo $ComponentName)State & typeof actions;
+
+class $ComponentName extends Component<Props> {
   render() {
     return (
-      <View>
-        <AppText>$ComponentName</AppText>
-      </View>
-    )
+      <div>$ComponentName</div>
+    );
   }
 }
 
-const mapStateToProps = (state) => ({}) // TODO
-export default connect(mapStateToProps, actions)($ComponentName)
+const mapStateToProps = (state: RootState) => ({});
+export default connect(mapStateToProps, actions)($ComponentName);
 EOF
 
-cat <<EOF > state.js
-export type $(echo $ComponentName)Action = TodoAction
-type TodoAction = { type: '$ComponentName/todo' }
+cat <<EOF > state.ts
+export type $(echo $ComponentName)Action = TodoAction;
+
+interface TodoAction { 
+  type: '$ComponentName/todo';
+}
 
 export const actions = {
   todo(): TodoAction {
-    return { type: '$ComponentName/todo' }
+    return { type: '$ComponentName/todo' };
   },
-}
+};
 
-export type $(echo $ComponentName)State = {
+export interface $(echo $ComponentName)State {}
 
-}
-
-const initialState: $(echo $ComponentName)State = {
-
-}
+const initialState: $(echo $ComponentName)State = {};
 
 export default function reducer(
   state: $(echo $ComponentName)State = initialState,
-  action: $(echo $ComponentName)Action,
+  action: $(echo $ComponentName)Action
 ): $(echo $ComponentName)State {
   switch (action.type) {
     case '$ComponentName/todo':
-      return { ...state, /* TODO */ }
+      return { ...state };
     default:
-      return state
+      return state;
   }
 }
 EOF
