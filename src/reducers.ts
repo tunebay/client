@@ -1,5 +1,7 @@
 import authModal from './components/AuthModal/state';
 
-export default {
+const reducers = {
   authModal,
 };
+
+export default reducers;
