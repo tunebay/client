@@ -45,9 +45,9 @@ class HeaderContainer extends Component<Props> {
         </Middle>
         <Right>
           <LoginButton onClick={() => show(<LoginForm />)}>Login</LoginButton>
-          <SingupButton onClick={() => show(<SignupForm />)}>
+          <SignupButton onClick={() => show(<SignupForm />)}>
             Create Account
-          </SingupButton>
+          </SignupButton>
         </Right>
       </Header>
     );
@@ -78,7 +78,7 @@ const LoginButton = styled.button`
 `;
 
 // TODO: unify buttons
-const SingupButton = styled.button`
+const SignupButton = styled.button`
   color: ${props => props.theme.primaryRed};
 
   border: none;
