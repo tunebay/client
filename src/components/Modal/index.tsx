@@ -1,33 +1,31 @@
 import React, { Component } from 'react';
-import Modal from 'react-modal';
+import ReactModal from 'react-modal';
 import { connect } from 'react-redux';
 
 import { CloseIcon } from '../icons';
 
-import { actions, AuthModalState } from './state';
+import { actions, ModalState } from './state';
 
 import styled from '../../lib/theme';
 import { RootState } from '../../@types';
-import LoginForm from '../forms/Login';
 
-type Props = AuthModalState & typeof actions;
+type Props = ModalState & typeof actions;
 
-class AuthModal extends Component<Props> {
+class Modal extends Component<Props> {
   render() {
+    const { close, visible, content } = this.props;
     return (
-      <Modal
+      <ReactModal
         contentLabel="loginModal"
         shouldCloseOnOverlayClick={true}
-        onRequestClose={this.props.close}
-        isOpen={this.props.visible}
+        onRequestClose={close}
+        isOpen={visible}
       >
-        <Close onClick={this.props.close}>
+        <Close onClick={close}>
           <CloseIcon fill="#999" />
         </Close>
-        <Content>
-          <LoginForm />
-        </Content>
-      </Modal>
+        <Content>{content}</Content>
+      </ReactModal>
     );
   }
 }
@@ -50,7 +48,7 @@ const Close = styled.button`
 
 const Content = styled.div``;
 
-Modal.defaultStyles = {
+ReactModal.defaultStyles = {
   overlay: {
     position: 'fixed',
     top: 0,
@@ -75,15 +73,16 @@ Modal.defaultStyles = {
   },
 };
 
-const mapStateToProps = ({ authModal }: RootState): AuthModalState => ({
-  visible: authModal.visible,
+const mapStateToProps = ({ modal }: RootState): ModalState => ({
+  visible: modal.visible,
+  content: modal.content,
 });
 
 // https://github.com/reactjs/react-modal/issues/576 use ariaHideApp={false} to hide
 // used to hide main app element for screen readers and only show modal content
 if (typeof window !== 'undefined') {
   // only set app element if in browser
-  Modal.setAppElement('#__next');
+  ReactModal.setAppElement('#__next');
 }
 
-export default connect(mapStateToProps, actions)(AuthModal);
+export default connect(mapStateToProps, actions)(Modal);

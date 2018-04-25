@@ -1,7 +1,7 @@
-import authModal from './components/AuthModal/state';
+import modal from './components/Modal/state';
 
 const reducers = {
-  authModal,
+  modal,
 };
 
 export default reducers;

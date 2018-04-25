@@ -7,7 +7,9 @@ import { media } from '../lib/styleUtils';
 
 import { Logo, NavLink } from './common';
 import { Search } from './icons';
-import { actions } from './AuthModal/state';
+import { actions } from './Modal/state';
+import LoginForm from './forms/Login';
+import SignupForm from './forms/Signup';
 
 type Props = OwnProps & ActionProps;
 
@@ -42,10 +44,10 @@ class HeaderContainer extends Component<Props> {
           <SearchBar onSubmit={() => console.log('submitted')} />
         </Middle>
         <Right>
-          <LoginButton onClick={show}>Login</LoginButton>
-          <Link href="/upload">
-            <NavLink color="#E43D3C">Create account</NavLink>
-          </Link>
+          <LoginButton onClick={() => show(<LoginForm />)}>Login</LoginButton>
+          <SingupButton onClick={() => show(<SignupForm />)}>
+            Create Account
+          </SingupButton>
         </Right>
       </Header>
     );
@@ -69,6 +71,23 @@ const LoginButton = styled.button`
 
   font-weight: 700;
   font-size: 1.3rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+// TODO: unify buttons
+const SingupButton = styled.button`
+  color: ${props => props.theme.primaryRed};
+
+  border: none;
+  background-color: transparent;
+  text-transform: uppercase;
+
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-left: 2rem;
 
   &:hover {
     cursor: pointer;
