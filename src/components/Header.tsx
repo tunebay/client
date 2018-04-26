@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import { connect } from 'react-redux';
+import { Query } from 'react-apollo';
 
 import styled from '../lib/theme';
 import { media } from '../lib/styleUtils';
@@ -10,6 +11,7 @@ import { Search } from './icons';
 import { actions } from './Modal/state';
 import LoginForm from './forms/Login';
 import SignupForm from './forms/Signup';
+import gql from 'graphql-tag';
 
 type Props = OwnProps & ActionProps;
 
@@ -43,12 +45,20 @@ class HeaderContainer extends Component<Props> {
         <Middle>
           <SearchBar onSubmit={() => console.log('submitted')} />
         </Middle>
-        <Right>
-          <LoginButton onClick={() => show(<LoginForm />)}>Login</LoginButton>
-          <SignupButton onClick={() => show(<SignupForm />)}>
-            Create Account
-          </SignupButton>
-        </Right>
+        <Query query={query}>
+          {({ data, loading, error }) => {
+            return (
+              <Right>
+                <LoginButton onClick={() => show(<LoginForm />)}>
+                  Login
+                </LoginButton>
+                <SignupButton onClick={() => show(<SignupForm />)}>
+                  Create Account
+                </SignupButton>
+              </Right>
+            );
+          }}
+        </Query>
       </Header>
     );
   }
@@ -166,6 +176,15 @@ const Middle = styled.div`
 const Right = styled.nav`
   display: flex;
   align-items: center;
+`;
+
+const query = gql`
+  query {
+    currentUser {
+      id
+      name
+    }
+  }
 `;
 
 export default connect(null, actions)(HeaderContainer);
