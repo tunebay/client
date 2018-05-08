@@ -1,4 +1,4 @@
-import { AuthModalState } from './components/AuthModal/state';
+import { ModalState } from '../components/Modal/state';
 
 export interface TrackType {
   duration: number; // seconds
@@ -45,6 +45,6 @@ interface OgImageType {
   width: string;
 }
 
-export interface RootState {
-  authModal: AuthModalState;
+interface RootState {
+  modal: ModalState;
 }

@@ -11,6 +11,7 @@
     "interface-name": false,
     "curly": false,
     "member-access": false,
+    "no-empty-interface": false,
     "no-var-requires": false,
     "space-before-function-paren": false,
     "prefer-object-spread": true,

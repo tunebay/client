@@ -7,7 +7,7 @@ import { OgMetaType } from '../@types';
 
 import Meta from './Meta';
 import Header from './Header';
-import AuthModal from './AuthModal';
+import Modal from './Modal';
 
 type Props = {
   children: ReactNode;
@@ -24,7 +24,7 @@ class Layout extends React.Component<Props> {
       <ThemeProvider theme={theme}>
         <StyledLayout headerVisible={headerVisible}>
           <Meta title={title} />
-          <AuthModal />
+          <Modal />
           <Header visible={headerVisible} />
           {children}
         </StyledLayout>
@@ -57,7 +57,8 @@ export const Section = styled.section`
 // private
 
 const StyledLayout = withProps<{ headerVisible: boolean }>()(styled.div)`
-  padding-top: ${props => (props.headerVisible ? props.theme.headerHeight : '0')};
+  padding-top: ${props =>
+    props.headerVisible ? props.theme.headerHeight : '0'};
 
   width: 100%;
 
